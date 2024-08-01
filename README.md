@@ -1,35 +1,35 @@
-# Funt
+# unfunt
 
-Funt.js is a function library for JavaScript
+unfunt.js is a function library for JavaScript
 
 ## Installation
 
 Using npm:
 
 ```sh
-npm i funt
+npm i unfunt
 ```
 
 import in project
 
 ```js
 // ES6 modules
-import { each, find, ... } from 'funt'
+import { each, find, ... } from 'unfunt'
 
 // CommonJS modules
-const { each, find, ... } = require('funt')
+const { each, find, ... } = require('unfunt')
 ```
 
 Import on demand
 
 ```js
 // ES6 modules
-import each from 'funt/each'
+import each from 'unfunt/each'
 
 // CommonJS modules
-const each = require('funt/each')
+const each = require('unfunt/each')
 ```
 
 ## Documentation
 
-See [API documentation](https://uphgs.com/funt/)
+See [API documentation](https://uphgs.com/unfunt/)
