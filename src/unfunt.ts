@@ -1,6 +1,7 @@
 // Collection
 
 // array
+export { default as remain } from './remain'
 
 // 类型判断
 export { default as isBoolean } from './isBoolean'
@@ -31,8 +32,14 @@ export { default as isSet } from './isSet'
 export { default as isWeakSet } from './isWeakSet'
 
 // 类型转换
+export { default as toFinite } from './toFinite'
+export { default as toInteger } from './toInteger'
+export { default as toNumber } from './toNumber'
+export { default as toLength } from './toLength'
+export { default as toArray } from './toArray'
 
 // string
+export { default as trim } from './trim'
 
 // Object
 
