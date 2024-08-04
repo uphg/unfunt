@@ -1,6 +1,6 @@
-import isTag from './internal/isTag';
+import isTag from './internal/isTag'
 
-function isWeakSet(value: unknown): value is WeakSet<object> {
+function isWeakSet<T extends object>(value: unknown): value is WeakSet<T> {
   return isTag(value, 'WeakSet')
 }
 

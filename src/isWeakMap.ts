@@ -1,6 +1,6 @@
-import isTag from './internal/isTag';
+import isTag from './internal/isTag'
 
-function isWeakMap(value: unknown): value is WeakMap<object, unknown> {
+function isWeakMap<K extends object, V>(value: unknown): value is WeakMap<K, V> {
   return isTag(value, 'WeakMap')
 }
 

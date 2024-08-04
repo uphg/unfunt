@@ -1,6 +1,6 @@
-import isTag from './internal/isTag';
+import isTag from './internal/isTag'
 
-function isMap(value: unknown) {
+function isMap<K, V>(value: unknown): value is Map<K, V> {
   return isTag(value, 'Map')
 }
 
