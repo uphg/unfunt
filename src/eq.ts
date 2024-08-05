@@ -4,4 +4,4 @@ function eq(value: unknown, other: unknown) {
     : value !== value && other !== other // NaN === NaN
 }
 
-export default Object.is || eq
+export default Object.is ?? eq

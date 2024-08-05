@@ -1,4 +1,4 @@
-import * as funt from './unfunt'
+import * as unfunt from './unfunt'
 
 export * from './unfunt'
-export { funt as default }
+export { unfunt as default }

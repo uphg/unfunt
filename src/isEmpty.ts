@@ -1,4 +1,3 @@
-import isArguments from './isArguments'
 import isArray from './isArray'
 import isArrayLike from './isArrayLike'
 import isBoolean from './isBoolean'
@@ -16,7 +15,6 @@ function isEmpty(value: unknown) {
   if (
     isArray(value)
     || isString(value)
-    || isArguments(value)
     || (
       isArrayLike(value)
       && typeof (value as any).splice === 'function'
