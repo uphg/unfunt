@@ -18,10 +18,7 @@ export { default as isArrayBuffer } from './isArrayBuffer'
 export { default as isError } from './isError'
 export { default as isDate } from './isDate'
 export { default as isRegExp } from './isRegExp'
-export { default as isNaN } from './isNaN'
 export { default as isNil } from './isNil'
-export { default as isFinite } from './isFinite'
-export { default as isInteger } from './isInteger'
 export { default as isLength } from './isLength'
 export { default as isPlainObject } from './isPlainObject'
 export { default as isMap } from './isMap'
@@ -38,6 +35,7 @@ export { default as toArray } from './toArray'
 export { default as trim } from './trim'
 
 // Object
+export { default as each } from './each'
 
 // Function
 

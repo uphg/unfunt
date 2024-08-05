@@ -60,10 +60,6 @@ describe('type assert', () => {
       [0, 1],
       [...remain(baseTypes, 1, 3), ...objTypes],
     ],
-    isNaN: [
-      [Number.NaN],
-      [...remain(baseTypes, 3, 1), ...objTypes],
-    ],
     isString: [
       ['', 'hi'],
       [...remain(baseTypes, 4, 1), ...objTypes],
@@ -79,10 +75,6 @@ describe('type assert', () => {
     isNil: [
       [null, undefined],
       [...remain(baseTypes, 7, 2), ...objTypes],
-    ],
-    isFinite: [
-      [1, 0],
-      [...remain(baseTypes, 1, 1), ...objTypes],
     ],
     isObject: [
       objTypes,
@@ -129,10 +121,6 @@ describe('type assert', () => {
     isObjectLike: [
       [{ a: 1 }, [1, 2, 3]],
       [...baseTypes, func],
-    ],
-    isInteger: [
-      [1, 1000, 0, -1],
-      [...remain(baseTypes, 1, 1), 1.1, 3.1415926, ...objTypes],
     ],
     isLength: [
       [1, 0],
