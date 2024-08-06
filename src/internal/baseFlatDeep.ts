@@ -1,7 +1,7 @@
-import type { RecursiveArray } from '../types'
-import isFlattenable from './isFlattenable'
+import isArray from '../isArray'
+import type { ListOfRecursiveArraysOrValues } from '../types'
 
-function baseFlatDeep<T>(array: RecursiveArray<T>) {
+function baseFlatDeep<T>(array: ListOfRecursiveArraysOrValues<T>) {
   const result: T[] = []
   const stack = [array]
 
@@ -10,7 +10,7 @@ function baseFlatDeep<T>(array: RecursiveArray<T>) {
     let index = -1
     while (++index < temp.length) {
       const item = temp[index]
-      isFlattenable(item)
+      isArray(item)
         ? stack.push(item)
         : result.push(item)
     }

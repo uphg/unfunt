@@ -1,8 +1,9 @@
-import baseFlat from './internal/baseFlat'
-import type { RecursiveArray } from './types'
+import baseFlatDeep from './internal/baseFlatDeep'
+import type { ListOfRecursiveArraysOrValues } from './types'
 
-function flatDeep<T>(array: RecursiveArray<T>) {
-  return array?.length ? baseFlat<T, T | RecursiveArray<T>>(array, item => item, true) : []
+function flatDeep<T>(array: ListOfRecursiveArraysOrValues<T>) {
+  if (!array.length) return []
+  return baseFlatDeep(array)
 }
 
 export default flatDeep

@@ -1,6 +1,8 @@
+import type { ICallbackCancel } from './types'
+
 // 节流函数
-function throttle<T extends Function>(
-  func: T,
+function throttle<T extends unknown[], RT>(
+  func: (...args: T) => RT,
   wait: number,
   options?: { leading?: boolean, trailing?: boolean },
 ) {
@@ -8,7 +10,7 @@ function throttle<T extends Function>(
 
   let timerId: null | number | ReturnType<typeof setTimeout> = null
   let context: unknown
-  let args: unknown[] | null
+  let args: T | null
   let result: unknown
 
   let previous = 0
@@ -18,12 +20,12 @@ function throttle<T extends Function>(
 
     previous = !leading ? 0 : Date.now()
     timerId = null
-    result = func.apply(context, args)
+    result = func.apply(context, args!)
 
     if (!timerId) context = args = null
   }
 
-  const throttled = function (..._args: unknown[]) {
+  const throttled = function (..._args: T) {
     const _now = Date.now()
     if (!previous && !leading) previous = _now
     const remaining = wait - (_now - previous)
@@ -54,7 +56,7 @@ function throttle<T extends Function>(
     timerId = context = args = null
   }
 
-  return throttled
+  return throttled as ICallbackCancel<T, RT>
 }
 
 export default throttle
