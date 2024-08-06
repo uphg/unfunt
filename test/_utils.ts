@@ -1,5 +1,4 @@
-import 'regenerator-runtime/runtime' // 解决报错：regeneratorruntime is not defined
-import { create } from '../src/index'
+// import 'regenerator-runtime/runtime' // 解决报错：regeneratorruntime is not defined
 
 const symbol = Symbol('a')
 const bigInt = BigInt(9007199254740991)
@@ -19,18 +18,28 @@ function argsFn() {
   return arguments
 }
 
-function CustomError(message) {
-  this.name = 'CustomError'
-  this.message = message
+// function CustomError(message: string) {
+//   this.name = 'CustomError'
+//   this.message = message
+// }
+
+class CustomError extends Error {
+  name: string
+  message: string
+  constructor(message: string) {
+    super(message)
+    this.name = 'CustomError'
+    this.message = message
+  }
 }
 
 function toArgs(array) {
   return (function () { return arguments }.apply(undefined, array)) as IArguments
 }
 
-CustomError.prototype = create(Error.prototype, {
-  constructor: CustomError,
-})
+// CustomError.prototype = Object.create(Error.prototype, {
+//   constructor: CustomError,
+// } as any)
 
 const stringObj = new String('a')
 const numberObj = new Number(0)

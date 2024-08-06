@@ -6,3 +6,5 @@ export function isPrimitive(value: unknown): value is string | number | bigint |
   }
   return type !== 'function'
 }
+
+export default isPrimitive

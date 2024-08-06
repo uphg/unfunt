@@ -23,6 +23,9 @@ export { default as isLength } from './isLength'
 export { default as isPlainObject } from './isPlainObject'
 export { default as isMap } from './isMap'
 export { default as isSet } from './isSet'
+export { default as isEmpty } from './isEmpty'
+export { default as isPrimitive } from './isPrimitive'
+export { default as isPromise } from './isPromise'
 
 // 类型转换
 export { default as toFinite } from './toFinite'

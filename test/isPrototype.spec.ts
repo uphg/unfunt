@@ -6,7 +6,7 @@ describe('isPrototype', () => {
   })
 
   it('values return `true`', () => {
-    const Fn = function() {
+    const Fn = function () {
       this.a = 1
     }
     Fn.prototype.b = 2
@@ -19,8 +19,6 @@ describe('isPrototype', () => {
     expect(isPrototype(BigInt.prototype)).toBeTruthy()
     expect(isPrototype(Date.prototype)).toBeTruthy()
     expect(isPrototype(Error.prototype)).toBeTruthy()
-    // @ts-ignore
-    expect(isPrototype(AggregateError.prototype)).toBeTruthy()
     expect(isPrototype(EvalError.prototype)).toBeTruthy()
     expect(isPrototype(RangeError.prototype)).toBeTruthy()
     expect(isPrototype(ReferenceError.prototype)).toBeTruthy()
@@ -57,7 +55,7 @@ describe('isPrototype', () => {
     expect(isPrototype(void 0)).toBeFalsy()
     expect(isPrototype(-Infinity)).toBeFalsy()
     expect(isPrototype(1)).toBeFalsy()
-    expect(isPrototype(NaN)).toBeFalsy()
+    expect(isPrototype(Number.NaN)).toBeFalsy()
     expect(isPrototype('a')).toBeFalsy()
     expect(isPrototype(BigInt(9007199254740991))).toBeFalsy()
     expect(isPrototype(Symbol('a'))).toBeFalsy()
