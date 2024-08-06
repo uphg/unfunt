@@ -8,8 +8,9 @@ export default antfu({
     'no-self-compare': 'off', // 禁止自我比较
     'antfu/if-newline': 'off', // if 语句结束后强制换行
     'ts/no-empty-object-type': 'off', // 禁止空对象类型
-    'ts/no-unused-expressions': ['error', { allowShortCircuit: true }], // 禁止未使用的表达式
+    'ts/no-unused-expressions': ['error', { allowShortCircuit: true, allowTernary: true }], // 禁止未使用的表达式
     'ts/no-unsafe-function-type': 'off',
+    'ts/no-this-alias': 'off', // 禁止使用 this 别名
 
     'jsonc/sort-keys': 'off', // JSONC 文件中的键按照字母排序
     'style/brace-style': 'off', // 对块强制实施一致的大括号样式
