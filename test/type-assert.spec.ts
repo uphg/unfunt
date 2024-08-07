@@ -177,13 +177,13 @@ describe('type assert', () => {
   each(typesMap, (item, name: string) => {
     describe(name, () => {
       it(`${name} is a function`, () => {
-        expect(typeof (_ as any)[name]).toBe('function')
+        expect((_ as any)[name]).toBeTypeOf('function')
       })
 
       describe('values return `true`', () => {
         each(item[0], (value, index) => {
           it(`[${index}]`, () => {
-            expect((_ as any)[name](value)).toBe(true)
+            expect((_ as any)[name](value)).toBeTruthy()
           })
         })
       })
@@ -191,7 +191,7 @@ describe('type assert', () => {
       describe('values return `false`', () => {
         each(item[1], (value, index) => {
           it(`[${index}]`, () => {
-            expect((_ as any)[name](value)).toBe(false)
+            expect((_ as any)[name](value)).toBeFalsy()
           })
         })
       })
