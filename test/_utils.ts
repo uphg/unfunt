@@ -1,22 +1,6 @@
 // import 'regenerator-runtime/runtime' // 解决报错：regeneratorruntime is not defined
 
-const symbol = Symbol('a')
-const bigInt = BigInt(9007199254740991)
-const error = new Error('error')
-const date = new Date()
-const regex = /a/
-const args = toArgs([1, 2, 3])
-const strictArgs = (function () {
-  'use strict'
-  return arguments
-}(1, 2, 3))
-function func() {}
-async function asyncFunc() {}
-const generatorFunc = function * foo() {}
-function argsFn() {
-  // eslint-disable-next-line prefer-rest-params
-  return arguments
-}
+
 
 // function CustomError(message: string) {
 //   this.name = 'CustomError'
@@ -44,10 +28,7 @@ function toArgs(array) {
 const stringObj = new String('a')
 const numberObj = new Number(0)
 const booleanObj = new Boolean(true)
-const mapObj = new Map()
-const weakMapObj = new WeakMap()
-const setObj = new Set()
-const weakSetObj = new WeakSet()
+
 
 const arrayLike = { 0: 'a', 1: 'b', 2: 'c', length: 3 }
 const arrayBuffer = new ArrayBuffer(0)

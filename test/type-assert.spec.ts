@@ -22,15 +22,7 @@ import {
 
 describe('type assert', () => {
   const baseTypes = [
-    true,
-    1,
-    -Infinity,
-    Number.NaN,
-    'a',
-    bigInt,
-    symbol,
-    null,
-    undefined,
+    true, false, 1, -Infinity, Number.NaN, 'a', bigInt, symbol, null, undefined,
   ]
   const objTypes = [
     { a: 1 },

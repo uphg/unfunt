@@ -11,6 +11,7 @@ export default antfu({
     'ts/no-unused-expressions': ['error', { allowShortCircuit: true, allowTernary: true }], // 禁止未使用的表达式
     'ts/no-unsafe-function-type': 'off',
     'ts/no-this-alias': 'off', // 禁止使用 this 别名
+    'no-new-wrappers': ['error', { allowTernary: true, ignores: 'test/common.ts' }],
 
     'jsonc/sort-keys': 'off', // JSONC 文件中的键按照字母排序
     'style/brace-style': 'off', // 对块强制实施一致的大括号样式
