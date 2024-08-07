@@ -1,34 +1,35 @@
 import hasOwn from './hasOwn'
 import isArray from './isArray'
 
-function each<T, K extends number>(
-  array: T[],
-  callback: (item: T, index: K, array: T[]) => void
-): void
+type ArrayIterator<T, TResult> = (value: T, index: number, collection: T[]) => TResult
+type ObjectIterator<TObject, TResult> = (value: TObject[keyof TObject], key: keyof TObject, collection: TObject) => TResult
 
-function each<T, K extends string | number | symbol>(
-  object: Record<K, T>,
-  callback: (item: T, key: K, object: Record<K, T>) => void
-): void
-
-function each<T, K extends string | number | symbol>(
-  object: T[] | Record<K, T>,
-  callback: Function,
-) {
-  if (isArray(object)) {
+function each<T>(
+  collection: T[],
+  callback: ArrayIterator<T, unknown>
+): T[]
+function each<T extends object>(
+  collection: T,
+  callback: ObjectIterator<T, unknown>
+): T
+function each<T>(
+  collection: T[] | T,
+  callback: ObjectIterator<any, unknown> | ArrayIterator<T, unknown>,
+): T[] | T {
+  if (isArray(collection)) {
     let index = -1
-    const length = object.length
+    const length = collection.length
     while (++index < length) {
-      callback((object)[index], index, object)
+      callback(collection[index], index, collection)
     }
   } else {
-    for (const key in object) {
-      if (hasOwn(object, key)) {
-        const item = (object)[key]
-        callback(item, key, object)
+    for (const key in collection) {
+      if (hasOwn(collection, key)) {
+        (callback as ObjectIterator<any, unknown>)(collection[key], key, collection)
       }
     }
   }
+  return collection
 }
 
 export default each
