@@ -5,9 +5,9 @@ import {
   asyncFunc, generatorFunc, regex, func, argsFn, mapObj,
   weakMapObj, setObj, weakSetObj, CustomError
 } from './_utils'
+import { describe, it, expect } from 'vitest'
 
 describe('type assert', () => {
-
   const baseTypes = [
     true, 1, -Infinity, NaN, 'a', bigInt, symbol, null, undefined
   ]
@@ -27,7 +27,7 @@ describe('type assert', () => {
     weakSetObj,
     argsFn(),
     new ArrayBuffer(1),
-    Object.create({a: 1, b: 2})
+    Object.create({ a: 1, b: 2 })
   ]
 
   const typesMap = {
@@ -137,7 +137,7 @@ describe('type assert', () => {
       [new ArrayBuffer(1)],
       [...remain(objTypes, 14, 1), ...baseTypes]
     ]
-    
+
   }
 
   each(typesMap, (item, name) => {
@@ -148,13 +148,13 @@ describe('type assert', () => {
 
       it('values return `true`', () => {
         each(item[0], (value) => {
-          expect(_[name](value)).toBe(true);
+          expect(_[name](value)).toBe(true)
         })
       })
-  
+
       it('values return `false`', () => {
         each(item[1], (value) => {
-          expect(_[name](value)).toBe(false);
+          expect(_[name](value)).toBe(false)
         })
       })
     })

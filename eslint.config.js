@@ -1,20 +1,86 @@
-import antfu from '@antfu/eslint-config'
+import js from '@eslint/js'
+import tseslint from '@typescript-eslint/eslint-plugin'
+import tsparser from '@typescript-eslint/parser'
+import stylistic from '@stylistic/eslint-plugin'
 
-export default antfu({
-  rules: {
-    'no-console': 'off',
-    'no-restricted-syntax': 'off', // 禁止使用特定的语法
-    'no-useless-return': 'off', // 禁止冗余的返回语句
-    'no-self-compare': 'off', // 禁止自我比较
-    'antfu/if-newline': 'off', // if 语句结束后强制换行
-    'ts/no-empty-object-type': 'off', // 禁止空对象类型
-    'ts/no-unused-expressions': ['error', { allowShortCircuit: true, allowTernary: true }], // 禁止未使用的表达式
-    'ts/no-unsafe-function-type': 'off',
-    'ts/no-this-alias': 'off', // 禁止使用 this 别名
-
-    'jsonc/sort-keys': 'off', // JSONC 文件中的键按照字母排序
-    'style/brace-style': 'off', // 对块强制实施一致的大括号样式
-    'import/no-mutable-exports': 'off', // 禁止导出可变变量
-    // 'nonblock-statement-body-position': 'error', // 强制执行单行语句的位置
+export default [
+  {
+    ignores: ['node_modules/**', 'dist/**', 'docs/.vitepress/cache/**']
   },
-})
+  js.configs.recommended,
+  stylistic.configs.recommended,
+  {
+    files: ['**/*.{js,ts}'],
+    languageOptions: {
+      parser: tsparser,
+      parserOptions: {
+        ecmaVersion: 'latest',
+        sourceType: 'module'
+      },
+      globals: {
+        console: 'readonly',
+        process: 'readonly',
+        Buffer: 'readonly',
+        __dirname: 'readonly',
+        __filename: 'readonly',
+        global: 'readonly',
+        module: 'readonly',
+        require: 'readonly',
+        exports: 'readonly'
+      }
+    },
+    plugins: {
+      '@typescript-eslint': tseslint,
+      '@stylistic': stylistic
+    },
+    rules: {
+      // 禁止特定语法
+      'no-restricted-syntax': [
+        'error',
+        'WithStatement'
+      ],
+      'camelcase': 'error',
+      'no-var': 'error',
+      'no-empty': 'error',
+      'prefer-const': [
+        'warn',
+        { destructuring: 'all' }
+      ],
+      'prefer-template': 'error',
+      'object-shorthand': 'off',
+      'no-constant-condition': 'error',
+      'no-case-declarations': 'off',
+      'prefer-spread': 'off',
+      'prefer-rest-params': 'off',
+      'no-undef': 'off',
+
+      // Stylistic rules
+      '@stylistic/indent': ['error', 2, { SwitchCase: 1 }],
+      '@stylistic/quotes': ['error', 'single', { avoidEscape: true }],
+      '@stylistic/comma-dangle': ['error', 'never'],
+      '@stylistic/space-before-function-paren': ['error', 'never'],
+      '@stylistic/no-multi-spaces': ['error', { ignoreEOLComments: true }],
+      '@stylistic/key-spacing': ['error', { afterColon: true }],
+      '@stylistic/keyword-spacing': ['error', { before: true }],
+      '@stylistic/eol-last': ['error', 'always'],
+      '@stylistic/semi': ['error', 'never'],
+      '@stylistic/object-curly-spacing': ['error', 'always'],
+      '@stylistic/array-bracket-spacing': ['error', 'never'],
+      '@stylistic/comma-spacing': ['error', { before: false, after: true }],
+      '@stylistic/space-infix-ops': 'error',
+      '@stylistic/space-unary-ops': 'error',
+      '@stylistic/arrow-spacing': 'error',
+
+      // TS
+      '@typescript-eslint/explicit-module-boundary-types': 'off',
+      '@typescript-eslint/no-explicit-any': 'off',
+      '@typescript-eslint/no-non-null-assertion': 'off',
+      '@typescript-eslint/no-non-null-asserted-optional-chain': 'off',
+      '@typescript-eslint/ban-types': 'off',
+      '@typescript-eslint/no-var-requires': 'off',
+      '@typescript-eslint/no-this-alias': 'off',
+      '@typescript-eslint/ban-ts-comment': 'off',
+      'no-unused-vars': ['error', { argsIgnorePattern: '^_' }]
+    }
+  }
+]

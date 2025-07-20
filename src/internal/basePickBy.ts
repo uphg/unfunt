@@ -1,6 +1,6 @@
-import type { Key, ObjectLike } from './interfaces'
+import { Key, ObjectLike } from './interfaces'
 
-function basePickBy(object: any, keys: Key[], callback: (value: unknown, key: Key) => boolean) {
+function basePickBy(object: any, keys: Key[], callback: (_value: unknown, _key: Key) => boolean) {
   let index = -1
   const length = keys.length
   const result: ObjectLike = {}

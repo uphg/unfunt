@@ -1,7 +1,10 @@
+import { _now } from './internal/common'
+
+// 防抖函数
 function debounce<T extends Function>(
   func: T,
   wait: number,
-  immediate = false,
+  immediate = false
 ) {
   let timerId: number | null,
     previous: number | null,
@@ -9,13 +12,14 @@ function debounce<T extends Function>(
     result: unknown,
     args: unknown
 
-  const later = function () {
+  const later = function() {
     clearTimeout(timerId as number)
-    const passed = Date.now() - (previous as number)
+    const passed = _now() - (previous as number)
 
     if (wait > passed) {
       timerId = setTimeout(later, wait - passed)
-    } else {
+    }
+    else {
       timerId = null
       if (!immediate) result = func.apply(context, args)
 
@@ -24,10 +28,10 @@ function debounce<T extends Function>(
     }
   }
 
-  const debounced = function (..._args: any) {
+  const debounced = function(..._args: any) {
     context = this
     args = _args
-    previous = Date.now() // 函数执行时的时间
+    previous = _now() // 函数执行时的时间
 
     if (!timerId) {
       timerId = setTimeout(later, wait)
@@ -37,7 +41,7 @@ function debounce<T extends Function>(
     return result
   }
 
-  debounced.cancel = function () {
+  debounced.cancel = function() {
     clearTimeout(timerId as number)
     timerId = args = context = null
   }

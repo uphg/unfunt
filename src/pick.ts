@@ -1,8 +1,8 @@
 import basePick from './internal/basePick'
-import type { Key } from './internal/interfaces'
+import { Key } from './internal/interfaces'
 import isNil from './isNil'
 
-function pick<T extends object>(object: T, includes: Key[]) {
+function pick(object: unknown, includes: Key[]) {
   return isNil(object) ? {} : basePick(object, includes)
 }
 

@@ -1,9 +1,9 @@
-import hasOwn from '../hasOwn'
+import has from '../has'
 import basePickBy from './basePickBy'
-import type { Key } from './interfaces'
+import { Key } from './interfaces'
 
 function basePick(obj: unknown, keys: Key[]) {
-  return basePickBy(obj, keys, (_value, key) => hasOwn(obj, key))
+  return basePickBy(obj, keys, (_value, key) => has(obj, key))
 }
 
 export default basePick
