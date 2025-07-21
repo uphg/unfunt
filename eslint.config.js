@@ -80,7 +80,18 @@ export default [
       '@typescript-eslint/no-var-requires': 'off',
       '@typescript-eslint/no-this-alias': 'off',
       '@typescript-eslint/ban-ts-comment': 'off',
-      'no-unused-vars': ['error', { argsIgnorePattern: '^_' }]
+      'no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+          ignoreRestSiblings: true,
+          args: 'after-used',
+          vars: 'all',
+          caughtErrors: 'none'
+        }
+      ]
     }
   }
 ]
