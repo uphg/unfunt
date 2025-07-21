@@ -31,7 +31,7 @@ export function mapEntries<T extends object, K, V>(
   ) as Record<string, V>
 }
 
-export function eachEntry<T extends object>(
+export function forEachEntry<T extends object>(
   obj: T,
   callback: (_key: keyof T, _value: T[keyof T]) => boolean | void
 ): void {
