@@ -12,6 +12,8 @@ dist
 dist-ssr
 *.local
 
+desktop.ini
+
 docs/.vitepress/dist
 docs/.vitepress/cache
 

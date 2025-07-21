@@ -1,4 +1,4 @@
-import isArrayLike from './isArrayLike'
+import { isArrayLike } from './typed'
 import type { Key } from './internal/interfaces'
 
 function each<T>(

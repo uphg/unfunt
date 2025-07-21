@@ -1,4 +1,4 @@
-import isNil from '../isNil'
+import { isNil } from '../typed'
 
 // 返回一个布尔值，表示指定的属性是否可枚举（是否可以被 for...in 循环枚举）
 const propertyIsEnumerable = Object.prototype.propertyIsEnumerable
@@ -7,7 +7,7 @@ const propertyIsEnumerable = Object.prototype.propertyIsEnumerable
 const nativeGetSymbols = Object.getOwnPropertySymbols
 
 // 获取当前对象所有可枚举 Symbol key
-function getSymbols(object: unknown) {
+export function getSymbols(object: unknown) {
   if (isNil(object)) {
     return []
   }
@@ -15,4 +15,6 @@ function getSymbols(object: unknown) {
   return nativeGetSymbols(object).filter(symbol => propertyIsEnumerable.call(object, symbol))
 }
 
-export default getSymbols
+export function isTag(value: unknown, type: string) {
+  return Object.prototype.toString.call(value) === `[object ${type}]`
+}
