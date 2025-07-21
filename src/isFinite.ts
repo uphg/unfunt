@@ -1,7 +1,8 @@
 import { _isFinite, _isNaN } from './internal/common'
+import isNumber from './isNumber'
 
 function isFinite(value: unknown) {
-  return typeof value === 'number' && _isFinite(value) && !_isNaN(value)
+  return isNumber(value) && _isFinite(value) && !_isNaN(value)
 }
 
 export default Number.isFinite || isFinite
