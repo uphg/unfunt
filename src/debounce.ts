@@ -1,19 +1,18 @@
 import { _now } from './internal/common'
 
-// 防抖函数
-function debounce<T extends Function>(
+function debounce<T extends (...args: any[]) => any>(
   func: T,
   wait: number,
   immediate = false
 ) {
-  let timerId: number | null,
-    previous: number | null,
-    context: unknown,
-    result: unknown,
-    args: unknown
+  let timerId: ReturnType<typeof setTimeout> | null = null,
+    previous: number | null = null,
+    context: ThisParameterType<T> | undefined,
+    result: ReturnType<T> | undefined,
+    args: Parameters<T>
 
-  const later = function() {
-    clearTimeout(timerId as number)
+  const later = function(this: unknown) {
+    if (timerId) clearTimeout(timerId)
     const passed = _now() - (previous as number)
 
     if (wait > passed) {
@@ -21,29 +20,38 @@ function debounce<T extends Function>(
     }
     else {
       timerId = null
-      if (!immediate) result = func.apply(context, args)
+      if (!immediate && context) {
+        result = func.apply(context, args)
+      }
 
       // 避免 func 函数递归调用 `debounced`。
-      if (!timerId) args = context = null
+      if (!timerId) {
+        args = null as any
+        context = undefined
+      }
     }
   }
 
-  const debounced = function(..._args: any) {
+  const debounced = function(this: ThisParameterType<T>, ..._args: Parameters<T>): ReturnType<T> | undefined {
     context = this
     args = _args
     previous = _now() // 函数执行时的时间
 
     if (!timerId) {
       timerId = setTimeout(later, wait)
-      if (immediate) result = func.apply(context, args)
+      if (immediate) {
+        result = func.apply(context, args)
+      }
     }
 
     return result
   }
 
   debounced.cancel = function() {
-    clearTimeout(timerId as number)
-    timerId = args = context = null
+    if (timerId) clearTimeout(timerId)
+    timerId = null
+    args = null as any
+    context = undefined
   }
 
   return debounced
