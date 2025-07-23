@@ -61,7 +61,7 @@ function baseOmitBy(object: any, callback: (_value: unknown, _key: Key) => boole
 }
 
 function basePick(obj: unknown, keys: Key[]) {
-  return basePickBy(obj, keys, (_value, key) => Object.hasOwn(obj, key))
+  return basePickBy(obj, keys, (_value, key) => Object.hasOwn(obj as object, key))
 }
 
 function basePickBy(object: any, keys: Key[], callback: (_value: unknown, _key: Key) => boolean) {
