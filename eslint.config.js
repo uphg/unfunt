@@ -54,6 +54,10 @@ export default [
       'prefer-rest-params': 'off',
       'no-undef': 'off',
 
+      // TypeScript handles function overloads correctly
+      'no-redeclare': 'off',
+      '@typescript-eslint/no-redeclare': 'error',
+
       // Stylistic rules
       '@stylistic/indent': ['error', 2, { SwitchCase: 1 }],
       '@stylistic/quotes': ['error', 'single', { avoidEscape: true }],

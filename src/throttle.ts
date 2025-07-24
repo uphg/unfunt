@@ -37,8 +37,6 @@ function throttle<T extends (...args: any[]) => any>(
   function leadingEdge(time: number): ReturnType<T> {
     lastInvokeTime = time
     timeoutId = setTimeout(timerExpired, wait)
-    console.log('leading')
-    console.log(leading)
     return leading ? invokeFunc(time) : result
   }
 
