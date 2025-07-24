@@ -50,6 +50,7 @@ async function run(argv) {
     const strPackage = JSON.stringify(packageJson, null, 2)
     await fs.writeFile(resolve('./package.json'), strPackage)
     await fs.copy('README.md', resolve('README.md'))
+    await fs.copy('LICENSE', resolve('LICENSE'))
 
     // 格式化打包后的代码和类型文件
     console.log(pc.dim('Formatting output files...'))

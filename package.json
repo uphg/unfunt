@@ -11,7 +11,13 @@
     "prepare": "simple-git-hooks",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs"
+    "docs:preview": "vitepress preview docs",
+    "version": "pnpm build && git add dist",
+    "prepublishOnly": "pnpm test:run && pnpm lint:check",
+    "publish:patch": "npm version patch && cd dist && npm publish",
+    "publish:minor": "npm version minor && cd dist && npm publish",
+    "publish:major": "npm version major && cd dist && npm publish",
+    "publish:dry": "cd dist && npm pack --dry-run"
   },
   "devDependencies": {
     "@eslint/js": "^9.31.0",

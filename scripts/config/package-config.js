@@ -5,17 +5,17 @@
  */
 export function createPackageConfig(version = '0.1.6') {
   return {
-    name: 'utils',
+    name: 'unfunt',
     version,
     license: 'MIT',
     main: 'index.umd.js',
     module: 'index.js',
-    types: 'index.d.js',
-    description: 'A javascript function collection library',
-    keywords: ['javascript', 'array', 'object', 'function', 'methods'],
-    homepage: 'https://github.com/uphg/utils#readme',
-    repository: 'uphg/utils',
-    bugs: 'uphg/utils/issues',
+    types: 'index.d.ts',
+    description: 'A lightweight JavaScript utility library with common functions',
+    keywords: ['javascript', 'typescript', 'utils', 'utility', 'functions', 'library', 'tools'],
+    homepage: 'https://github.com/lvheng/unfunt#readme',
+    repository: 'lvheng/unfunt',
+    bugs: 'https://github.com/lvheng/unfunt/issues',
     author: 'Lv Heng <lvheng233@gmail.com>'
   }
 }

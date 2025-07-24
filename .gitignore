@@ -29,4 +29,5 @@ docs/.vitepress/cache
 *.sw?
 
 .kiro
+.claude
 CLAUDE.md
