@@ -70,6 +70,7 @@ export default [
       '@stylistic/space-infix-ops': 'error',
       '@stylistic/space-unary-ops': 'error',
       '@stylistic/arrow-spacing': 'error',
+      '@stylistic/brace-style': 'off',
 
       // TS
       '@typescript-eslint/explicit-module-boundary-types': 'off',
@@ -92,6 +93,13 @@ export default [
           caughtErrors: 'none'
         }
       ]
+    }
+  },
+  {
+    // 测试文件的特殊规则
+    files: ['**/*.spec.ts', '**/*.test.ts', '**/test/**/*.ts'],
+    rules: {
+      '@stylistic/max-statements-per-line': 'off'
     }
   }
 ]

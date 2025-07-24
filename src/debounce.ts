@@ -1,5 +1,3 @@
-import { _now } from './internal/common'
-
 function debounce<T extends (...args: any[]) => any>(
   func: T,
   wait: number,
@@ -13,12 +11,11 @@ function debounce<T extends (...args: any[]) => any>(
 
   const later = function(this: unknown) {
     if (timerId) clearTimeout(timerId)
-    const passed = _now() - (previous as number)
+    const passed = Date.now() - (previous as number)
 
     if (wait > passed) {
       timerId = setTimeout(later, wait - passed)
-    }
-    else {
+    } else {
       timerId = null
       if (!immediate && context) {
         result = func.apply(context, args)
@@ -35,7 +32,7 @@ function debounce<T extends (...args: any[]) => any>(
   const debounced = function(this: ThisParameterType<T>, ..._args: Parameters<T>): ReturnType<T> | undefined {
     context = this
     args = _args
-    previous = _now() // 函数执行时的时间
+    previous = Date.now() // 函数执行时的时间
 
     if (!timerId) {
       timerId = setTimeout(later, wait)

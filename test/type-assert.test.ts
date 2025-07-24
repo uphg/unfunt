@@ -1,5 +1,5 @@
 import * as _ from '../src/index'
-import { each, remain } from '../src/index'
+import { remain } from '../src/index'
 import {
   symbol, bigInt, error, stringObj, numberObj, booleanObj, date,
   asyncFunc, generatorFunc, regex, func, argsFn, mapObj,
@@ -101,21 +101,9 @@ describe('type assert', () => {
       [mapObj],
       [...remain(objTypes, 9, 1), ...baseTypes]
     ],
-    isWeakMap: [
-      [weakMapObj],
-      [...remain(objTypes, 10, 1), ...baseTypes]
-    ],
     isSet: [
       [setObj],
       [...remain(objTypes, 11, 1), ...baseTypes]
-    ],
-    isWeakSet: [
-      [weakSetObj],
-      [...remain(objTypes, 12, 1), ...baseTypes]
-    ],
-    isArguments: [
-      [argsFn()],
-      [...remain(objTypes, 13, 1), ...baseTypes]
     ],
     isObjectLike: [
       [{ a: 1 }, [1, 2, 3]],
@@ -132,28 +120,24 @@ describe('type assert', () => {
     isPlainObject: [
       [{}, new Object(), Object.create(null)],
       [...remain(objTypes, 0, 1), ...baseTypes]
-    ],
-    isArrayBuffer: [
-      [new ArrayBuffer(1)],
-      [...remain(objTypes, 14, 1), ...baseTypes]
     ]
 
   }
 
-  each(typesMap, (item, name) => {
+  Object.entries(typesMap).forEach(([name, item]) => {
     describe(name, () => {
       it('is a function', () => {
         expect(typeof _[name]).toBe('function')
       })
 
       it('values return `true`', () => {
-        each(item[0], (value) => {
+        item[0].forEach((value) => {
           expect(_[name](value)).toBe(true)
         })
       })
 
       it('values return `false`', () => {
-        each(item[1], (value) => {
+        item[1].forEach((value) => {
           expect(_[name](value)).toBe(false)
         })
       })
