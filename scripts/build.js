@@ -4,7 +4,7 @@ import fs from 'fs-extra'
 import { fileURLToPath } from 'url'
 import minimist from 'minimist'
 import pc from 'picocolors'
-import { execaQuiet, handleBuildResult, BUILD_TYPES } from './utils/build-utils.js'
+import { execaQuiet, handleBuildResult, BUILD_TYPES } from './utils.js'
 import { createPackageConfig } from './config/package-config.js'
 
 const __filename = fileURLToPath(import.meta.url)
@@ -18,7 +18,10 @@ const argv = minimist(process.argv.slice(2))
 run(argv)
 
 async function run(argv) {
-  const { v: version = '0.1.6' } = argv
+  // 读取根目录 package.json 获取默认版本
+  const rootPackagePath = path.resolve(__dirname, '../package.json')
+  const rootPackage = JSON.parse(await fs.readFile(rootPackagePath, 'utf-8'))
+  const { v: version = rootPackage.version } = argv
   const packageJson = createPackageConfig(version)
 
   try {
