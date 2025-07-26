@@ -129,6 +129,23 @@ async function main() {
   step('\n更新版本号...')
   updateVersion(targetVersion)
 
+  // 变更日志生成
+  step('\nGenerating changelog...')
+  await run('pnpm', ['run', 'changelog'])
+
+  if (!skipPrompts) {
+    /** @type {{ yes: boolean }} */
+    const { yes: changelogOk } = await prompt({
+      type: 'confirm',
+      name: 'yes',
+      message: 'Changelog generated. Does it look good?'
+    })
+
+    if (!changelogOk) {
+      return
+    }
+  }
+
   // 构建项目
   if (!skipBuild) {
     step('\n构建项目...')

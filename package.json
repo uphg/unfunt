@@ -19,7 +19,8 @@
     "publish:major": "npm version major && cd dist && npm publish",
     "publish:dry": "cd dist && npm pack --dry-run",
     "release": "node scripts/release.js",
-    "release:dry": "node scripts/release.js --dry"
+    "release:dry": "node scripts/release.js --dry",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
   "devDependencies": {
     "@eslint/js": "^9.31.0",
@@ -31,6 +32,7 @@
     "@types/semver": "^7.7.0",
     "@typescript-eslint/eslint-plugin": "8.37.0",
     "@typescript-eslint/parser": "8.37.0",
+    "conventional-changelog-cli": "^5.0.0",
     "enquirer": "^2.4.1",
     "eslint": "9.31.0",
     "execa": "9.6.0",
