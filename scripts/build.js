@@ -63,11 +63,7 @@ async function run(argv) {
         'eslint',
         'dist/**/*.{js,ts,d.ts}',
         '--fix',
-        '--no-ignore',
-        '--rule',
-        '@typescript-eslint/no-unused-vars: off',
-        '--rule',
-        'no-unused-vars: off'
+        '--no-ignore'
       ], { stdio: 'inherit' })
       console.log(pc.green('✓') + pc.dim(' Files formatted successfully!'))
     }

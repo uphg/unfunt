@@ -10,7 +10,7 @@ export function isArray(value: unknown): value is Array<unknown> {
 }
 
 export function isArrayLike(value: unknown): value is ArrayLike<unknown> | string {
-  return value !== void 0 && value !== null && typeof value !== 'function' && isLength((value as ArrayLike<unknown>).length)
+  return (value !== void 0 && value !== null && typeof value !== 'function') && isLength((value as ArrayLike<unknown>).length)
 }
 
 export function isBigInt(value: unknown): value is bigint {
@@ -75,7 +75,7 @@ export function isFinite(value: unknown) {
 }
 
 export function isLength(value: unknown) {
-  return isNumber(value) && value > -1 && value % 1 === 0 && value <= MAX_SAFE_INTEGER
+  return isNumber(value) && (value > -1 && value % 1 === 0 && value <= MAX_SAFE_INTEGER)
 }
 
 export function isNaN(value: unknown): value is number {

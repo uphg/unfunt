@@ -13,7 +13,6 @@ function throttle<T extends (...args: any[]) => any>(
   wait: number,
   options?: ThrottleOptions
 ): ThrottledFunction<T> {
-  console.log('# throttle')
   const { leading = true, trailing = true } = options || {}
 
   let timeoutId: ReturnType<typeof setTimeout> | null = null
@@ -24,7 +23,6 @@ function throttle<T extends (...args: any[]) => any>(
   let result: ReturnType<T>
 
   function invokeFunc(time: number): ReturnType<T> {
-    console.log('+1')
     const args = lastArgs!
     const thisArg = lastThis!
 

@@ -106,5 +106,14 @@ export default [
       '@stylistic/max-statements-per-line': 'off',
       'camelcase': 'off'
     }
+  },
+  {
+    // 打包后文件的特殊规则
+    files: ['dist/**/*.{js,ts,d.ts}'],
+    rules: {
+      '@stylistic/no-mixed-operators': 'off',
+      '@typescript-eslint/no-unused-vars': 'off',
+      'no-unused-vars': 'off'
+    }
   }
 ]
