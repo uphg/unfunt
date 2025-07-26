@@ -30,4 +30,5 @@ docs/.vitepress/cache
 
 .kiro
 .claude
-CLAUDE.md
+CLAUDE.*
+.github-demo

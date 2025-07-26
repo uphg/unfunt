@@ -58,7 +58,8 @@ async function run(argv) {
     // 格式化打包后的代码和类型文件
     console.log(pc.dim('Formatting output files...'))
     try {
-      await execa('npx', [
+      await execa('pnpm', [
+        'exec',
         'eslint',
         'dist/**/*.{js,ts,d.ts}',
         '--fix',

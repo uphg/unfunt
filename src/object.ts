@@ -6,7 +6,7 @@ export function omit(object: any, excludes: Key[]) {
   return isNil(object) ? {} : baseOmit(object, excludes)
 }
 
-export function omitBy(object: unknown, callback: (_value: unknown, _key: Key) => boolean) {
+export function omitBy(object: unknown, callback: (value: unknown, key: Key) => boolean) {
   return isNil(object) ? {} : baseOmitBy(object, callback)
 }
 
@@ -14,7 +14,7 @@ export function pick(object: unknown, includes: Key[]) {
   return isNil(object) ? {} : basePick(object, includes)
 }
 
-export function pickBy(obj: unknown, callback: (_value: unknown, _key: Key) => boolean) {
+export function pickBy(obj: unknown, callback: (value: unknown, key: Key) => boolean) {
   if (isNil(obj)) return {}
   const props: Key[] = Object.keys(obj).concat(getSymbols(obj) as any)
   return basePickBy(obj, props, callback)
@@ -22,7 +22,7 @@ export function pickBy(obj: unknown, callback: (_value: unknown, _key: Key) => b
 
 export function mapEntries<T extends object, K, V>(
   obj: T,
-  mapper: (_key: keyof T, _value: T[keyof T]) => [K, V]
+  mapper: (key: keyof T, value: T[keyof T]) => [K, V]
 ): Record<string, V> {
   return Object.fromEntries(
     Object.entries(obj).map(([key, value]) =>
@@ -33,7 +33,7 @@ export function mapEntries<T extends object, K, V>(
 
 export function forEachEntry<T extends object>(
   obj: T,
-  callback: (_key: keyof T, _value: T[keyof T]) => boolean | void
+  callback: (key: keyof T, value: T[keyof T]) => boolean | void
 ): void {
   for (const [key, value] of Object.entries(obj)) {
     const shouldContinue = callback(key as keyof T, value as T[keyof T])

@@ -103,7 +103,8 @@ export default [
     // 测试文件的特殊规则
     files: ['**/*.spec.ts', '**/*.test.ts', '**/test/**/*.ts'],
     rules: {
-      '@stylistic/max-statements-per-line': 'off'
+      '@stylistic/max-statements-per-line': 'off',
+      'camelcase': 'off'
     }
   }
 ]
