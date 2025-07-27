@@ -1,4 +1,4 @@
-import { isLength } from './typed'
+import { isArray, isIterable, isLength, isNil, isString } from './typed'
 
 /**
  * 根据给定参数分割数组，返回分割后的剩下的部分
@@ -23,4 +23,16 @@ export function remain<T>(array: T[], start: number, deleteCount?: number) {
   }
 
   return newArray
+}
+
+export function toArray<T>(value: T): T extends readonly unknown[] ? T : T[]
+export function toArray(value: unknown): unknown[]
+export function toArray(value: unknown): unknown[] {
+  if (isNil(value)) return []
+  if (isArray(value)) return value
+  if (isString(value)) return Array.from(value)
+  if (isIterable(value)) {
+    return Array.from(value)
+  }
+  return [value]
 }

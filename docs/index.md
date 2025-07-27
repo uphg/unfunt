@@ -3,23 +3,29 @@
 layout: home
 
 hero:
-  name: "My Awesome Project"
-  text: "A VitePress Site"
-  tagline: My great project tagline
+  name: "Unfunt"
+  text: "Modern Utility Functions"
+  tagline: A TypeScript-first collection of utility functions that just work ⚡
   actions:
     - theme: brand
       text: Quick Start
-      link: /quick-start
+      link: /docs/
     - theme: alt
-      text: Markdown Examples
-      link: /Markdown Examples
+      text: API Reference
+      link: /docs/overview
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: 🚀 TypeScript First
+    details: Built with TypeScript, providing excellent type safety and IntelliSense support
+  - title: 📦 Tree Shaking
+    details: Only import what you need. Each function is optimized for minimal bundle size
+  - title: 🔧 Zero Dependencies
+    details: Lightweight and self-contained with no external dependencies
+  - title: ⚡ Well Tested
+    details: Comprehensive test coverage with Vitest ensuring reliability
+  - title: 📚 Full Documentation
+    details: Complete API reference with examples and best practices
+  - title: 🎯 Modern Tooling
+    details: ESM, CJS, and UMD builds supporting all modern environments
 ---
 
