@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { toInteger } from '../src/typed'
+import { toInteger } from '../src/number'
 
 describe('toInteger', () => {
   it('should return the same number for integers', () => {

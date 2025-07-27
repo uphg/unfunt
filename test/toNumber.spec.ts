@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { toNumber } from '../src/typed'
+import { toNumber } from '../src/number'
 
 describe('toNumber', () => {
   it('should return the same number if value is already a number', () => {
