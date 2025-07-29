@@ -1,10 +1,10 @@
-import * as _ from '../src/index'
-import { remain } from '../src/index'
+import * as _ from '../../src/index'
+import { remain } from '../../src/index'
 import {
   symbol, bigInt, error, stringObj, numberObj, booleanObj, date,
   asyncFunc, generatorFunc, regex, func, argsFn, mapObj,
   weakMapObj, setObj, weakSetObj, CustomError
-} from './_utils'
+} from '../_utils'
 import { describe, it, expect } from 'vitest'
 
 describe('type assert', () => {
@@ -120,8 +120,27 @@ describe('type assert', () => {
     isPlainObject: [
       [{}, new Object(), Object.create(null)],
       [...remain(objTypes, 0, 1), ...baseTypes]
+    ],
+    isArrayLike: [
+      [[1, 2, 3], 'abc', new Uint8Array(8)],
+      [func, mapObj, setObj, weakMapObj, weakSetObj, ...baseTypes]
+    ],
+    isEmpty: [
+      [[], {}, '', new Set(), new Map()],
+      [[1, 2, 3], { a: 1 }, 'abc', [0], false, 0, ...baseTypes]
+    ],
+    isPrimitive: [
+      [true, 1, 'a', bigInt, symbol, null, undefined],
+      [[], {}, func, mapObj, setObj, new Date()]
+    ],
+    isPromise: [
+      [Promise.resolve(1), new Promise(() => {})],
+      [func, [], {}, 1, 'a', ...baseTypes]
+    ],
+    isIterable: [
+      [[1, 2, 3], 'abc', new Set(), new Map(), new Uint8Array(8)],
+      [1, true, null, undefined, func, mapObj]
     ]
-
   }
 
   Object.entries(typesMap).forEach(([name, item]) => {
