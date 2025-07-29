@@ -20,16 +20,46 @@ export function assignIn(target: any, ...sources: any[]): any {
   for (const source of sources) {
     if (!isObject(source)) continue
 
-    for (const key in source) {
-      if (Object.prototype.hasOwnProperty.call(source, key)) {
-        const sourceValue = (source as any)[key]
-        const targetValue = (target as any)[key]
+    // 处理字符串键和 Symbol 键
+    const allKeys = [
+      ...Object.keys(source),
+      ...Object.getOwnPropertySymbols(source)
+    ]
 
-        if (isObject(sourceValue) && isObject(targetValue) && !isArray(sourceValue) && !isArray(targetValue)) {
-          ;(target as any)[key] = assignIn(targetValue, sourceValue)
-        } else {
-          ;(target as any)[key] = sourceValue
-        }
+    for (const key of allKeys) {
+      const descriptor = Object.getOwnPropertyDescriptor(source, key)
+      if (!descriptor || !descriptor.enumerable) continue
+
+      const sourceValue = descriptor.value
+      const targetValue = (target as any)[key]
+
+      // 对于函数和对象，保持引用
+      if (typeof sourceValue === 'function' || sourceValue instanceof Date) {
+        Object.defineProperty(target, key, {
+          value: sourceValue,
+          writable: descriptor.writable,
+          enumerable: descriptor.enumerable,
+          configurable: descriptor.configurable
+        })
+        continue
+      }
+
+      // 对于 getter/setter，保持原样
+      if (descriptor.get || descriptor.set) {
+        Object.defineProperty(target, key, descriptor)
+        continue
+      }
+
+      // 对于对象，进行深度合并
+      if (isObject(sourceValue) && isObject(targetValue) && !isArray(sourceValue) && !isArray(targetValue)) {
+        ;(target as any)[key] = assignIn(targetValue, sourceValue)
+      } else {
+        Object.defineProperty(target, key, {
+          value: sourceValue,
+          writable: descriptor.writable,
+          enumerable: descriptor.enumerable,
+          configurable: descriptor.configurable
+        })
       }
     }
   }

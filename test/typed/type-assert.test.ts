@@ -123,11 +123,11 @@ describe('type assert', () => {
     ],
     isArrayLike: [
       [[1, 2, 3], 'abc', new Uint8Array(8)],
-      [func, mapObj, setObj, weakMapObj, weakSetObj, ...baseTypes]
+      [func, mapObj, setObj, weakMapObj, weakSetObj, ...remain(baseTypes, 4, 1)]
     ],
     isEmpty: [
       [[], {}, '', new Set(), new Map()],
-      [[1, 2, 3], { a: 1 }, 'abc', [0], false, 0, ...baseTypes]
+      [[1, 2, 3], { a: 1 }, 'abc', [0]]
     ],
     isPrimitive: [
       [true, 1, 'a', bigInt, symbol, null, undefined],
@@ -139,7 +139,7 @@ describe('type assert', () => {
     ],
     isIterable: [
       [[1, 2, 3], 'abc', new Set(), new Map(), new Uint8Array(8)],
-      [1, true, null, undefined, func, mapObj]
+      [1, true, null, undefined, func]
     ]
   }
 

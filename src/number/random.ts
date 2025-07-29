@@ -32,7 +32,12 @@ export function random(lower: number = 0, upper: number = 1, floating?: boolean)
     ? floating
     : (lower % 1 !== 0 || upper % 1 !== 0)
 
-  const randomValue = Math.random() * (upper - lower) + lower
-
-  return isFloating ? randomValue : Math.floor(randomValue)
+  if (isFloating) {
+    return Math.random() * (upper - lower) + lower
+  } else {
+    // For integers, generate in [Math.ceil(lower), Math.floor(upper))
+    const lowerInt = Math.ceil(lower)
+    const upperInt = Math.floor(upper)
+    return Math.floor(Math.random() * (upperInt - lowerInt) + lowerInt)
+  }
 }

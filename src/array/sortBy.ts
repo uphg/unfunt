@@ -30,6 +30,20 @@ export function sortBy<T>(
       const aVal = getter(a)
       const bVal = getter(b)
 
+      // 处理 undefined 和 null 值，将它们排在最前面
+      if (aVal === undefined || aVal === null) {
+        if (bVal === undefined || bVal === null) {
+          // 两者都是 undefined/null，保持原顺序
+          return 0
+        }
+        // a 是 undefined/null，b 是正常值，a 应该排在前面
+        return -1
+      }
+      if (bVal === undefined || bVal === null) {
+        // b 是 undefined/null，a 是正常值，b 应该排在前面
+        return 1
+      }
+
       if (aVal < bVal) return -1
       if (aVal > bVal) return 1
     }
