@@ -1,0 +1,1 @@
+export { trim } from './trim'

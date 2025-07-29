@@ -1,4 +1,4 @@
-import { isNil } from '../typed'
+import { isNil } from '../typed/isNil'
 
 // 返回一个布尔值，表示指定的属性是否可枚举（是否可以被 for...in 循环枚举）
 const propertyIsEnumerable = Object.prototype.propertyIsEnumerable

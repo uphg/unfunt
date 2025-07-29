@@ -1,5 +1,4 @@
-import { _isFinite, _isNaN, INFINITY, MAX_INTEGER, MAX_ARRAY_LENGTH } from './internal/common'
-import { isArray } from './typed'
+import { isArray } from '../typed/isArray'
 
 export function toNumber(value: unknown): number {
   if (typeof value === 'number') return value
@@ -25,40 +24,4 @@ export function toNumber(value: unknown): number {
     return NaN
   }
   return Number(value)
-}
-
-export function toFinite(value: unknown): number {
-  if (!value) {
-    return value === 0 ? value : 0
-  }
-
-  value = toNumber(value)
-
-  if (value === INFINITY || value === -INFINITY) {
-    const sign = (value > 0 ? 1 : -1)
-    return sign * MAX_INTEGER
-  }
-
-  return (value === value ? value : 0) as number
-}
-
-export function toInteger(value: unknown) {
-  const result = toFinite(value)
-  const remainder = result % 1
-
-  return remainder ? result - remainder : result
-}
-
-export function toLength(value: unknown = 0) {
-  if (!value) {
-    return 0
-  }
-  value = toInteger(value)
-  if (value as number < 0) {
-    return 0
-  }
-  if (value as number > MAX_ARRAY_LENGTH) {
-    return MAX_ARRAY_LENGTH
-  }
-  return value as number
 }
