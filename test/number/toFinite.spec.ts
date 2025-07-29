@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { toFinite } from '../src/number'
+import { toFinite } from '../../src/number'
 
 describe('toFinite', () => {
   it('should return the same number for finite numbers', () => {

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { pickBy } from '../src/object'
+import { pickBy } from '../../src/object'
 
 describe('pickBy', () => {
   it('should select properties based on callback function', () => {

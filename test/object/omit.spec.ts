@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { omit } from '../src/object'
+import { omit } from '../../src/object'
 
 describe('omit', () => {
   it('should exclude specified keys from object', () => {

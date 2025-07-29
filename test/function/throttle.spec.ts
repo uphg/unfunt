@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest'
-import { throttle } from '../src/index'
+import { throttle } from '../../src/function'
 
 // 使用vitest的定时器
 vi.useFakeTimers()

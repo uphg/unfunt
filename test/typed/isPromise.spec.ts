@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { isPromise } from '../src/typed'
+import { isPromise } from '../../src/typed'
 
 describe('isPromise', () => {
   it('should return true for native Promise instances', () => {

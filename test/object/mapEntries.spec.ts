@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { mapEntries } from '../src/object'
+import { mapEntries } from '../../src/object'
 
 describe('mapEntries', () => {
   it('should map object key-value pairs to new object', () => {

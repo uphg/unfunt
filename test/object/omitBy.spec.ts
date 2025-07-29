@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { omitBy } from '../src/object'
+import { omitBy } from '../../src/object'
 
 describe('omitBy', () => {
   it('should exclude properties based on callback function', () => {

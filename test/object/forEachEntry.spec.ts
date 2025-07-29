@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest'
-import { forEachEntry } from '../src/object'
+import { forEachEntry } from '../../src/object'
 
 describe('forEachEntry', () => {
   it('should iterate over all object entries', () => {

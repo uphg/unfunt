@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { isEmpty } from '../src/typed'
+import { isEmpty } from '../../src/typed'
 
 describe('isEmpty', () => {
   it('should return true for null and undefined', () => {

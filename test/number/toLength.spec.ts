@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { toLength } from '../src/number'
+import { toLength } from '../../src/number'
 
 describe('toLength', () => {
   it('should return 0 for undefined or no parameter', () => {

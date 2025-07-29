@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { remain } from '../src/array'
+import { remain } from '../../src/array'
 
 describe('remain', () => {
   it('should return remaining elements after removing from start position', () => {

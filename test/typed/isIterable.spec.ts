@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { isIterable } from '../src/typed'
+import { isIterable } from '../../src/typed'
 
 describe('isIterable', () => {
   it('should return true for arrays', () => {

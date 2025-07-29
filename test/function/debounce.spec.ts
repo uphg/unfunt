@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest'
-import { debounce } from '../src/index'
+import { debounce } from '../../src/function'
 
 // 使用vitest的定时器
 vi.useFakeTimers()
