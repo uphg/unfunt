@@ -1,4 +1,4 @@
-export { remain } from './remain'
+export { unslice } from './unslice'
 export { toArray } from './toArray'
 export { flatDeep } from './flatDeep'
 export { unionBy } from './unionBy'

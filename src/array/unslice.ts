@@ -4,13 +4,13 @@ import { isLength } from '../typed/isLength'
  * 根据给定参数分割数组，返回分割后的剩下的部分
  * @example
  *
- * remain([1, 2, 3, 4, 5], 2)
+ * unslice([1, 2, 3, 4, 5], 2)
  * // => [1, 2]
  *
- * remain([1, 2, 3, 4, 5], 2, 1)
+ * unslice([1, 2, 3, 4, 5], 2, 1)
  * => [1, 2, 4, 5]
  */
-export function remain<T>(array: T[], start: number, deleteCount?: number) {
+export function unslice<T>(array: T[], start: number, deleteCount?: number) {
   if (!isLength(start)) return []
 
   deleteCount = deleteCount ?? array.length - 1
