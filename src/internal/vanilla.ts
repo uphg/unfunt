@@ -1,12 +1,12 @@
 import { isNil } from '../typed/isNil'
 
-// 返回一个布尔值，表示指定的属性是否可枚举（是否可以被 for...in 循环枚举）
+// Returns a boolean indicating whether the specified property is enumerable (can be enumerated by for...in loop)
 const propertyIsEnumerable = Object.prototype.propertyIsEnumerable
 
-// 方法返回一个给定对象自身的所有 Symbol 属性的数组。
+// Method returns an array of all Symbol properties of a given object itself
 const nativeGetSymbols = Object.getOwnPropertySymbols
 
-// 获取当前对象所有可枚举 Symbol key
+// Get all enumerable Symbol keys of current object
 export function getSymbols(object: unknown) {
   if (isNil(object)) {
     return []

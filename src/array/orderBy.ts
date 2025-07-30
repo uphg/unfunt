@@ -3,11 +3,11 @@ import { isArray } from '../typed/isArray'
 type SortOrder = 'asc' | 'desc'
 
 /**
- * 根据多个条件对数组进行排序
- * @param array 要排序的数组
- * @param iteratees 迭代器函数或属性名数组
- * @param orders 排序方向数组，'asc' 或 'desc'
- * @returns 排序后的新数组
+ * Sorts an array by multiple criteria
+ * @param array The array to sort
+ * @param iteratees Array of iterator functions or property names
+ * @param orders Array of sort directions, 'asc' or 'desc'
+ * @returns A new sorted array
  *
  * @example
  * orderBy([{ name: 'fred', age: 48 }, { name: 'barney', age: 36 }], ['name'], ['desc'])
@@ -37,17 +37,17 @@ export function orderBy<T>(
       const aVal = getter(a)
       const bVal = getter(b)
 
-      // 处理 undefined 和 null 值，将它们排在最后
+      // Handle undefined and null values, put them at the end
       if (aVal === undefined || aVal === null) {
         if (bVal === undefined || bVal === null) {
-          // 两者都是 undefined/null，保持原顺序
+          // Both are undefined/null, maintain original order
           return 0
         }
-        // a 是 undefined/null，b 是正常值，a 应该排在后面
+        // a is undefined/null, b is normal value, a should be placed after
         return order === 'desc' ? 1 : -1
       }
       if (bVal === undefined || bVal === null) {
-        // b 是 undefined/null，a 是正常值，b 应该排在后面
+        // b is undefined/null, a is normal value, b should be placed after
         return order === 'desc' ? -1 : 1
       }
 

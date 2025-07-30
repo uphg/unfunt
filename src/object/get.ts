@@ -4,11 +4,11 @@ import { toPath } from './toPath'
 type PropertyPath = string | readonly (string | number)[]
 
 /**
- * 根据路径获取对象的值
- * @param object 要查询的对象
- * @param path 属性路径
- * @param defaultValue 默认值
- * @returns 解析的值或默认值
+ * Gets the value at path of object
+ * @param object The object to query
+ * @param path The property path
+ * @param defaultValue The default value
+ * @returns The resolved value or default value
  *
  * @example
  * const object = { a: [{ b: { c: 3 } }] }

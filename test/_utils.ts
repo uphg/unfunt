@@ -1,4 +1,4 @@
-// 测试工具函数和常量
+// Test utility functions and constants
 export const symbol = Symbol('test')
 export const bigInt = BigInt(123)
 export const error = new Error('test error')

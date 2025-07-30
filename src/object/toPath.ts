@@ -1,7 +1,7 @@
 /**
- * 将字符串路径转换为路径数组
- * @param path 字符串路径
- * @returns 路径数组
+ * Converts a string path to a path array
+ * @param path The string path
+ * @returns The path array
  */
 export function toPath(path: string): (string | number)[] {
   if (typeof path !== 'string') {
@@ -10,10 +10,10 @@ export function toPath(path: string): (string | number)[] {
 
   const result: (string | number)[] = []
 
-  // 处理形如 'a.b.c' 或 'a[0].b[1].c' 的路径
+  // Handle paths like 'a.b.c' or 'a[0].b[1].c'
   path.replace(/[^.[\]]+|\[(?:([^"'][^[]*))\]/g, (match, expression) => {
     const key = expression || match
-    // 尝试转换为数字，如果是纯数字字符串
+    // Try to convert to number if it's a pure numeric string
     const numKey = Number(key)
     result.push(isNaN(numKey) ? key : numKey)
     return match

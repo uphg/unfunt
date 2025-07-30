@@ -1,9 +1,9 @@
 /**
- * 生成数字范围数组
- * @param start 起始值
- * @param end 结束值（不包含）
- * @param step 步长，默认为 1
- * @returns 数字范围数组
+ * Generates a numeric range array
+ * @param start The start value
+ * @param end The end value (exclusive)
+ * @param step The step size, defaults to 1
+ * @returns A numeric range array
  *
  * @example
  * range(4)

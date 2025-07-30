@@ -1,22 +1,22 @@
 /**
- * 生成指定范围内的随机数
- * @param lower 下界，默认为 0
- * @param upper 上界，默认为 1
- * @param floating 是否返回浮点数，默认为 false
- * @returns 随机数
+ * Generates a random number within the specified range
+ * @param lower The lower bound, defaults to 0
+ * @param upper The upper bound, defaults to 1
+ * @param floating Whether to return a floating point number, defaults to false
+ * @returns A random number
  *
  * @example
  * random(0, 5)
- * // => 0 到 5 之间的整数
+ * // => Integer between 0 and 5
  *
  * random(5)
- * // => 0 到 5 之间的整数
+ * // => Integer between 0 and 5
  *
  * random(0, 5, true)
- * // => 0 到 5 之间的浮点数
+ * // => Floating point number between 0 and 5
  *
  * random(1.2, 5.2)
- * // => 1.2 到 5.2 之间的浮点数
+ * // => Floating point number between 1.2 and 5.2
  */
 export function random(lower: number = 0, upper: number = 1, floating?: boolean): number {
   if (upper === undefined) {

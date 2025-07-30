@@ -1,7 +1,7 @@
 /**
- * 将字符串的首字母转换为大写，其余字母转换为小写
- * @param str 要转换的字符串
- * @returns 转换后的字符串
+ * Converts the first character of string to upper case and the remaining to lower case
+ * @param str The string to convert
+ * @returns The converted string
  *
  * @example
  * capitalize('FRED')

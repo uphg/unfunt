@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest'
 import { debounce } from '../../src/function'
 
-// 使用vitest的定时器
+// Use vitest fake timers
 vi.useFakeTimers()
 
 describe('debounce', () => {
@@ -18,12 +18,12 @@ describe('debounce', () => {
     const increase = () => counts += 1
     const debouncedIncrease = debounce(increase, 100)
 
-    // 快速多次调用
+    // Rapid multiple calls
     debouncedIncrease()
     debouncedIncrease()
     debouncedIncrease()
 
-    // 立即检查，应该还没有执行
+    // Check immediately, should not have executed yet
     expect(counts).toBe(0)
   })
 
@@ -40,18 +40,18 @@ describe('debounce', () => {
     expect(counts).toBe(0)
   })
 
-  it('immediate 为 true 时立即调用', () => {
+  it('immediate call when immediate is true', () => {
     let counts = 0
     const fn = vi.fn(() => counts += 1)
     const debouncedFn = debounce(fn, 64, true)
 
-    // immediate = true 时第一次调用应该立即执行
+    // First call should execute immediately when immediate = true
     expect(debouncedFn()).toBe(1)
     expect(debouncedFn()).toBe(1)
     expect(fn.mock.calls.length).toBe(1)
   })
 
-  it('使用 immediate 立即调用时可清除', () => {
+  it('can clear when using immediate call', () => {
     let counts = 0
     const fn = vi.fn(() => counts += 1)
     const debouncedFn = debounce(fn, 64, true)
@@ -62,7 +62,7 @@ describe('debounce', () => {
     expect(fn.mock.calls.length).toBe(2)
   })
 
-  it('立即调用 + 递归调用', () => {
+  it('immediate call + recursive call', () => {
     let counts = 0
     const fn = vi.fn(() => {
       counts += 1
@@ -74,7 +74,7 @@ describe('debounce', () => {
     expect(counts).toBe(1)
   })
 
-  it('防抖后可以自调用', async() => {
+  it('debounced function can be called with context', async() => {
     let values: any[] = []
     const fn = vi.fn(function(...args) {
       values = values.concat([this, ...args])

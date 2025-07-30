@@ -4,11 +4,11 @@ import { toPath } from './toPath'
 type PropertyPath = string | readonly (string | number)[]
 
 /**
- * 设置对象路径上的值
- * @param object 要修改的对象
- * @param path 属性路径
- * @param value 要设置的值
- * @returns 原对象
+ * Sets the value at path of object
+ * @param object The object to modify
+ * @param path The property path
+ * @param value The value to set
+ * @returns The original object
  *
  * @example
  * const object = { a: [{ b: { c: 3 } }] }
@@ -38,14 +38,14 @@ export function set<T extends Record<string, any>>(
     const nextKey = pathArray[i + 1]
 
     if (!isObject(current[key])) {
-      // 根据下一个key的类型决定创建对象还是数组
+      // Decide whether to create object or array based on next key type
       current[key] = typeof nextKey === 'number' || /^\d+$/.test(String(nextKey)) ? [] : {}
     }
 
     current = current[key]
   }
 
-  // 设置最终值
+  // Set the final value
   const lastKey = pathArray[pathArray.length - 1]
   current[lastKey] = value
 

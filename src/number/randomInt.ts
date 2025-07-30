@@ -1,15 +1,15 @@
 /**
- * 生成指定范围内的随机整数
- * @param lower 下界，默认为 0
- * @param upper 上界，默认为 1
- * @returns 随机整数
+ * Generates a random integer within the specified range
+ * @param lower The lower bound, defaults to 0
+ * @param upper The upper bound, defaults to 1
+ * @returns A random integer
  *
  * @example
  * randomInt(0, 5)
- * // => 0 到 5 之间的整数
+ * // => Integer between 0 and 5
  *
  * randomInt(5)
- * // => 0 到 5 之间的整数
+ * // => Integer between 0 and 5
  */
 export function randomInt(lower: number = 0, upper: number = 1): number {
   if (upper === undefined) {

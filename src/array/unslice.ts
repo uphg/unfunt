@@ -1,7 +1,7 @@
 import { isLength } from '../typed/isLength'
 
 /**
- * 根据给定参数分割数组，返回分割后的剩下的部分
+ * Splits an array based on given parameters and returns the remaining parts after splitting
  * @example
  *
  * unslice([1, 2, 3, 4, 5], 2)
