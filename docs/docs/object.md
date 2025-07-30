@@ -145,3 +145,34 @@ forEachEntry({ a: 1, b: 2 }, ([key, value]) => {
 ### Returns
 
 *(Object)*: Returns `object`
+
+## `forOwn(object, iteratee)`
+
+Iterates over own enumerable string keyed properties of an object and invokes `iteratee` for each property. The iteratee is invoked with three arguments: (value, key, object). Iteratee functions may exit iteration early by explicitly returning `false`.
+
+### Usage
+
+```ts
+import { forOwn } from 'unfunt'
+
+forOwn({ a: 1, b: 2 }, (value, key) => {
+  console.log(key, value)
+})
+// => Logs 'a 1' then 'b 2'
+
+// Exit early by returning false
+forOwn({ a: 1, b: 2, c: 3 }, (value, key) => {
+  console.log(key, value)
+  if (key === 'b') return false
+})
+// => Logs 'a 1' then 'b 2'
+```
+
+### Arguments
+
+1. `object` *(Object)*: The object to iterate over
+2. `iteratee` *(Function)*: The function invoked per iteration. Receives `(value, key, object)` as arguments
+
+### Returns
+
+*(Object)*: Returns `object`

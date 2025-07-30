@@ -154,3 +154,34 @@ forEachEntry(obj, (key, value) => {
 ### Returns
 
 *(void)*: 无返回值
+
+## `forOwn(object, iteratee)`
+
+遍历对象自有的可枚举属性，为每个属性调用迭代函数。迭代函数接收三个参数：(value, key, object)。当迭代函数显式返回 `false` 时可以提前退出遍历。
+
+### Usage
+
+```ts
+import { forOwn } from 'unfunt'
+
+forOwn({ a: 1, b: 2 }, (value, key) => {
+  console.log(key, value)
+})
+// => 输出 'a 1' 然后 'b 2'
+
+// 通过返回 false 提前退出
+forOwn({ a: 1, b: 2, c: 3 }, (value, key) => {
+  console.log(key, value)
+  if (key === 'b') return false
+})
+// => 输出 'a 1' 然后 'b 2'
+```
+
+### Arguments
+
+1. `object` *(Object)*: 要遍历的对象
+2. `iteratee` *(Function)*: 每次迭代调用的函数，接收 `(value, key, object)` 作为参数
+
+### Returns
+
+*(Object)*: 返回 `object`
