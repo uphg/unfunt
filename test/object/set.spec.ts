@@ -35,10 +35,7 @@ describe('set', () => {
   it('should create missing intermediate arrays', () => {
     const object = {}
     set(object, 'a[0][1].b', 'nested')
-    const expected = { a: [] as any[] }
-    expected.a[0] = []
-    expected.a[0][1] = { b: 'nested' }
-    expect(object).toEqual(expected)
+    expect(object).toEqual({ a: [, [, { b: 'nested' }]] })
   })
 
   it('should handle mixed object and array paths', () => {

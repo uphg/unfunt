@@ -104,6 +104,7 @@ export default [
     files: ['**/*.spec.ts', '**/*.test.ts', '**/test/**/*.ts'],
     rules: {
       '@stylistic/max-statements-per-line': 'off',
+      'no-sparse-arrays': 'off',
       'camelcase': 'off'
     }
   },
