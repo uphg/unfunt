@@ -1,10 +1,10 @@
 import { isArray } from '../typed/isArray'
 
 /**
- * 根据迭代器函数合并多个数组并去重
- * @param arrays 要合并的数组
- * @param iteratee 用于生成唯一标识的函数
- * @returns 合并去重后的数组
+ * Merge multiple arrays and remove duplicates based on iteratee function
+ * @param arrays Arrays to merge
+ * @param iteratee Function to generate unique identifier
+ * @returns Deduplicated merged array
  *
  * @example
  * unionBy([2.1], [1.2, 2.3], Math.floor)

@@ -1,9 +1,9 @@
 import { isArray } from '../typed/isArray'
 
 /**
- * 创建一个去重后的数组副本，使用 SameValueZero 进行等值比较
- * @param array 要去重的数组
- * @returns 去重后的新数组
+ * Create a deduplicated array copy using SameValueZero for equality comparison
+ * @param array Array to deduplicate
+ * @returns Deduplicated new array
  *
  * @example
  * uniq([2, 1, 2])

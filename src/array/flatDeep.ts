@@ -1,10 +1,10 @@
 import { isArray } from '../typed/isArray'
 
 /**
- * 递归地将数组扁平化到指定深度
- * @param array 要扁平化的数组
- * @param depth 扁平化深度，默认为 Infinity
- * @returns 扁平化后的数组
+ * Recursively flattens array to specified depth
+ * @param array The array to flatten
+ * @param depth The maximum recursion depth, defaults to Infinity
+ * @returns The flattened array
  *
  * @example
  * flatDeep([1, [2, [3, [4]], 5]])

@@ -21,7 +21,7 @@ function debounce<T extends (...args: any[]) => any>(
         result = func.apply(context, args)
       }
 
-      // 避免 func 函数递归调用 `debounced`。
+      // Avoid recursive calls to `debounced` function.
       if (!timerId) {
         args = null as any
         context = undefined
@@ -32,7 +32,7 @@ function debounce<T extends (...args: any[]) => any>(
   const debounced = function(this: ThisParameterType<T>, ..._args: Parameters<T>): ReturnType<T> | undefined {
     context = this
     args = _args
-    previous = Date.now() // 函数执行时的时间
+    previous = Date.now() // Time when function was executed
 
     if (!timerId) {
       timerId = setTimeout(later, wait)

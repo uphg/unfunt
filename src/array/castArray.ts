@@ -1,9 +1,9 @@
 import { isArray } from '../typed/isArray'
 
 /**
- * 将值转换为数组，如果不是数组则包装在数组中
- * @param value 要转换的值
- * @returns 数组
+ * Converts value to an array, wrapping it in an array if it's not already one
+ * @param value The value to convert
+ * @returns Array
  *
  * @example
  * castArray(1)

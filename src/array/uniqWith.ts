@@ -1,10 +1,10 @@
 import { isArray } from '../typed/isArray'
 
 /**
- * 根据比较函数创建一个去重后的数组副本
- * @param array 要去重的数组
- * @param comparator 比较函数，返回 true 表示两个元素相等
- * @returns 去重后的新数组
+ * Create a deduplicated array copy based on comparison function
+ * @param array Array to deduplicate
+ * @param comparator Comparison function, returns true if two elements are equal
+ * @returns Deduplicated new array
  *
  * @example
  * uniqWith([{ x: 1, y: 2 }, { x: 2, y: 1 }, { x: 1, y: 2 }], (a, b) => a.x === b.x && a.y === b.y)

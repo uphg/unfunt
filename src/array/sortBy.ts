@@ -1,10 +1,10 @@
 import { isArray } from '../typed/isArray'
 
 /**
- * 根据迭代器函数对数组进行排序
- * @param array 要排序的数组
- * @param iteratees 迭代器函数或属性名
- * @returns 排序后的新数组
+ * Sort array based on iteratee functions
+ * @param array Array to sort
+ * @param iteratees Iteratee functions or property names
+ * @returns Sorted new array
  *
  * @example
  * sortBy([{ name: 'fred', age: 48 }, { name: 'barney', age: 36 }], 'age')
@@ -30,17 +30,17 @@ export function sortBy<T>(
       const aVal = getter(a)
       const bVal = getter(b)
 
-      // 处理 undefined 和 null 值，将它们排在最前面
+      // Handle undefined and null values, place them at the beginning
       if (aVal === undefined || aVal === null) {
         if (bVal === undefined || bVal === null) {
-          // 两者都是 undefined/null，保持原顺序
+          // Both are undefined/null, maintain original order
           return 0
         }
-        // a 是 undefined/null，b 是正常值，a 应该排在前面
+        // a is undefined/null, b is normal value, a should come first
         return -1
       }
       if (bVal === undefined || bVal === null) {
-        // b 是 undefined/null，a 是正常值，b 应该排在前面
+        // b is undefined/null, a is normal value, b should come first
         return 1
       }
 
