@@ -175,4 +175,4 @@ Contributions are welcome! Please read our contributing guidelines and submit a 
 
 ---
 
-**Unfunt** - *Utility functions that just work* ⚡
+**unfunt** - *Utility functions that just work* ⚡
