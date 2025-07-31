@@ -6,6 +6,24 @@ import { isArrayLike } from './isArrayLike'
 import { isMap } from './isMap'
 import { isSet } from './isSet'
 
+/**
+ * Checks if a value is empty. Works with arrays, strings, objects, maps, sets, and other collections.
+ * @param value The value to check
+ * @returns True if the value is empty, false otherwise
+ *
+ * @example
+ * isEmpty([])
+ * // => true
+ *
+ * isEmpty('')
+ * // => true
+ *
+ * isEmpty({})
+ * // => true
+ *
+ * isEmpty([1, 2, 3])
+ * // => false
+ */
 export function isEmpty<T extends unknown>(value: T) {
   if (isNil(value) || isBoolean(value)) return true
 

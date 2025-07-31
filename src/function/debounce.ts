@@ -1,3 +1,15 @@
+/**
+ * Creates a debounced function that delays invoking the provided function until after the specified wait time has elapsed since the last time the debounced function was invoked.
+ * @param func The function to debounce
+ * @param wait The number of milliseconds to delay
+ * @param immediate Whether to invoke the function on the leading edge of the wait timeout
+ * @returns A new debounced function with a cancel method
+ *
+ * @example
+ * const debouncedFn = debounce(() => console.log('Hello'), 1000)
+ * debouncedFn() // Will log 'Hello' after 1 second of no calls
+ * debouncedFn.cancel() // Cancels the pending invocation
+ */
 function debounce<T extends (...args: any[]) => any>(
   func: T,
   wait: number,

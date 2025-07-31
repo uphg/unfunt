@@ -1,5 +1,23 @@
 import { isArray } from '../typed/isArray'
 
+/**
+ * Converts a value to a number. Handles various input types including strings, booleans, arrays, and objects.
+ * @param value The value to convert to a number
+ * @returns The converted number or NaN if conversion is not possible
+ *
+ * @example
+ * toNumber('123')
+ * // => 123
+ *
+ * toNumber(true)
+ * // => 1
+ *
+ * toNumber([42])
+ * // => 42
+ *
+ * toNumber('hello')
+ * // => NaN
+ */
 export function toNumber(value: unknown): number {
   if (typeof value === 'number') return value
   if (typeof value === 'string') {

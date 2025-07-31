@@ -48,7 +48,7 @@ const num = toNumber('42') // 42
 ## API Categories
 
 ### [Array Methods](./docs/api/array.md)
-- `remain` - Split array and return remaining parts
+- `unslice` - Split array and return remaining parts
 - `toArray` - Convert value to array
 
 ### ⚡ [Function Methods](./docs/api/function.md)  
@@ -115,7 +115,7 @@ if (isObject(data) && !isEmpty(data)) {
 
 ### Array and Type Utilities
 ```ts
-import { toArray, remain, isArray, toNumber } from 'unfunt'
+import { toArray, unslice, isArray, toNumber } from 'unfunt'
 
 // Convert various types to arrays
 toArray('hello')     // ['h', 'e', 'l', 'l', 'o']
@@ -124,7 +124,7 @@ toArray([1, 2, 3])   // [1, 2, 3]
 toArray(null)        // []
 
 // Split arrays intelligently
-remain([1, 2, 3, 4, 5], 2, 1)  // [1, 2, 4, 5]
+unslice([1, 2, 3, 4, 5], 2, 1)  // [1, 2, 4, 5]
 
 // Safe type conversion
 toNumber('42')       // 42

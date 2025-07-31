@@ -8,6 +8,19 @@ interface ThrottledFunction<T extends (...args: any[]) => any> {
   cancel(): void
 }
 
+/**
+ * Creates a throttled function that only invokes the provided function at most once per specified wait period.
+ * @param func The function to throttle
+ * @param wait The number of milliseconds to throttle invocations to
+ * @param options Options object with leading and trailing flags
+ * @returns A new throttled function with a cancel method
+ *
+ * @example
+ * const throttledFn = throttle(() => console.log('Hello'), 1000)
+ * throttledFn() // Logs 'Hello' immediately
+ * throttledFn() // Will not log until 1 second has passed
+ * throttledFn.cancel() // Cancels the pending invocation
+ */
 function throttle<T extends (...args: any[]) => any>(
   func: T,
   wait: number,
