@@ -22,25 +22,27 @@ type PropertyPath = string | readonly (string | number)[]
  * get(object, 'a.b.c', 'default')
  * // => 'default'
  */
+export function get<T>(object: any, path: PropertyPath, defaultValue: T): T
+export function get<T = any>(object: any, path: PropertyPath): T | undefined
 export function get<T = any>(
   object: any,
   path: PropertyPath,
   defaultValue?: T
-): T {
+): T | undefined {
   if (!isObject(object) || path == null) {
-    return defaultValue as T
+    return defaultValue
   }
 
   const pathArray = Array.isArray(path) ? path : toPath(path as string)
-  let result = object
+  let result: any = object
 
   for (let i = 0; i < pathArray.length; i++) {
     const key = pathArray[i]
     if (result == null || !isObject(result)) {
-      return defaultValue as T
+      return defaultValue
     }
-    result = result[key as keyof typeof result]
+    result = (result as Record<string | number, any>)[key]
   }
 
-  return result === undefined ? (defaultValue as T) : result
+  return result === undefined ? defaultValue : result
 }
