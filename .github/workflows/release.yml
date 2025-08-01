@@ -45,7 +45,7 @@ jobs:
 
       - name: Create GitHub release
         id: release_tag
-        uses: yyx990803/release-tag@master
+        uses: uphg/release-tag@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
