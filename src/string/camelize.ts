@@ -1,3 +1,7 @@
+import { cacheStringFunction } from '../internal'
+
+const camelizeRE = /-\w/g
+
 /**
  * Converts a hyphenated string to camelCase.
  * Uses caching for better performance with repeated calls.
@@ -12,6 +16,8 @@
  * camelize('foo-bar-baz')
  * // => 'fooBarBaz'
  */
-export function camelize(str: string) {
-  return str.replace(/-\w/g, c => c.slice(1).toUpperCase())
-}
+export const camelize: (str: string) => string = cacheStringFunction(
+  (str: string): string => {
+    return str.replace(camelizeRE, c => c.slice(1).toUpperCase())
+  }
+)
