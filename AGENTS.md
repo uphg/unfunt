@@ -33,4 +33,3 @@ A modern collection of utility functions for TypeScript/JavaScript projects (Vit
 ## Committing
 
 - ALWAYS use semantic commits (fix:, feat:, chore:, refactor:, docs:).
-- Do not generate Claude signatures or Crush signatures in the commit message
