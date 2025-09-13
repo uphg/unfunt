@@ -1,5 +1,3 @@
-import { cacheStringFunction } from '../internal/cacheStringFunction'
-
 /**
  * Converts a camelCase string to hyphenated (kebab-case).
  * Uses caching for better performance with repeated calls.
@@ -14,6 +12,6 @@ import { cacheStringFunction } from '../internal/cacheStringFunction'
  * hyphenate('fooBarBaz')
  * // => 'foo-bar-baz'
  */
-export const hyphenate: (str: string) => string = cacheStringFunction(
-  (str: string) => str.replace(/\B([A-Z])/g, '-$1').toLowerCase()
-)
+export function hyphenate(str: string) {
+  return str.replace(/\B([A-Z])/g, '-$1').toLowerCase()
+}
