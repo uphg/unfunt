@@ -39,10 +39,6 @@ describe('type assert', () => {
       [0, 1],
       [...unslice(baseTypes, 1, 3), ...objTypes]
     ],
-    isNaN: [
-      [NaN],
-      [...unslice(baseTypes, 3, 1), ...objTypes]
-    ],
     isString: [
       ['', 'hi'],
       [...unslice(baseTypes, 4, 1), ...objTypes]
@@ -59,17 +55,9 @@ describe('type assert', () => {
       [null, undefined],
       [...unslice(baseTypes, 7, 2), ...objTypes]
     ],
-    isFinite: [
-      [1, 0],
-      [...unslice(baseTypes, 1, 1), ...objTypes]
-    ],
     isObject: [
       objTypes,
       baseTypes
-    ],
-    isArray: [
-      [objTypes[1]],
-      [...unslice(objTypes, 1, 1), ...baseTypes]
     ],
     isFunction: [
       [
@@ -108,10 +96,6 @@ describe('type assert', () => {
     isObjectLike: [
       [{ a: 1 }, [1, 2, 3]],
       [...baseTypes, func]
-    ],
-    isInteger: [
-      [1, 1000, 0, -1],
-      [...unslice(baseTypes, 1, 1), 1.1, 3.1415926, ...objTypes]
     ],
     isLength: [
       [1, 0],

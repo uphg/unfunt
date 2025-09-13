@@ -6,19 +6,6 @@ These are utility methods for type checking.
 
 ### Basic Type Checks
 
-#### `isArray(value)`
-Checks if `value` is classified as an Array object.
-
-```ts
-import { isArray } from 'unfunt'
-
-isArray([1, 2, 3])
-// => true
-
-isArray('abc')
-// => false
-```
-
 #### `isString(value)`
 Checks if `value` is classified as a String primitive or object.
 
@@ -216,7 +203,6 @@ isError({ message: 'error' })
 
 All available type checking functions:
 
-- `isArray`
 - `isString` 
 - `isNumber`
 - `isBoolean`
@@ -231,7 +217,12 @@ All available type checking functions:
 - `isError`
 - `isSymbol`
 - `isBigInt`
-- `isUndefined`
-- `isNull`
+- `isArrayLike`
+- `isSet`
+- `isMap`
+- `isLength`
+- `isObjectLike`
+- `isPrimitive`
+- `isIterable`
 
 Each function returns a boolean value indicating whether the value matches the expected type.

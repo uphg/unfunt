@@ -1,4 +1,4 @@
-import { isTag } from '../internal/vanilla'
+import { isTypeString } from '../internal/isTypeString'
 import { isObjectLike } from './isObjectLike'
 
 const getProto = Object.getPrototypeOf
@@ -22,7 +22,7 @@ const getProto = Object.getPrototypeOf
  * // => false
  */
 export function isPlainObject<T extends object>(value: unknown): value is T {
-  if (!isObjectLike(value) || !isTag(value, 'Object')) {
+  if (!isObjectLike(value) || !isTypeString(value, 'Object')) {
     return false
   }
   if (getProto(value) === null) {

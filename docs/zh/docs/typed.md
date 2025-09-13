@@ -2,30 +2,6 @@
 
 这些是类型检查的实用方法。
 
-## `isArray(value)`
-
-检查值是否为数组
-
-### Usage
-
-```ts
-import { isArray } from 'unfunt'
-
-isArray([1, 2, 3])
-// => true
-
-isArray('hello')
-// => false
-```
-
-### Arguments
-
-1. `value` *(unknown)*: 要检查的值
-
-### Returns
-
-*(boolean)*: 如果值是数组返回 true，否则返回 false
-
 ## `isArrayLike(value)`
 
 检查值是否为类数组对象
@@ -188,33 +164,6 @@ isFunction('hello')
 
 *(boolean)*: 如果值是函数返回 true，否则返回 false
 
-## `isInteger(value)`
-
-检查值是否为整数
-
-### Usage
-
-```ts
-import { isInteger } from 'unfunt'
-
-isInteger(42)
-// => true
-
-isInteger(3.14)
-// => false
-
-isInteger('42')
-// => false
-```
-
-### Arguments
-
-1. `value` *(unknown)*: 要检查的值
-
-### Returns
-
-*(boolean)*: 如果值是整数返回 true，否则返回 false
-
 ## `isSet(value)`
 
 检查值是否为 Set 对象
@@ -290,33 +239,6 @@ isError('error message')
 
 *(boolean)*: 如果值是错误对象返回 true，否则返回 false
 
-## `isFinite(value)`
-
-检查值是否为有限数字
-
-### Usage
-
-```ts
-import { isFinite } from 'unfunt'
-
-isFinite(42)
-// => true
-
-isFinite(Infinity)
-// => false
-
-isFinite(NaN)
-// => false
-```
-
-### Arguments
-
-1. `value` *(unknown)*: 要检查的值
-
-### Returns
-
-*(boolean)*: 如果值是有限数字返回 true，否则返回 false
-
 ## `isLength(value)`
 
 检查值是否为有效的类数组长度
@@ -346,33 +268,6 @@ isLength(3.2)
 ### Returns
 
 *(boolean)*: 如果值是有效长度返回 true，否则返回 false
-
-## `isNaN(value)`
-
-检查值是否为 NaN
-
-### Usage
-
-```ts
-import { isNaN } from 'unfunt'
-
-isNaN(NaN)
-// => true
-
-isNaN(Number.NaN)
-// => true
-
-isNaN(42)
-// => false
-```
-
-### Arguments
-
-1. `value` *(unknown)*: 要检查的值
-
-### Returns
-
-*(boolean)*: 如果值是 NaN 返回 true，否则返回 false
 
 ## `isNil(value)`
 

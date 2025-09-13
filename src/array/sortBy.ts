@@ -1,5 +1,3 @@
-import { isArray } from '../typed/isArray'
-
 /**
  * Sort array based on iteratee functions
  * @param array Array to sort
@@ -17,7 +15,7 @@ export function sortBy<T>(
   array: T[],
   ...iteratees: (((item: T) => any) | keyof T)[]
 ): T[] {
-  if (!isArray(array) || array.length === 0) return []
+  if (!Array.isArray(array) || array.length === 0) return []
 
   const getters = iteratees.map(iteratee =>
     typeof iteratee === 'function'

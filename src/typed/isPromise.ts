@@ -1,4 +1,5 @@
 import { isFunction } from './isFunction'
+import { isObject } from './isObject'
 
 /**
  * Checks if a value is a Promise (or Promise-like object).
@@ -16,5 +17,9 @@ import { isFunction } from './isFunction'
  * // => false
  */
 export function isPromise<T>(obj: any): obj is Promise<T> {
-  return !!obj && isFunction(obj?.then)
+  return (
+    (isObject(obj) || isFunction(obj))
+    && isFunction((obj as any).then)
+    && isFunction((obj as any).catch)
+  )
 }

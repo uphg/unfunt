@@ -32,3 +32,5 @@ docs/.vitepress/cache
 .claude
 CLAUDE.*
 .github-demo
+
+CRUSH.md

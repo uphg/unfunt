@@ -1,3 +1,5 @@
+import { hasOwn } from './hasOwn'
+
 /**
  * Iterates over own enumerable string keyed properties of an object and invokes
  * `iteratee` for each property. The iteratee is invoked with three arguments:
@@ -22,7 +24,7 @@ export function forOwn<T extends Record<string, any>>(
   }
 
   for (const key in object) {
-    if (Object.prototype.hasOwnProperty.call(object, key)) {
+    if (hasOwn(object, key)) {
       const result = iteratee(object[key], key as keyof T, object)
       if (result === false) {
         break

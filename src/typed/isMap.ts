@@ -1,4 +1,4 @@
-import { isTag } from '../internal/vanilla'
+import { isTypeString } from '../internal/isTypeString'
 
 /**
  * Checks if a value is a Map.
@@ -13,5 +13,5 @@ import { isTag } from '../internal/vanilla'
  * // => false
  */
 export function isMap(value: unknown) {
-  return isTag(value, 'Map')
+  return isTypeString(value, 'Map')
 }

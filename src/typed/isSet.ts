@@ -1,4 +1,4 @@
-import { isTag } from '../internal/vanilla'
+import { isTypeString } from '../internal/isTypeString'
 
 /**
  * Checks if a value is a Set.
@@ -13,5 +13,5 @@ import { isTag } from '../internal/vanilla'
  * // => false
  */
 export function isSet(value: unknown) {
-  return isTag(value, 'Set')
+  return isTypeString(value, 'Set')
 }

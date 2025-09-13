@@ -1,5 +1,3 @@
-import { isArray } from '../typed/isArray'
-
 /**
  * Converts value to an array, wrapping it in an array if it's not already one
  * @param value The value to convert
@@ -19,5 +17,5 @@ import { isArray } from '../typed/isArray'
  * // => [1, 2, 3]
  */
 export function castArray<T>(value: T): T extends readonly unknown[] ? T : T[] {
-  return (isArray(value) ? value : [value]) as T extends readonly unknown[] ? T : T[]
+  return (Array.isArray(value) ? value : [value]) as T extends readonly unknown[] ? T : T[]
 }

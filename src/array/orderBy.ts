@@ -1,5 +1,3 @@
-import { isArray } from '../typed/isArray'
-
 type SortOrder = 'asc' | 'desc'
 
 /**
@@ -21,7 +19,7 @@ export function orderBy<T>(
   iteratees: (((item: T) => any) | keyof T)[],
   orders: SortOrder[] = []
 ): T[] {
-  if (!isArray(array) || array.length === 0) return []
+  if (!Array.isArray(array) || array.length === 0) return []
 
   const getters = iteratees.map(iteratee =>
     typeof iteratee === 'function'

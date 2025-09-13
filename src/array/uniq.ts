@@ -1,5 +1,3 @@
-import { isArray } from '../typed/isArray'
-
 /**
  * Create a deduplicated array copy using SameValueZero for equality comparison
  * @param array Array to deduplicate
@@ -13,7 +11,7 @@ import { isArray } from '../typed/isArray'
  * // => [1, 2, 3]
  */
 export function uniq<T>(array: T[]): T[] {
-  if (!isArray(array)) return []
+  if (!Array.isArray(array)) return []
 
   const seen = new Set<T>()
   const result: T[] = []

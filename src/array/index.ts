@@ -1,6 +1,5 @@
 export { unslice } from './unslice'
 export { toArray } from './toArray'
-export { flatDeep } from './flatDeep'
 export { unionBy } from './unionBy'
 export { range } from './range'
 export { sortBy } from './sortBy'

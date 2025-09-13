@@ -1,4 +1,4 @@
-import { isTag } from '../internal/vanilla'
+import { isTypeString } from '../internal/isTypeString'
 import { isPlainObject } from './isPlainObject'
 
 interface ErrorLike { message: string, name: string }
@@ -19,8 +19,8 @@ interface ErrorLike { message: string, name: string }
  * // => false
  */
 export function isError(value: any): value is Error | DOMException | ErrorLike {
-  return isTag(value, 'Error')
-    || isTag(value, 'DOMException')
+  return isTypeString(value, 'Error')
+    || isTypeString(value, 'DOMException')
     || (
       typeof value?.message === 'string'
       && typeof value?.name === 'string'

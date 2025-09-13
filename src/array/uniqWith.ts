@@ -1,5 +1,3 @@
-import { isArray } from '../typed/isArray'
-
 /**
  * Create a deduplicated array copy based on comparison function
  * @param array Array to deduplicate
@@ -14,7 +12,7 @@ export function uniqWith<T>(
   array: T[],
   comparator: (a: T, b: T) => boolean
 ): T[] {
-  if (!isArray(array)) return []
+  if (!Array.isArray(array)) return []
 
   const result: T[] = []
 

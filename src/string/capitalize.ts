@@ -1,5 +1,8 @@
+import { cacheStringFunction } from '../internal/cacheStringFunction'
+
 /**
- * Converts the first character of string to upper case and the remaining to lower case
+ * Converts first character of string to upper case and the rest to lower case.
+ * Uses caching for better performance with repeated calls.
  * @param str The string to convert
  * @returns The converted string
  *
@@ -10,8 +13,8 @@
  * capitalize('fRED')
  * // => 'Fred'
  */
-export function capitalize(str: string): string {
-  if (!str) return ''
-
-  return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase()
-}
+export const capitalize: <T extends string>(str: T) => string
+  = cacheStringFunction(<T extends string>(str: T) => {
+    if (!str) return ''
+    return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase()
+  })

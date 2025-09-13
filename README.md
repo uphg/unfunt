@@ -28,7 +28,7 @@ pnpm add unfunt
 
 ```ts
 // Import specific functions (recommended for tree shaking)
-import { debounce, isArray, toNumber } from 'unfunt'
+import { debounce, isArray } from 'unfunt'
 
 // Or import everything
 import * as unfunt from 'unfunt'
@@ -41,8 +41,6 @@ const debouncedHandler = debounce(() => {
 if (isArray(data)) {
   console.log('data is an array')
 }
-
-const num = toNumber('42') // 42
 ```
 
 ## API Categories
@@ -56,9 +54,7 @@ const num = toNumber('42') // 42
 - `throttle` - Create throttled function
 
 ### [Number Methods](./docs/api/number.md)
-- `toNumber` - Convert value to number
 - `toFinite` - Convert value to finite number
-- `toInteger` - Convert value to integer
 - `toLength` - Convert value to valid array length
 
 ### [Object Methods](./docs/api/object.md)

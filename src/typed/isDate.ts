@@ -1,4 +1,4 @@
-import { isTag } from '../internal/vanilla'
+import { isTypeString } from '../internal/isTypeString'
 
 /**
  * Checks if a value is a Date object.
@@ -13,5 +13,5 @@ import { isTag } from '../internal/vanilla'
  * // => false
  */
 export function isDate(value: unknown): value is Date {
-  return isTag(value, 'Date')
+  return isTypeString(value, 'Date')
 }

@@ -1,5 +1,3 @@
-import { isArray } from '../typed/isArray'
-
 /**
  * Merge multiple arrays and remove duplicates based on iteratee function
  * @param arrays Arrays to merge
@@ -29,7 +27,7 @@ export function unionBy<T>(
     : (item: T) => item[iteratee as keyof T]
 
   for (const array of arrays) {
-    if (!isArray(array)) continue
+    if (!Array.isArray(array)) continue
 
     for (const item of array) {
       const key = getKey(item)

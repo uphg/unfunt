@@ -1,6 +1,5 @@
 import { isNil } from './isNil'
 import { isBoolean } from './isBoolean'
-import { isArray } from './isArray'
 import { isString } from './isString'
 import { isArrayLike } from './isArrayLike'
 import { isMap } from './isMap'
@@ -28,7 +27,7 @@ export function isEmpty<T extends unknown>(value: T) {
   if (isNil(value) || isBoolean(value)) return true
 
   if (
-    isArray(value)
+    Array.isArray(value)
     || isString(value)
     || (
       isArrayLike(value)

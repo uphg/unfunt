@@ -1,4 +1,4 @@
-import { isTag } from '../internal/vanilla'
+import { isTypeString } from '../internal/isTypeString'
 
 /**
  * Checks if a value is a regular expression.
@@ -13,5 +13,5 @@ import { isTag } from '../internal/vanilla'
  * // => false
  */
 export function isRegExp(value: unknown): value is RegExp {
-  return isTag(value, 'RegExp')
+  return isTypeString(value, 'RegExp')
 }

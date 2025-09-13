@@ -1,4 +1,5 @@
-export { trim } from './trim'
 export { capitalize } from './capitalize'
 export { lowerFirst } from './lowerFirst'
 export { upperFirst } from './upperFirst'
+export { camelize } from './camelize'
+export { hyphenate } from './hyphenate'
