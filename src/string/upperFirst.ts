@@ -1,3 +1,5 @@
+import { cacheStringFunction } from '../internal/cacheStringFunction'
+
 /**
  * Converts the first character of string to upper case
  * @param str The string to convert
@@ -10,8 +12,8 @@
  * upperFirst('FRED')
  * // => 'FRED'
  */
-export function upperFirst(str: string): string {
+export const upperFirst = cacheStringFunction((str: string): string => {
   if (!str) return ''
 
   return str.charAt(0).toUpperCase() + str.slice(1)
-}
+})
