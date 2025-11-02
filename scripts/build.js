@@ -35,20 +35,25 @@ async function run(argv) {
     console.log(pc.dim('Building bundles...'))
 
     // 并行执行所有 rollup 构建
-    const [cjsResult, esmResult, umdResult] = await Promise.all([
-      execaQuiet('rollup', ['-c', 'rollup.config.ts', '--environment', 'CJS', '--configPlugin', '@rollup/plugin-typescript']),
-      execaQuiet('rollup', ['-c', 'rollup.config.ts', '--environment', 'ESM', '--configPlugin', '@rollup/plugin-typescript']),
-      execaQuiet('rollup', ['-c', 'rollup.config.ts', '--configPlugin', '@rollup/plugin-typescript'])
-    ])
-
+    // const [cjsResult, esmResult, umdResult] = await Promise.all([
+    //   execaQuiet('rollup', ['-c', 'rollup.config.ts', '--environment', 'CJS', '--configPlugin', '@rollup/plugin-typescript']),
+    //   execaQuiet('rollup', ['-c', 'rollup.config.ts', '--environment', 'ESM', '--configPlugin', '@rollup/plugin-typescript']),
+    //   execaQuiet('rollup', ['-c', 'rollup.config.ts', '--configPlugin', '@rollup/plugin-typescript'])
+    // ])
+    const esmResult = await execaQuiet('tsdown')
+    // const umdResult = await execaQuiet('tsdown', ['--env.BUILD_ENV=umd'])
+    const umdResult = await execaQuiet('BUILD_ENV=umd tsdown', { shell: true })
     // 显示构建结果
     console.log(pc.dim('Build Results:'))
 
     // 统一处理构建结果
     handleBuildResult(tscResult, BUILD_TYPES.TSC.name, BUILD_TYPES.TSC.type)
-    handleBuildResult(cjsResult, BUILD_TYPES.CJS.name, BUILD_TYPES.CJS.type)
     handleBuildResult(esmResult, BUILD_TYPES.ESM.name, BUILD_TYPES.ESM.type)
     handleBuildResult(umdResult, BUILD_TYPES.UMD.name, BUILD_TYPES.UMD.type)
+
+    // handleBuildResult(cjsResult, BUILD_TYPES.CJS.name, BUILD_TYPES.CJS.type)
+    // handleBuildResult(esmResult, BUILD_TYPES.ESM.name, BUILD_TYPES.ESM.type)
+    // handleBuildResult(umdResult, BUILD_TYPES.UMD.name, BUILD_TYPES.UMD.type)
 
     const strPackage = JSON.stringify(packageJson, null, 2)
     await fs.writeFile(resolve('./package.json'), strPackage)

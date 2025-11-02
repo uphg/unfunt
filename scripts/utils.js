@@ -6,6 +6,7 @@ import { spawn } from 'node:child_process'
 // 构建类型常量
 export const BUILD_TYPES = {
   TSC: { name: 'TypeScript', type: 'compiled' },
+  TSDOWN: { name: 'TSDown', type: 'bundle built' },
   CJS: { name: 'CJS', type: 'bundle built' },
   ESM: { name: 'ESM', type: 'bundle built' },
   UMD: { name: 'UMD', type: 'bundle built' }
