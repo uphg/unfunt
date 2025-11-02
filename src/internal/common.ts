@@ -10,5 +10,4 @@ export const INFINITY = 1 / 0
 
 export const hasOwnProperty = Object.prototype.hasOwnProperty
 export const nativeGetSymbols = Object.getOwnPropertySymbols
-
 export const ObjectToString = Object.prototype.toString

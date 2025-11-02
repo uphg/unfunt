@@ -1,4 +1,4 @@
-import { cacheStringFunction } from '../internal'
+import { cacheStringFunction } from './cacheStringFunction'
 
 const hyphenateRE = /\B([A-Z])/g
 

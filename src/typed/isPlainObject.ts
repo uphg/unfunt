@@ -1,4 +1,4 @@
-import { isTypeString } from '../internal/isTypeString'
+import { isTypeString } from './isTypeString'
 import { isObjectLike } from './isObjectLike'
 
 const getProto = Object.getPrototypeOf

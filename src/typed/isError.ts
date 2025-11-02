@@ -1,4 +1,4 @@
-import { isTypeString } from '../internal/isTypeString'
+import { isTypeString } from './isTypeString'
 import { isPlainObject } from './isPlainObject'
 
 interface ErrorLike { message: string, name: string }

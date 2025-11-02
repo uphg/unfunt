@@ -1,4 +1,4 @@
-import { isTypeString } from '../internal/isTypeString'
+import { isTypeString } from './isTypeString'
 
 /**
  * Checks if a value is a Set.

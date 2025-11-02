@@ -1,4 +1,4 @@
-import { cacheStringFunction } from '../internal/cacheStringFunction'
+import { cacheStringFunction } from './cacheStringFunction'
 
 /**
  * Converts the first character of string to upper case

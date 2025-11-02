@@ -1,5 +1,3 @@
-export { cacheStringFunction } from './cacheStringFunction'
-export { getGlobalThis } from './getGlobalThis'
 export * from './common'
 export * from './interfaces'
 export * from './vanilla'
