@@ -5,9 +5,9 @@ import { fileURLToPath } from 'url'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
-export function getPackageEntries() {
+export function getPackageEntries(keySuffix = false) {
   const srcDir = join(__dirname, '..', 'src')
-  const entries = { ['index']: 'src/index.ts' }
+  const entries = { }
 
   const modules = readdirSync(srcDir, { withFileTypes: true })
     .filter(dirent => dirent.isDirectory())
@@ -25,8 +25,8 @@ export function getPackageEntries() {
           const match = exportLine.match(/export.*from\s+['"]\.\/([^'"]+)['"]/)
           if (match && match[1]) {
             const functionName = match[1]
-            entries[`${functionName}/index`] = `src/${module}/${functionName}.ts`
-            // entries[functionName] = `src/${module}/${functionName}.ts`
+            const key = keySuffix ? `${functionName}/index` : functionName
+            entries[key] = `src/${module}/${functionName}.ts`
           }
         }
       }

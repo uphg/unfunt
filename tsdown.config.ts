@@ -2,14 +2,12 @@ import { defineConfig } from 'tsdown'
 import { getPackageEntries } from './scripts/get-package-entries.js'
 
 const { BUILD_ENV } = process.env || {}
-console.log('BUILD_ENV:', BUILD_ENV)
 
-// tsdown --env.BUILD_ENV=esm
+const esmEntries = Object.assign({ ['index']: 'src/index.ts' }, getPackageEntries(true))
 
 const configs = {
-  // 生产环境配置
   esm: {
-    entry: getPackageEntries(),
+    entry: esmEntries,
     format: ['esm'],
     dts: true,
     outDir: './dist',
@@ -19,7 +17,6 @@ const configs = {
       preserveModules: true
     }
   },
-  // 其他环境配置
   umd: {
     entry: ['./src/index.ts'],
     format: ['umd'],

@@ -41,8 +41,8 @@ async function run(argv) {
     //   execaQuiet('rollup', ['-c', 'rollup.config.ts', '--configPlugin', '@rollup/plugin-typescript'])
     // ])
     const esmResult = await execaQuiet('tsdown')
-    // const umdResult = await execaQuiet('tsdown', ['--env.BUILD_ENV=umd'])
     const umdResult = await execaQuiet('BUILD_ENV=umd tsdown', { shell: true })
+
     // 显示构建结果
     console.log(pc.dim('Build Results:'))
 
