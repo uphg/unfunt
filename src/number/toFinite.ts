@@ -1,4 +1,5 @@
 import { INFINITY, MAX_INTEGER } from '../internal/common'
+import { toNumber } from './toNumber'
 
 /**
  * Converts a value to a finite number. Converts Infinity and -Infinity to the maximum safe integer value.
@@ -20,7 +21,7 @@ export function toFinite(value: unknown): number {
     return value === 0 ? value : 0
   }
 
-  value = Number(value)
+  value = toNumber(value)
 
   if (value === INFINITY || value === -INFINITY) {
     const sign = (value > 0 ? 1 : -1)

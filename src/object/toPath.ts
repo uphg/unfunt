@@ -1,3 +1,5 @@
+import { toNumber } from '../number'
+
 /**
  * Converts a string path to a path array
  * @param path The string path
@@ -14,7 +16,7 @@ export function toPath(path: string): (string | number)[] {
   path.replace(/[^.[\]]+|\[(?:([^"'][^[]*))\]/g, (match, expression) => {
     const key = expression || match
     // Try to convert to number if it's a pure numeric string
-    const numKey = Number(key)
+    const numKey = toNumber(key)
     result.push(isNaN(numKey) ? key : numKey)
     return match
   })
