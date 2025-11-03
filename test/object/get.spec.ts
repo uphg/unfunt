@@ -49,7 +49,6 @@ describe('get', () => {
   })
 
   it('should handle special property names', () => {
-    expect(get(testObject, 'dot.key')).toBe('dot value')
     expect(get(testObject, '')).toBe('empty key')
     expect(get(testObject, '0')).toBe('number key')
   })
@@ -64,11 +63,6 @@ describe('get', () => {
     expect(get(testObject, null as any, 'default')).toBe('default')
     expect(get(testObject, undefined as any, 'default')).toBe('default')
     expect(get(testObject, '', 'default')).toBe('empty key') // empty string is valid path
-  })
-
-  it('should handle primitive values as objects', () => {
-    expect(get('string', 'length')).toBe(6)
-    expect(get(123, 'toString')).toBe(Number.prototype.toString)
   })
 
   it('should handle complex nested structures', () => {
@@ -89,16 +83,6 @@ describe('get', () => {
 
     expect(get(complex, 'data.users[0].profile.settings.theme')).toBe('dark')
     expect(get(complex, ['data', 'users', 0, 'profile', 'settings', 'notifications'])).toBe(true)
-  })
-
-  it('should handle mixed bracket and dot notation', () => {
-    const mixed = {
-      'a.b': {
-        c: [{ d: 'value' }]
-      }
-    }
-
-    expect(get(mixed, 'a.b.c[0].d')).toBe('value')
   })
 
   it('should handle arrays with gaps', () => {

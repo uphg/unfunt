@@ -30,6 +30,11 @@ export function set<T extends Record<string, any>>(
     return object
   }
 
+  if (path === '') {
+    (object as T)[''] = value
+    return object
+  }
+
   const pathArray = Array.isArray(path) ? [...path] : toPath(path as string)
   let current: any = object
 

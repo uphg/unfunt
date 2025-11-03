@@ -1,3 +1,4 @@
+const reStringKey = /^[+-]?(\d*\.\d+|\d+\.\d*|\d+)$/
 /**
  * 判断是否为对象数字 key（包含浮点数）
  * @param key 要判断的 key
@@ -17,7 +18,7 @@ export function isNumericKey(key: any): boolean {
   }
 
   if (typeof key === 'string') {
-    return /^[+-]?(\d*\.\d+|\d+\.\d*|\d+)$/.test(key)
+    return reStringKey.test(key)
   }
 
   return false

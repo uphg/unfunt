@@ -1,3 +1,4 @@
+import { isNil } from '../typed'
 import { isObject } from '../typed/isObject'
 import { toPath } from './toPath'
 
@@ -29,16 +30,21 @@ export function get<T = any>(
   path: PropertyPath,
   defaultValue?: T
 ): T | undefined {
-  if (!isObject(object) || path == null) {
+  if (!isObject(object) || isNil(path)) {
     return defaultValue
   }
 
+  if (path === '') {
+    return (object as T)[''] ?? defaultValue
+  }
+
   const pathArray = Array.isArray(path) ? path : toPath(path as string)
+
   let result: any = object
 
   for (let i = 0; i < pathArray.length; i++) {
     const key = pathArray[i]
-    if (result == null || !isObject(result)) {
+    if (isNil(result) || !isObject(result)) {
       return defaultValue
     }
     result = (result as Record<string | number, any>)[key]
