@@ -1,4 +1,5 @@
-import { toNumber } from '../number'
+import { toKey, copyArray, stringToPath } from '../internal'
+import { isSymbol } from '../typed'
 
 /**
  * Converts a string path to a path array
@@ -6,20 +7,9 @@ import { toNumber } from '../number'
  * @returns The path array
  */
 export function toPath(path: string): (string | number)[] {
-  if (typeof path !== 'string') {
-    return []
+  if (Array.isArray(path)) {
+    return path.map(toKey) as (string | number)[]
   }
 
-  const result: (string | number)[] = []
-
-  // Handle paths like 'a.b.c' or 'a[0].b[1].c'
-  path.replace(/[^.[\]]+|\[(?:([^"'][^[]*))\]/g, (match, expression) => {
-    const key = expression || match
-    // Try to convert to number if it's a pure numeric string
-    const numKey = toNumber(key)
-    result.push(isNaN(numKey) ? key : numKey)
-    return match
-  })
-
-  return result
+  return isSymbol(path) ? [path] : copyArray(stringToPath(String(path)))
 }
