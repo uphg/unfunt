@@ -1,3 +1,5 @@
+import { MapQueue } from '../structure'
+
 interface MemoizeOptions {
   maxSize?: number
   resolver?: (...args: any[]) => any
@@ -11,8 +13,7 @@ export function memoize<T extends (...args: any[]) => any>(
   options: MemoizeOptions = {}
 ): T {
   const { maxSize, resolver } = options
-  const cache = new Map<any, ReturnType<T>>()
-  const keys: any[] = []
+  const cache = new MapQueue<any, ReturnType<T>>()
 
   const memoized = function(this: ThisParameterType<T>, ...args: Parameters<T>): ReturnType<T> {
     const key = resolver ? resolver.apply(this, args) : JSON.stringify(args)
@@ -25,9 +26,8 @@ export function memoize<T extends (...args: any[]) => any>(
     cache.set(key, result)
 
     if (maxSize) {
-      keys.push(key)
       // 如果设置了缓存大小限制且超过限制，移除最旧的缓存项
-      keys.length > maxSize && cache.delete(keys.shift()!)
+      cache.size > maxSize && cache.removeFirst()
     }
 
     return result
