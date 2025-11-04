@@ -1,5 +1,5 @@
 import { defineConfig } from 'tsdown'
-import { getPackageEntries } from './scripts/get-package-entries.js'
+import { getPackageEntries } from './scripts/helpers/get-package-entries'
 
 const { BUILD_ENV } = process.env || {}
 

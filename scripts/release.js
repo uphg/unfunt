@@ -8,11 +8,13 @@ import { createRequire } from 'node:module'
 import { fileURLToPath } from 'node:url'
 import { exec } from './utils.js'
 import { parseArgs } from 'node:util'
-import { publishPackages } from './publish-packages.js'
 
 const { prompt } = enquirer
 const currentVersion = createRequire(import.meta.url)('../package.json').version
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
+
+const pkgPath = path.resolve(__dirname, '../package.json')
+const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'))
 
 const { values: args, positionals } = parseArgs({
   allowPositionals: true,
@@ -192,7 +194,30 @@ async function main() {
 
     // 发布 npm-packages 中的分包
     step('\n发布分包...')
-    await publishPackages(targetVersion)
+    const npmPackagesDir = path.resolve(__dirname, '../../npm-packages')
+    if (!fs.existsSync(npmPackagesDir)) {
+      console.log(pico.yellow('npm-packages 目录不存在，跳过分包发布'))
+      return
+    }
+
+    const packageDirs = fs.readdirSync(npmPackagesDir, { withFileTypes: true })
+      .filter(dirent => dirent.isDirectory())
+      .map(dirent => dirent.name)
+
+    for (const packageDir of packageDirs) {
+      const packagePath = path.join(npmPackagesDir, packageDir)
+      const pkgPath = path.join(packagePath, 'package.json')
+
+      if (!fs.existsSync(pkgPath)) {
+        console.log(pico.yellow(`跳过 ${packageDir}：缺少 package.json`))
+        continue
+      }
+
+      // 发布分包
+      step(`发布 ${pkg.name}@${targetVersion}...`)
+      await run('pnpm', ['publish', '--access', 'public'], { cwd: packagePath })
+      console.log(pico.green(`成功发布 ${pkg.name}@${targetVersion}`))
+    }
   } else {
     console.log('跳过（干运行）')
   }
@@ -203,8 +228,6 @@ async function main() {
 }
 
 function updateVersion(version) {
-  const pkgPath = path.resolve(__dirname, '../package.json')
-  const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'))
   pkg.version = version
   fs.writeFileSync(pkgPath, `${JSON.stringify(pkg, null, 2)}\n`)
 }

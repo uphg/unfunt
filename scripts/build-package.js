@@ -3,8 +3,8 @@ import fs from 'fs-extra'
 import { fileURLToPath } from 'url'
 import pc from 'picocolors'
 import { execaQuiet, handleBuildResult, BUILD_TYPES } from './utils.js'
-import { createPackages } from './create-packages.js'
-import { getPackageEntries } from './get-package-entries.js'
+import { createPackages } from './helpers/create-packages.js'
+import { getPackageEntries } from './helpers/get-package-entries.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)

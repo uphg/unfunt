@@ -1,12 +1,13 @@
 import { getPackageEntries } from './get-package-entries.js'
 import { mkdirSync, writeFileSync, readFileSync } from 'fs'
-import { join, dirname } from 'path'
+import { join, dirname, resolve } from 'path'
 import { fileURLToPath } from 'url'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
+const rootDir = resolve(__dirname, '../..')
 
-const npmPackagesDir = join(__dirname, '..', 'npm-packages')
+const npmPackagesDir = join(rootDir, 'npm-packages')
 
 export async function createPackages() {
   const entries = getPackageEntries()
@@ -49,7 +50,7 @@ export default defineConfig({
 
 export async function createMetaDocs(functionName, { functionDir }) {
   // Read main package.json to get version
-  const mainPackagePath = join(__dirname, '..', 'package.json')
+  const mainPackagePath = join(rootDir, 'package.json')
   const mainPackage = JSON.parse(readFileSync(mainPackagePath, 'utf-8'))
   const version = mainPackage.version
 
@@ -83,7 +84,7 @@ export async function createMetaDocs(functionName, { functionDir }) {
   )
 
   // Copy LICENSE file
-  const licensePath = join(__dirname, '..', 'LICENSE')
+  const licensePath = join(rootDir, 'LICENSE')
   const licenseContent = readFileSync(licensePath, 'utf-8')
   writeFileSync(join(functionDir, 'LICENSE'), licenseContent)
 
