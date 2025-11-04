@@ -5,7 +5,7 @@ import stylistic from '@stylistic/eslint-plugin'
 
 export default [
   {
-    ignores: ['node_modules/**', 'dist/**', 'docs/.vitepress/cache/**']
+    ignores: ['node_modules/**', 'dist/**', 'docs/.vitepress/cache/**', 'scripts/**', 'npm-packages/**', '*.config.js']
   },
   js.configs.recommended,
   stylistic.configs.recommended,

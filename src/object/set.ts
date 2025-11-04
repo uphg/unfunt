@@ -31,7 +31,7 @@ export function set<T extends Record<string, any>>(
   }
 
   if (path === '') {
-    (object as T)[''] = value
+    (object as Record<string, any>)[''] = value
     return object
   }
 

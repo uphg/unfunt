@@ -1,3 +1,304 @@
+# [0.2.0-alpha.1](https://github.com/uphg/unfunt/compare/v0.1.0-alpha.1...v0.2.0-alpha.1) (2025-11-04)
+
+
+### Bug Fixes
+
+* disable no-sparse-arrays rule in ESLint config and simplify test expectation for creating intermediate arrays ([5396cb6](https://github.com/uphg/unfunt/commit/5396cb67427f57dfa3276ee66d32c72748af9f66))
+* improve multiple utility functions and remove get method ([847722c](https://github.com/uphg/unfunt/commit/847722c56dfed3dd51f0e0f9a5f742209774e79a))
+* **object:** improve get/set functions and path handling ([402735d](https://github.com/uphg/unfunt/commit/402735df76fe2eb8cd0e3601e8e27eca375f2e15))
+* update import paths in test files ([1726857](https://github.com/uphg/unfunt/commit/1726857840e38d4fb94acac62b387b052e042683))
+
+
+### Code Refactoring
+
+* rename remain method to unslice for better semantic clarity ([6da366b](https://github.com/uphg/unfunt/commit/6da366b655eb6398b00e00a50352bc2ce239a1d5))
+
+
+### Features
+
+* add forOwn utility for iterating over own enumerable properties ([ff4e3e6](https://github.com/uphg/unfunt/commit/ff4e3e6bd146858cee536223eb119ba2f89e7044))
+* add GitHub Actions CI/CD workflows ([78260d7](https://github.com/uphg/unfunt/commit/78260d75052182d4b5747edad7d47511c13425e5))
+* add object get and set utilities with comprehensive path support ([fdfdfbf](https://github.com/uphg/unfunt/commit/fdfdfbf6431c44a4923c9c0577b43724b6ffa237))
+* **array:** add remove utility function ([efc43f9](https://github.com/uphg/unfunt/commit/efc43f95ca761d9f9aa64713520349816042c013))
+* **build:** add build-packages script and update package.json ([ccce047](https://github.com/uphg/unfunt/commit/ccce047d136b66240c3a525d18cd69e67188a8e0))
+* **build:** add support for building individual npm packages ([afe091a](https://github.com/uphg/unfunt/commit/afe091a6a17da7ac2faf49fce4e0641e9c9c77f6))
+* **function:** add memoize utility and improve path handling ([65648d0](https://github.com/uphg/unfunt/commit/65648d015cc5e7f4c8276fd8888e4d84bd236d65))
+* **function:** enhance memoize with MapQueue and add structure module ([e3cb37c](https://github.com/uphg/unfunt/commit/e3cb37c28c1b7fb0bbbc44fa6a14fa3a3338c40a))
+* implement 16 new utility methods across all modules ([f583c71](https://github.com/uphg/unfunt/commit/f583c71d7638c02e07fac839e45170d791800b23))
+* improve vitest config with better test display and organization ([c1e6cc7](https://github.com/uphg/unfunt/commit/c1e6cc7a47b4d7eed16a4a600154a9feae3793d0))
+* logo ([5ec36f2](https://github.com/uphg/unfunt/commit/5ec36f24acf293de851dc91dac922b1bf9030480))
+* **number:** add toNumber utility and improve number conversion ([f1ef641](https://github.com/uphg/unfunt/commit/f1ef641a5b622a692ba24d3321bc9a6c8ecffab6))
+* **object:** add clone and cloneDeep utility functions ([fff62b0](https://github.com/uphg/unfunt/commit/fff62b0cfc0370f32e0566645102742d66a8d9cc))
+* **object:** improve get function type definitions with overloads ([527907c](https://github.com/uphg/unfunt/commit/527907cd904266f42aaf8b3ec71dbb0171fc6e86))
+* **release:** add npm-packages publishing support to release script ([65bb915](https://github.com/uphg/unfunt/commit/65bb91565b74787b0aac6e9661e9596503601253))
+* **typed:** add makeMap utility function ([2153828](https://github.com/uphg/unfunt/commit/21538280ab7e61618f03d298ab8655ee94b6ae9b))
+
+
+### BREAKING CHANGES
+
+* remain() method has been renamed to unslice()
+* Removed get() function from object exports
+
+
+
+# [0.2.0-alpha.1](https://github.com/uphg/unfunt/compare/v0.1.0-alpha.1...v0.2.0-alpha.1) (2025-11-04)
+
+
+### Bug Fixes
+
+* disable no-sparse-arrays rule in ESLint config and simplify test expectation for creating intermediate arrays ([5396cb6](https://github.com/uphg/unfunt/commit/5396cb67427f57dfa3276ee66d32c72748af9f66))
+* improve multiple utility functions and remove get method ([847722c](https://github.com/uphg/unfunt/commit/847722c56dfed3dd51f0e0f9a5f742209774e79a))
+* **object:** improve get/set functions and path handling ([402735d](https://github.com/uphg/unfunt/commit/402735df76fe2eb8cd0e3601e8e27eca375f2e15))
+* update import paths in test files ([1726857](https://github.com/uphg/unfunt/commit/1726857840e38d4fb94acac62b387b052e042683))
+
+
+### Code Refactoring
+
+* rename remain method to unslice for better semantic clarity ([6da366b](https://github.com/uphg/unfunt/commit/6da366b655eb6398b00e00a50352bc2ce239a1d5))
+
+
+### Features
+
+* add forOwn utility for iterating over own enumerable properties ([ff4e3e6](https://github.com/uphg/unfunt/commit/ff4e3e6bd146858cee536223eb119ba2f89e7044))
+* add GitHub Actions CI/CD workflows ([78260d7](https://github.com/uphg/unfunt/commit/78260d75052182d4b5747edad7d47511c13425e5))
+* add object get and set utilities with comprehensive path support ([fdfdfbf](https://github.com/uphg/unfunt/commit/fdfdfbf6431c44a4923c9c0577b43724b6ffa237))
+* **array:** add remove utility function ([efc43f9](https://github.com/uphg/unfunt/commit/efc43f95ca761d9f9aa64713520349816042c013))
+* **build:** add build-packages script and update package.json ([ccce047](https://github.com/uphg/unfunt/commit/ccce047d136b66240c3a525d18cd69e67188a8e0))
+* **build:** add support for building individual npm packages ([afe091a](https://github.com/uphg/unfunt/commit/afe091a6a17da7ac2faf49fce4e0641e9c9c77f6))
+* **function:** add memoize utility and improve path handling ([65648d0](https://github.com/uphg/unfunt/commit/65648d015cc5e7f4c8276fd8888e4d84bd236d65))
+* **function:** enhance memoize with MapQueue and add structure module ([e3cb37c](https://github.com/uphg/unfunt/commit/e3cb37c28c1b7fb0bbbc44fa6a14fa3a3338c40a))
+* implement 16 new utility methods across all modules ([f583c71](https://github.com/uphg/unfunt/commit/f583c71d7638c02e07fac839e45170d791800b23))
+* improve vitest config with better test display and organization ([c1e6cc7](https://github.com/uphg/unfunt/commit/c1e6cc7a47b4d7eed16a4a600154a9feae3793d0))
+* logo ([5ec36f2](https://github.com/uphg/unfunt/commit/5ec36f24acf293de851dc91dac922b1bf9030480))
+* **number:** add toNumber utility and improve number conversion ([f1ef641](https://github.com/uphg/unfunt/commit/f1ef641a5b622a692ba24d3321bc9a6c8ecffab6))
+* **object:** add clone and cloneDeep utility functions ([fff62b0](https://github.com/uphg/unfunt/commit/fff62b0cfc0370f32e0566645102742d66a8d9cc))
+* **object:** improve get function type definitions with overloads ([527907c](https://github.com/uphg/unfunt/commit/527907cd904266f42aaf8b3ec71dbb0171fc6e86))
+* **release:** add npm-packages publishing support to release script ([65bb915](https://github.com/uphg/unfunt/commit/65bb91565b74787b0aac6e9661e9596503601253))
+* **typed:** add makeMap utility function ([2153828](https://github.com/uphg/unfunt/commit/21538280ab7e61618f03d298ab8655ee94b6ae9b))
+
+
+### BREAKING CHANGES
+
+* remain() method has been renamed to unslice()
+* Removed get() function from object exports
+
+
+
+# [0.2.0-alpha.1](https://github.com/uphg/unfunt/compare/v0.1.0-alpha.1...v0.2.0-alpha.1) (2025-11-04)
+
+
+### Bug Fixes
+
+* disable no-sparse-arrays rule in ESLint config and simplify test expectation for creating intermediate arrays ([5396cb6](https://github.com/uphg/unfunt/commit/5396cb67427f57dfa3276ee66d32c72748af9f66))
+* improve multiple utility functions and remove get method ([847722c](https://github.com/uphg/unfunt/commit/847722c56dfed3dd51f0e0f9a5f742209774e79a))
+* **object:** improve get/set functions and path handling ([402735d](https://github.com/uphg/unfunt/commit/402735df76fe2eb8cd0e3601e8e27eca375f2e15))
+* update import paths in test files ([1726857](https://github.com/uphg/unfunt/commit/1726857840e38d4fb94acac62b387b052e042683))
+
+
+### Code Refactoring
+
+* rename remain method to unslice for better semantic clarity ([6da366b](https://github.com/uphg/unfunt/commit/6da366b655eb6398b00e00a50352bc2ce239a1d5))
+
+
+### Features
+
+* add forOwn utility for iterating over own enumerable properties ([ff4e3e6](https://github.com/uphg/unfunt/commit/ff4e3e6bd146858cee536223eb119ba2f89e7044))
+* add GitHub Actions CI/CD workflows ([78260d7](https://github.com/uphg/unfunt/commit/78260d75052182d4b5747edad7d47511c13425e5))
+* add object get and set utilities with comprehensive path support ([fdfdfbf](https://github.com/uphg/unfunt/commit/fdfdfbf6431c44a4923c9c0577b43724b6ffa237))
+* **array:** add remove utility function ([efc43f9](https://github.com/uphg/unfunt/commit/efc43f95ca761d9f9aa64713520349816042c013))
+* **build:** add build-packages script and update package.json ([ccce047](https://github.com/uphg/unfunt/commit/ccce047d136b66240c3a525d18cd69e67188a8e0))
+* **build:** add support for building individual npm packages ([afe091a](https://github.com/uphg/unfunt/commit/afe091a6a17da7ac2faf49fce4e0641e9c9c77f6))
+* **function:** add memoize utility and improve path handling ([65648d0](https://github.com/uphg/unfunt/commit/65648d015cc5e7f4c8276fd8888e4d84bd236d65))
+* **function:** enhance memoize with MapQueue and add structure module ([e3cb37c](https://github.com/uphg/unfunt/commit/e3cb37c28c1b7fb0bbbc44fa6a14fa3a3338c40a))
+* implement 16 new utility methods across all modules ([f583c71](https://github.com/uphg/unfunt/commit/f583c71d7638c02e07fac839e45170d791800b23))
+* improve vitest config with better test display and organization ([c1e6cc7](https://github.com/uphg/unfunt/commit/c1e6cc7a47b4d7eed16a4a600154a9feae3793d0))
+* logo ([5ec36f2](https://github.com/uphg/unfunt/commit/5ec36f24acf293de851dc91dac922b1bf9030480))
+* **number:** add toNumber utility and improve number conversion ([f1ef641](https://github.com/uphg/unfunt/commit/f1ef641a5b622a692ba24d3321bc9a6c8ecffab6))
+* **object:** add clone and cloneDeep utility functions ([fff62b0](https://github.com/uphg/unfunt/commit/fff62b0cfc0370f32e0566645102742d66a8d9cc))
+* **object:** improve get function type definitions with overloads ([527907c](https://github.com/uphg/unfunt/commit/527907cd904266f42aaf8b3ec71dbb0171fc6e86))
+* **release:** add npm-packages publishing support to release script ([65bb915](https://github.com/uphg/unfunt/commit/65bb91565b74787b0aac6e9661e9596503601253))
+* **typed:** add makeMap utility function ([2153828](https://github.com/uphg/unfunt/commit/21538280ab7e61618f03d298ab8655ee94b6ae9b))
+
+
+### BREAKING CHANGES
+
+* remain() method has been renamed to unslice()
+* Removed get() function from object exports
+
+
+
+# [0.2.0-alpha.1](https://github.com/uphg/unfunt/compare/v0.1.0-alpha.1...v0.2.0-alpha.1) (2025-11-04)
+
+
+### Bug Fixes
+
+* disable no-sparse-arrays rule in ESLint config and simplify test expectation for creating intermediate arrays ([5396cb6](https://github.com/uphg/unfunt/commit/5396cb67427f57dfa3276ee66d32c72748af9f66))
+* improve multiple utility functions and remove get method ([847722c](https://github.com/uphg/unfunt/commit/847722c56dfed3dd51f0e0f9a5f742209774e79a))
+* **object:** improve get/set functions and path handling ([402735d](https://github.com/uphg/unfunt/commit/402735df76fe2eb8cd0e3601e8e27eca375f2e15))
+* update import paths in test files ([1726857](https://github.com/uphg/unfunt/commit/1726857840e38d4fb94acac62b387b052e042683))
+
+
+### Code Refactoring
+
+* rename remain method to unslice for better semantic clarity ([6da366b](https://github.com/uphg/unfunt/commit/6da366b655eb6398b00e00a50352bc2ce239a1d5))
+
+
+### Features
+
+* add forOwn utility for iterating over own enumerable properties ([ff4e3e6](https://github.com/uphg/unfunt/commit/ff4e3e6bd146858cee536223eb119ba2f89e7044))
+* add GitHub Actions CI/CD workflows ([78260d7](https://github.com/uphg/unfunt/commit/78260d75052182d4b5747edad7d47511c13425e5))
+* add object get and set utilities with comprehensive path support ([fdfdfbf](https://github.com/uphg/unfunt/commit/fdfdfbf6431c44a4923c9c0577b43724b6ffa237))
+* **array:** add remove utility function ([efc43f9](https://github.com/uphg/unfunt/commit/efc43f95ca761d9f9aa64713520349816042c013))
+* **build:** add build-packages script and update package.json ([ccce047](https://github.com/uphg/unfunt/commit/ccce047d136b66240c3a525d18cd69e67188a8e0))
+* **build:** add support for building individual npm packages ([afe091a](https://github.com/uphg/unfunt/commit/afe091a6a17da7ac2faf49fce4e0641e9c9c77f6))
+* **function:** add memoize utility and improve path handling ([65648d0](https://github.com/uphg/unfunt/commit/65648d015cc5e7f4c8276fd8888e4d84bd236d65))
+* **function:** enhance memoize with MapQueue and add structure module ([e3cb37c](https://github.com/uphg/unfunt/commit/e3cb37c28c1b7fb0bbbc44fa6a14fa3a3338c40a))
+* implement 16 new utility methods across all modules ([f583c71](https://github.com/uphg/unfunt/commit/f583c71d7638c02e07fac839e45170d791800b23))
+* improve vitest config with better test display and organization ([c1e6cc7](https://github.com/uphg/unfunt/commit/c1e6cc7a47b4d7eed16a4a600154a9feae3793d0))
+* logo ([5ec36f2](https://github.com/uphg/unfunt/commit/5ec36f24acf293de851dc91dac922b1bf9030480))
+* **number:** add toNumber utility and improve number conversion ([f1ef641](https://github.com/uphg/unfunt/commit/f1ef641a5b622a692ba24d3321bc9a6c8ecffab6))
+* **object:** add clone and cloneDeep utility functions ([fff62b0](https://github.com/uphg/unfunt/commit/fff62b0cfc0370f32e0566645102742d66a8d9cc))
+* **object:** improve get function type definitions with overloads ([527907c](https://github.com/uphg/unfunt/commit/527907cd904266f42aaf8b3ec71dbb0171fc6e86))
+* **release:** add npm-packages publishing support to release script ([65bb915](https://github.com/uphg/unfunt/commit/65bb91565b74787b0aac6e9661e9596503601253))
+* **typed:** add makeMap utility function ([2153828](https://github.com/uphg/unfunt/commit/21538280ab7e61618f03d298ab8655ee94b6ae9b))
+
+
+### BREAKING CHANGES
+
+* remain() method has been renamed to unslice()
+* Removed get() function from object exports
+
+
+
+# [0.2.0-alpha.1](https://github.com/uphg/unfunt/compare/v0.1.0-alpha.1...v0.2.0-alpha.1) (2025-11-04)
+
+
+### Bug Fixes
+
+* disable no-sparse-arrays rule in ESLint config and simplify test expectation for creating intermediate arrays ([5396cb6](https://github.com/uphg/unfunt/commit/5396cb67427f57dfa3276ee66d32c72748af9f66))
+* improve multiple utility functions and remove get method ([847722c](https://github.com/uphg/unfunt/commit/847722c56dfed3dd51f0e0f9a5f742209774e79a))
+* **object:** improve get/set functions and path handling ([402735d](https://github.com/uphg/unfunt/commit/402735df76fe2eb8cd0e3601e8e27eca375f2e15))
+* update import paths in test files ([1726857](https://github.com/uphg/unfunt/commit/1726857840e38d4fb94acac62b387b052e042683))
+
+
+### Code Refactoring
+
+* rename remain method to unslice for better semantic clarity ([6da366b](https://github.com/uphg/unfunt/commit/6da366b655eb6398b00e00a50352bc2ce239a1d5))
+
+
+### Features
+
+* add forOwn utility for iterating over own enumerable properties ([ff4e3e6](https://github.com/uphg/unfunt/commit/ff4e3e6bd146858cee536223eb119ba2f89e7044))
+* add GitHub Actions CI/CD workflows ([78260d7](https://github.com/uphg/unfunt/commit/78260d75052182d4b5747edad7d47511c13425e5))
+* add object get and set utilities with comprehensive path support ([fdfdfbf](https://github.com/uphg/unfunt/commit/fdfdfbf6431c44a4923c9c0577b43724b6ffa237))
+* **array:** add remove utility function ([efc43f9](https://github.com/uphg/unfunt/commit/efc43f95ca761d9f9aa64713520349816042c013))
+* **build:** add build-packages script and update package.json ([ccce047](https://github.com/uphg/unfunt/commit/ccce047d136b66240c3a525d18cd69e67188a8e0))
+* **build:** add support for building individual npm packages ([afe091a](https://github.com/uphg/unfunt/commit/afe091a6a17da7ac2faf49fce4e0641e9c9c77f6))
+* **function:** add memoize utility and improve path handling ([65648d0](https://github.com/uphg/unfunt/commit/65648d015cc5e7f4c8276fd8888e4d84bd236d65))
+* **function:** enhance memoize with MapQueue and add structure module ([e3cb37c](https://github.com/uphg/unfunt/commit/e3cb37c28c1b7fb0bbbc44fa6a14fa3a3338c40a))
+* implement 16 new utility methods across all modules ([f583c71](https://github.com/uphg/unfunt/commit/f583c71d7638c02e07fac839e45170d791800b23))
+* improve vitest config with better test display and organization ([c1e6cc7](https://github.com/uphg/unfunt/commit/c1e6cc7a47b4d7eed16a4a600154a9feae3793d0))
+* logo ([5ec36f2](https://github.com/uphg/unfunt/commit/5ec36f24acf293de851dc91dac922b1bf9030480))
+* **number:** add toNumber utility and improve number conversion ([f1ef641](https://github.com/uphg/unfunt/commit/f1ef641a5b622a692ba24d3321bc9a6c8ecffab6))
+* **object:** add clone and cloneDeep utility functions ([fff62b0](https://github.com/uphg/unfunt/commit/fff62b0cfc0370f32e0566645102742d66a8d9cc))
+* **object:** improve get function type definitions with overloads ([527907c](https://github.com/uphg/unfunt/commit/527907cd904266f42aaf8b3ec71dbb0171fc6e86))
+* **release:** add npm-packages publishing support to release script ([65bb915](https://github.com/uphg/unfunt/commit/65bb91565b74787b0aac6e9661e9596503601253))
+* **typed:** add makeMap utility function ([2153828](https://github.com/uphg/unfunt/commit/21538280ab7e61618f03d298ab8655ee94b6ae9b))
+
+
+### BREAKING CHANGES
+
+* remain() method has been renamed to unslice()
+* Removed get() function from object exports
+
+
+
+# [0.2.0-alpha.1](https://github.com/uphg/unfunt/compare/v0.1.0-alpha.1...v0.2.0-alpha.1) (2025-11-04)
+
+
+### Bug Fixes
+
+* disable no-sparse-arrays rule in ESLint config and simplify test expectation for creating intermediate arrays ([5396cb6](https://github.com/uphg/unfunt/commit/5396cb67427f57dfa3276ee66d32c72748af9f66))
+* improve multiple utility functions and remove get method ([847722c](https://github.com/uphg/unfunt/commit/847722c56dfed3dd51f0e0f9a5f742209774e79a))
+* **object:** improve get/set functions and path handling ([402735d](https://github.com/uphg/unfunt/commit/402735df76fe2eb8cd0e3601e8e27eca375f2e15))
+* update import paths in test files ([1726857](https://github.com/uphg/unfunt/commit/1726857840e38d4fb94acac62b387b052e042683))
+
+
+### Code Refactoring
+
+* rename remain method to unslice for better semantic clarity ([6da366b](https://github.com/uphg/unfunt/commit/6da366b655eb6398b00e00a50352bc2ce239a1d5))
+
+
+### Features
+
+* add forOwn utility for iterating over own enumerable properties ([ff4e3e6](https://github.com/uphg/unfunt/commit/ff4e3e6bd146858cee536223eb119ba2f89e7044))
+* add GitHub Actions CI/CD workflows ([78260d7](https://github.com/uphg/unfunt/commit/78260d75052182d4b5747edad7d47511c13425e5))
+* add object get and set utilities with comprehensive path support ([fdfdfbf](https://github.com/uphg/unfunt/commit/fdfdfbf6431c44a4923c9c0577b43724b6ffa237))
+* **array:** add remove utility function ([efc43f9](https://github.com/uphg/unfunt/commit/efc43f95ca761d9f9aa64713520349816042c013))
+* **build:** add build-packages script and update package.json ([ccce047](https://github.com/uphg/unfunt/commit/ccce047d136b66240c3a525d18cd69e67188a8e0))
+* **build:** add support for building individual npm packages ([afe091a](https://github.com/uphg/unfunt/commit/afe091a6a17da7ac2faf49fce4e0641e9c9c77f6))
+* **function:** add memoize utility and improve path handling ([65648d0](https://github.com/uphg/unfunt/commit/65648d015cc5e7f4c8276fd8888e4d84bd236d65))
+* **function:** enhance memoize with MapQueue and add structure module ([e3cb37c](https://github.com/uphg/unfunt/commit/e3cb37c28c1b7fb0bbbc44fa6a14fa3a3338c40a))
+* implement 16 new utility methods across all modules ([f583c71](https://github.com/uphg/unfunt/commit/f583c71d7638c02e07fac839e45170d791800b23))
+* improve vitest config with better test display and organization ([c1e6cc7](https://github.com/uphg/unfunt/commit/c1e6cc7a47b4d7eed16a4a600154a9feae3793d0))
+* logo ([5ec36f2](https://github.com/uphg/unfunt/commit/5ec36f24acf293de851dc91dac922b1bf9030480))
+* **number:** add toNumber utility and improve number conversion ([f1ef641](https://github.com/uphg/unfunt/commit/f1ef641a5b622a692ba24d3321bc9a6c8ecffab6))
+* **object:** add clone and cloneDeep utility functions ([fff62b0](https://github.com/uphg/unfunt/commit/fff62b0cfc0370f32e0566645102742d66a8d9cc))
+* **object:** improve get function type definitions with overloads ([527907c](https://github.com/uphg/unfunt/commit/527907cd904266f42aaf8b3ec71dbb0171fc6e86))
+* **release:** add npm-packages publishing support to release script ([65bb915](https://github.com/uphg/unfunt/commit/65bb91565b74787b0aac6e9661e9596503601253))
+* **typed:** add makeMap utility function ([2153828](https://github.com/uphg/unfunt/commit/21538280ab7e61618f03d298ab8655ee94b6ae9b))
+
+
+### BREAKING CHANGES
+
+* remain() method has been renamed to unslice()
+* Removed get() function from object exports
+
+
+
+# [0.2.0-alpha.1](https://github.com/uphg/unfunt/compare/v0.1.0-alpha.1...v0.2.0-alpha.1) (2025-11-04)
+
+
+### Bug Fixes
+
+* disable no-sparse-arrays rule in ESLint config and simplify test expectation for creating intermediate arrays ([5396cb6](https://github.com/uphg/unfunt/commit/5396cb67427f57dfa3276ee66d32c72748af9f66))
+* improve multiple utility functions and remove get method ([847722c](https://github.com/uphg/unfunt/commit/847722c56dfed3dd51f0e0f9a5f742209774e79a))
+* **object:** improve get/set functions and path handling ([402735d](https://github.com/uphg/unfunt/commit/402735df76fe2eb8cd0e3601e8e27eca375f2e15))
+* update import paths in test files ([1726857](https://github.com/uphg/unfunt/commit/1726857840e38d4fb94acac62b387b052e042683))
+
+
+### Code Refactoring
+
+* rename remain method to unslice for better semantic clarity ([6da366b](https://github.com/uphg/unfunt/commit/6da366b655eb6398b00e00a50352bc2ce239a1d5))
+
+
+### Features
+
+* add forOwn utility for iterating over own enumerable properties ([ff4e3e6](https://github.com/uphg/unfunt/commit/ff4e3e6bd146858cee536223eb119ba2f89e7044))
+* add GitHub Actions CI/CD workflows ([78260d7](https://github.com/uphg/unfunt/commit/78260d75052182d4b5747edad7d47511c13425e5))
+* add object get and set utilities with comprehensive path support ([fdfdfbf](https://github.com/uphg/unfunt/commit/fdfdfbf6431c44a4923c9c0577b43724b6ffa237))
+* **array:** add remove utility function ([efc43f9](https://github.com/uphg/unfunt/commit/efc43f95ca761d9f9aa64713520349816042c013))
+* **build:** add build-packages script and update package.json ([ccce047](https://github.com/uphg/unfunt/commit/ccce047d136b66240c3a525d18cd69e67188a8e0))
+* **build:** add support for building individual npm packages ([afe091a](https://github.com/uphg/unfunt/commit/afe091a6a17da7ac2faf49fce4e0641e9c9c77f6))
+* **function:** add memoize utility and improve path handling ([65648d0](https://github.com/uphg/unfunt/commit/65648d015cc5e7f4c8276fd8888e4d84bd236d65))
+* **function:** enhance memoize with MapQueue and add structure module ([e3cb37c](https://github.com/uphg/unfunt/commit/e3cb37c28c1b7fb0bbbc44fa6a14fa3a3338c40a))
+* implement 16 new utility methods across all modules ([f583c71](https://github.com/uphg/unfunt/commit/f583c71d7638c02e07fac839e45170d791800b23))
+* improve vitest config with better test display and organization ([c1e6cc7](https://github.com/uphg/unfunt/commit/c1e6cc7a47b4d7eed16a4a600154a9feae3793d0))
+* logo ([5ec36f2](https://github.com/uphg/unfunt/commit/5ec36f24acf293de851dc91dac922b1bf9030480))
+* **number:** add toNumber utility and improve number conversion ([f1ef641](https://github.com/uphg/unfunt/commit/f1ef641a5b622a692ba24d3321bc9a6c8ecffab6))
+* **object:** add clone and cloneDeep utility functions ([fff62b0](https://github.com/uphg/unfunt/commit/fff62b0cfc0370f32e0566645102742d66a8d9cc))
+* **object:** improve get function type definitions with overloads ([527907c](https://github.com/uphg/unfunt/commit/527907cd904266f42aaf8b3ec71dbb0171fc6e86))
+* **release:** add npm-packages publishing support to release script ([65bb915](https://github.com/uphg/unfunt/commit/65bb91565b74787b0aac6e9661e9596503601253))
+* **typed:** add makeMap utility function ([2153828](https://github.com/uphg/unfunt/commit/21538280ab7e61618f03d298ab8655ee94b6ae9b))
+
+
+### BREAKING CHANGES
+
+* remain() method has been renamed to unslice()
+* Removed get() function from object exports
+
+
+
 # 0.1.0-alpha.1 (2025-07-26)
 
 

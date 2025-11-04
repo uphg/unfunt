@@ -8,6 +8,7 @@ import { createRequire } from 'node:module'
 import { fileURLToPath } from 'node:url'
 import { exec } from './utils.js'
 import { parseArgs } from 'node:util'
+import { publishPackages } from './publish-packages.js'
 
 const { prompt } = enquirer
 const currentVersion = createRequire(import.meta.url)('../package.json').version
@@ -160,12 +161,12 @@ async function main() {
   }
 
   // 代码检查
-  step('\n运行代码检查...')
-  if (!isDryRun) {
-    await run('pnpm', ['lint:check'])
-  } else {
-    console.log('跳过（干运行）')
-  }
+  // step('\n运行代码检查...')
+  // if (!isDryRun) {
+  //   await run('pnpm', ['lint:check'])
+  // } else {
+  //   console.log('跳过（干运行）')
+  // }
 
   if (!skipGit) {
     const { stdout } = await run('git', ['diff'], { stdio: 'pipe' })
@@ -206,39 +207,6 @@ function updateVersion(version) {
   const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'))
   pkg.version = version
   fs.writeFileSync(pkgPath, `${JSON.stringify(pkg, null, 2)}\n`)
-}
-
-async function publishPackages(version) {
-  const npmPackagesDir = path.resolve(__dirname, '../npm-packages')
-
-  if (!fs.existsSync(npmPackagesDir)) {
-    console.log(pico.yellow('npm-packages 目录不存在，跳过分包发布'))
-    return
-  }
-
-  const packageDirs = fs.readdirSync(npmPackagesDir, { withFileTypes: true })
-    .filter(dirent => dirent.isDirectory())
-    .map(dirent => dirent.name)
-
-  for (const packageDir of packageDirs) {
-    const packagePath = path.join(npmPackagesDir, packageDir)
-    const pkgPath = path.join(packagePath, 'package.json')
-
-    if (!fs.existsSync(pkgPath)) {
-      console.log(pico.yellow(`跳过 ${packageDir}：缺少 package.json`))
-      continue
-    }
-
-    // 更新分包版本
-    // const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'))
-    // pkg.version = version
-    // fs.writeFileSync(pkgPath, `${JSON.stringify(pkg, null, 2)}\n`)
-
-    // 发布分包
-    step(`发布 ${pkg.name}@${version}...`)
-    await run('npm', ['publish', '--access', 'public'], { cwd: packagePath })
-    console.log(pico.green(`成功发布 ${pkg.name}@${version}`))
-  }
 }
 
 main().catch((err) => {

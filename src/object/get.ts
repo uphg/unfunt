@@ -35,7 +35,7 @@ export function get<T = any>(
   }
 
   if (path === '') {
-    return (object as T)[''] ?? defaultValue
+    return (object as Record<string, T>)[''] ?? defaultValue
   }
 
   const pathArray = Array.isArray(path) ? path : toPath(path as string)
