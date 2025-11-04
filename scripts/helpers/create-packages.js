@@ -1,11 +1,8 @@
 import { getPackageEntries } from './get-package-entries.js'
 import { mkdirSync, writeFileSync, readFileSync } from 'fs'
-import { join, dirname, resolve } from 'path'
-import { fileURLToPath } from 'url'
-
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = dirname(__filename)
-const rootDir = resolve(__dirname, '../..')
+import { join } from 'path'
+import { rootDir } from './_root-dir.js'
+import { hyphenate } from './hyphenate.js'
 
 const npmPackagesDir = join(rootDir, 'npm-packages')
 
@@ -53,10 +50,10 @@ export async function createMetaDocs(functionName, { functionDir }) {
   const mainPackagePath = join(rootDir, 'package.json')
   const mainPackage = JSON.parse(readFileSync(mainPackagePath, 'utf-8'))
   const version = mainPackage.version
-
+  const hyphName = hyphenate(functionName)
   // Create package.json
   const packageJson = {
-    name: `@unfunt/${functionName}`,
+    name: `@unfunt/${hyphName}`,
     version,
     license: 'MIT',
     main: 'dist/index.umd.js',
@@ -89,14 +86,14 @@ export async function createMetaDocs(functionName, { functionDir }) {
   writeFileSync(join(functionDir, 'LICENSE'), licenseContent)
 
   // Create README.md
-  const readmeContent = `# @unfunt/${functionName} v${version}
+  const readmeContent = `# @unfunt/${hyphName} v${version}
 
 ## Installation
 
 Using npm
 
 \`\`\`bash
-$ npm i @unfunt/${functionName}
+$ npm i @unfunt/${hyphName}
 \`\`\`
 
 See the documentation or package source for more details.

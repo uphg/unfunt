@@ -2,7 +2,7 @@ import path from 'path'
 import fs from 'fs-extra'
 import { fileURLToPath } from 'url'
 import pc from 'picocolors'
-import { execaQuiet, handleBuildResult, BUILD_TYPES } from './utils.js'
+import { execaQuiet, handleBuildResult, BUILD_TYPES } from './helpers/exec.js'
 import { createPackages } from './helpers/create-packages.js'
 import { getPackageEntries } from './helpers/get-package-entries.js'
 

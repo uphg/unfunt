@@ -20,6 +20,7 @@
     "publish:minor": "npm version minor && cd dist && npm publish",
     "publish:major": "npm version major && cd dist && npm publish",
     "publish:dry": "cd dist && npm pack --dry-run",
+    "publish-packages": "node scripts/publish-packages.js",
     "release": "node scripts/release.js",
     "release:dry": "node scripts/release.js --dry",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"

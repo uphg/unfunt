@@ -1,10 +1,6 @@
 import { readFileSync, readdirSync } from 'fs'
-import { join, dirname, resolve } from 'path'
-import { fileURLToPath } from 'url'
-
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = dirname(__filename)
-const rootDir = resolve(__dirname, '../..')
+import { join } from 'path'
+import { rootDir } from './_root-dir.js'
 
 export function getPackageEntries(keySuffix = false) {
   const srcDir = join(rootDir, 'src')

@@ -4,7 +4,7 @@ import fs from 'fs-extra'
 import { fileURLToPath } from 'url'
 import minimist from 'minimist'
 import pc from 'picocolors'
-import { execaQuiet, handleBuildResult, BUILD_TYPES } from './utils.js'
+import { execaQuiet, handleBuildResult, BUILD_TYPES } from './helpers/exec.js'
 import { createPackageConfig } from './config/package-config.js'
 
 const __filename = fileURLToPath(import.meta.url)

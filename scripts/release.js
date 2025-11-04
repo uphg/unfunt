@@ -6,15 +6,13 @@ import semver from 'semver'
 import enquirer from 'enquirer'
 import { createRequire } from 'node:module'
 import { fileURLToPath } from 'node:url'
-import { exec } from './utils.js'
+import { exec } from './helpers/exec.js'
 import { parseArgs } from 'node:util'
 
 const { prompt } = enquirer
 const currentVersion = createRequire(import.meta.url)('../package.json').version
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
-const pkgPath = path.resolve(__dirname, '../package.json')
-const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'))
 
 const { values: args, positionals } = parseArgs({
   allowPositionals: true,
@@ -212,7 +210,7 @@ async function main() {
         console.log(pico.yellow(`跳过 ${packageDir}：缺少 package.json`))
         continue
       }
-
+      const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'))
       // 发布分包
       step(`发布 ${pkg.name}@${targetVersion}...`)
       await run('pnpm', ['publish', '--access', 'public'], { cwd: packagePath })
@@ -228,6 +226,8 @@ async function main() {
 }
 
 function updateVersion(version) {
+  const pkgPath = path.resolve(__dirname, '../package.json')
+  const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'))
   pkg.version = version
   fs.writeFileSync(pkgPath, `${JSON.stringify(pkg, null, 2)}\n`)
 }
