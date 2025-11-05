@@ -69,9 +69,9 @@ export async function createMetaDocs(functionName, { functionDir }) {
       'library',
       'tools'
     ],
-    homepage: 'https://github.com/lvheng/unfunt#readme',
-    repository: 'lvheng/unfunt',
-    bugs: 'https://github.com/lvheng/unfunt/issues',
+    homepage: 'https://github.com/uphg/unfunt#readme',
+    repository: 'uphg/unfunt',
+    bugs: 'https://github.com/uphg/unfunt/issues',
     author: 'Lv Heng <lvheng233@gmail.com>'
   }
 

@@ -1,4 +1,4 @@
-import { cacheStringFunction } from './cacheStringFunction'
+import { memoizeCapped } from '../internal/memoizeCapped'
 
 const camelizeRE = /-\w/g
 
@@ -16,7 +16,7 @@ const camelizeRE = /-\w/g
  * camelize('foo-bar-baz')
  * // => 'fooBarBaz'
  */
-export const camelize: (str: string) => string = cacheStringFunction(
+export const camelize: (str: string) => string = memoizeCapped(
   (str: string): string => {
     return str.replace(camelizeRE, c => c.slice(1).toUpperCase())
   }

@@ -5,6 +5,7 @@ import pc from 'picocolors'
 import { execaQuiet, handleBuildResult, BUILD_TYPES } from './helpers/exec.js'
 import { createPackages } from './helpers/create-packages.js'
 import { getPackageEntries } from './helpers/get-package-entries.js'
+import { hyphenate } from './helpers/hyphenate.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -32,8 +33,8 @@ async function run() {
     const buildResults = []
     for (const functionName of entries) {
       const configPath = path.join(npmPackagesDir, functionName, 'tsdown.config.ts')
-
       if (fs.existsSync(configPath)) {
+        const hyphName = hyphenate(functionName)
         console.log(pc.dim(`Building ${functionName}...`))
 
         // 运行 tsdown 构建
@@ -41,7 +42,7 @@ async function run() {
         buildResults.push({ functionName, result })
 
         // 显示构建结果
-        handleBuildResult(result, `@unfunt/${functionName}`, BUILD_TYPES.TSDOWN.type)
+        handleBuildResult(result, `@unfunt/${hyphName}`, BUILD_TYPES.TSDOWN.type)
       } else {
         console.log(pc.yellow('(!)') + pc.dim(` Config not found for ${functionName}: ${configPath}`))
       }

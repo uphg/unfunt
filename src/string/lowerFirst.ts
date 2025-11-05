@@ -1,4 +1,4 @@
-import { cacheStringFunction } from './cacheStringFunction'
+import { memoizeCapped } from '../internal/memoizeCapped'
 
 /**
  * Converts the first character of string to lower case
@@ -12,7 +12,7 @@ import { cacheStringFunction } from './cacheStringFunction'
  * lowerFirst('FRED')
  * // => 'fRED'
  */
-export const lowerFirst = cacheStringFunction((str: string): string => {
+export const lowerFirst = memoizeCapped((str: string): string => {
   if (!str) return ''
 
   return str.charAt(0).toLowerCase() + str.slice(1)

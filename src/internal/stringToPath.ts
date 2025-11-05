@@ -1,6 +1,4 @@
-import { memoize } from '../function/memoize'
-
-const maxSize = 500
+import { memoizeCapped } from './memoizeCapped'
 
 /**
  * Used to match property names within property paths.
@@ -17,7 +15,7 @@ const reEscapeChar = /\\(\\)?/g
  * @param string The string to convert.
  * @returns Returns the property path array.
  */
-export const stringToPath = memoize((string: string): (string | number)[] => {
+export const stringToPath = memoizeCapped((string: string): (string | number)[] => {
   const result: (string | number)[] = []
 
   // Handle leading dot (e.g., '.a.b')
@@ -41,4 +39,4 @@ export const stringToPath = memoize((string: string): (string | number)[] => {
   })
 
   return result
-}, { maxSize })
+})

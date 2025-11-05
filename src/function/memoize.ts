@@ -1,14 +1,16 @@
 import { MapQueue } from '../structure'
 
-interface MemoizeOptions {
+export type MemoizeResolver = (...args: any[]) => any
+
+export interface MemoizeOptions {
   maxSize?: number
-  resolver?: (...args: any[]) => any
+  resolver?: MemoizeResolver
 }
 
 /**
  * Memoizes a function with a cache size limit
  */
-export function memoize<T extends (...args: any[]) => any>(
+export function memoize<T extends MemoizeResolver>(
   func: T,
   options: MemoizeOptions = {}
 ): T {

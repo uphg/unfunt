@@ -1,4 +1,4 @@
-import { cacheStringFunction } from './cacheStringFunction'
+import { memoizeCapped } from '../internal/memoizeCapped'
 
 const hyphenateRE = /\B([A-Z])/g
 
@@ -16,6 +16,6 @@ const hyphenateRE = /\B([A-Z])/g
  * hyphenate('fooBarBaz')
  * // => 'foo-bar-baz'
  */
-export const hyphenate: (str: string) => string = cacheStringFunction(
+export const hyphenate: (str: string) => string = memoizeCapped(
   (str: string) => str.replace(hyphenateRE, '-$1').toLowerCase()
 )

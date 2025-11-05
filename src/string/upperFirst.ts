@@ -1,4 +1,4 @@
-import { cacheStringFunction } from './cacheStringFunction'
+import { memoizeCapped } from '../internal/memoizeCapped'
 
 /**
  * Converts the first character of string to upper case
@@ -12,7 +12,7 @@ import { cacheStringFunction } from './cacheStringFunction'
  * upperFirst('FRED')
  * // => 'FRED'
  */
-export const upperFirst = cacheStringFunction((str: string): string => {
+export const upperFirst = memoizeCapped((str: string): string => {
   if (!str) return ''
 
   return str.charAt(0).toUpperCase() + str.slice(1)

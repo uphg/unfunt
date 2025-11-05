@@ -1,4 +1,4 @@
-import { cacheStringFunction } from './cacheStringFunction'
+import { memoizeCapped } from '../internal/memoizeCapped'
 
 /**
  * Converts first character of string to upper case and the rest to lower case.
@@ -14,6 +14,6 @@ import { cacheStringFunction } from './cacheStringFunction'
  * // => 'Fred'
  */
 export const capitalize: <T extends string>(str: T) => Capitalize<T>
-  = cacheStringFunction(<T extends string>(str: T) => {
+  = memoizeCapped(<T extends string>(str: T) => {
     return (str.charAt(0).toUpperCase() + str.slice(1).toLowerCase()) as Capitalize<T>
   })

@@ -3,16 +3,22 @@ import fs from 'node:fs'
 import pico from 'picocolors'
 import { fileURLToPath } from 'node:url'
 import path from 'node:path'
+import { exec } from './helpers/exec.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 const rootDir = path.resolve(__dirname, '..')
 
 const step = (/** @type {string} */ msg) => console.log(pico.cyan(msg))
+const run = async(
+  /** @type {string} */ bin,
+  /** @type {ReadonlyArray<string>} */ args,
+  /** @type {import('node:child_process').SpawnOptions} */ opts = {}
+) => exec(bin, args, { stdio: 'inherit', ...opts })
 
-run()
+main()
 
-async function run() {
+async function main() {
   // 发布 npm-packages 中的分包
   step('\n发布分包...')
   const npmPackagesDir = path.resolve(rootDir, 'npm-packages')
@@ -38,9 +44,9 @@ async function run() {
     }
 
     // 发布分包
-    step(`发布 ${pkg.name}@${targetVersion}...`)
-    // await run('pnpm', ['publish', '--access', 'public'], { cwd: packagePath })
-    // console.log(pico.green(`成功发布 ${pkg.name}@${targetVersion}`))
+    step(`\n发布 ${pkg.name}@${targetVersion}...`)
+    await run('pnpm', ['publish', '--no-git-checks', '--access', 'public'], { cwd: packagePath })
+    console.log(pico.green(`成功发布 ${pkg.name}@${targetVersion}`))
   }
 }
 

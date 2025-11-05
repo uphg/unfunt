@@ -1,6 +1,6 @@
 {
   "name": "unfunt-creator",
-  "version": "0.2.0-alpha.1",
+  "version": "0.2.0-alpha.3",
   "packageManager": "pnpm@10.13.1",
   "type": "module",
   "scripts": {
@@ -16,6 +16,7 @@
     "docs:preview": "vitepress preview docs",
     "version": "pnpm build && git add dist",
     "prepublishOnly": "pnpm test:run && pnpm lint:check",
+    "publish": "cd dist && npm publish",
     "publish:patch": "npm version patch && cd dist && npm publish",
     "publish:minor": "npm version minor && cd dist && npm publish",
     "publish:major": "npm version major && cd dist && npm publish",

@@ -13,9 +13,9 @@ export function createPackageConfig(version = '0.1.6') {
     types: 'index.d.ts',
     description: 'A lightweight JavaScript utility library with common functions',
     keywords: ['javascript', 'typescript', 'utils', 'utility', 'functions', 'library', 'tools'],
-    homepage: 'https://github.com/lvheng/unfunt#readme',
-    repository: 'lvheng/unfunt',
-    bugs: 'https://github.com/lvheng/unfunt/issues',
+    homepage: 'https://github.com/uphg/unfunt#readme',
+    repository: 'uphg/unfunt',
+    bugs: 'https://github.com/uphg/unfunt/issues',
     author: 'Lv Heng <lvheng233@gmail.com>'
   }
 }
