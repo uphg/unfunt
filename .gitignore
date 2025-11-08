@@ -35,3 +35,6 @@ CLAUDE.*
 .github-demo
 
 CRUSH.md
+
+# Publish cache
+.publish-cache.json
