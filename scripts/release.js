@@ -13,7 +13,6 @@ const { prompt } = enquirer
 const currentVersion = createRequire(import.meta.url)('../package.json').version
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
-
 const { values: args, positionals } = parseArgs({
   allowPositionals: true,
   options: {

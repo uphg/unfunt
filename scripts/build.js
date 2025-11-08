@@ -52,20 +52,20 @@ async function run(argv) {
     await fs.copy('LICENSE', resolve('LICENSE'))
 
     // 格式化打包后的代码和类型文件
-    // console.log(pc.dim('Formatting output files...'))
-    // try {
-    //   await execa('pnpm', [
-    //     'exec',
-    //     'eslint',
-    //     'dist/**/*.{js,ts,d.ts}',
-    //     '--fix',
-    //     '--no-ignore'
-    //   ], { stdio: 'inherit' })
-    //   console.log(pc.green('✓') + pc.dim(' Files formatted successfully!'))
-    // }
-    // catch(error) {
-    //   console.log(pc.yellow('(!)') + pc.dim(' Warning: Some files could not be formatted: ') + pc.red(error.message))
-    // }
+    console.log(pc.dim('Formatting output files...'))
+    try {
+      await execa('pnpm', [
+        'exec',
+        'eslint',
+        'dist/**/*.{js,ts,d.ts}',
+        '--fix',
+        '--no-ignore'
+      ], { stdio: 'inherit' })
+      console.log(pc.green('✓') + pc.dim(' Files formatted successfully!'))
+    }
+    catch(error) {
+      console.log(pc.yellow('(!)') + pc.dim(' Warning: Some files could not be formatted: ') + pc.red(error.message))
+    }
 
     console.log(pc.green('✓') + pc.bold(' Build completed successfully!'))
   }
