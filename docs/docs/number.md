@@ -118,3 +118,40 @@ toLength(Infinity)
 - Returns 0 for negative numbers
 - Handles infinity and edge cases safely
 - Ensures the result is suitable for array length
+
+## `randomInt([lower=0], [upper=1])`
+
+Generates a random integer within the specified range.
+
+### Usage
+
+```ts
+import { randomInt } from 'unfunt'
+
+randomInt(0, 5)
+// => Integer between 0 and 5 (inclusive)
+
+randomInt(5)
+// => Integer between 0 and 5 (inclusive)
+
+randomInt(10, 20)
+// => Integer between 10 and 20 (inclusive)
+
+randomInt(-5, 5)
+// => Integer between -5 and 5 (inclusive)
+```
+
+### Arguments
+
+1. `[lower=0]` *(number)*: The lower bound
+2. `[upper=1]` *(number)*: The upper bound
+
+### Returns
+
+*(number)*: Returns a random integer within the specified range
+
+### Notes
+
+- If only one argument is provided, it's used as the upper bound with lower bound as 0
+- Automatically handles bounds ordering (swaps if lower > upper)
+- Returns inclusive random integers (both bounds are possible results)

@@ -43,7 +43,8 @@ export default defineConfig({
             { text: 'Number', link: '/docs/number' },
             { text: 'Object', link: '/docs/object' },
             { text: 'String', link: '/docs/string' },
-            { text: 'Type Check', link: '/docs/typed' }
+            { text: 'Type Check', link: '/docs/typed' },
+            { text: 'Structure', link: '/docs/structure' }
           ]
         }
       ],
@@ -64,7 +65,8 @@ export default defineConfig({
             { text: '数字', link: '/zh/docs/number' },
             { text: '对象', link: '/zh/docs/object' },
             { text: '字符串', link: '/zh/docs/string' },
-            { text: '类型检查', link: '/zh/docs/typed' }
+            { text: '类型检查', link: '/zh/docs/typed' },
+            { text: '数据结构', link: '/zh/docs/structure' }
           ]
         }
       ]

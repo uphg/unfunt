@@ -1,165 +1,156 @@
-# Object Methods
+# 对象方法
 
 这些是处理对象的实用方法。
 
-## `omit(object, excludes)`
+## `pick(object, paths)`
 
-创建一个对象，忽略指定的属性
+创建一个由被选取对象属性组成的对象。
 
-### Usage
-
-```ts
-import { omit } from 'unfunt'
-
-const obj = { a: 1, b: 2, c: 3 }
-
-omit(obj, ['a', 'c'])
-// => { b: 2 }
-
-omit(null, ['a'])
-// => {}
-```
-
-### Arguments
-
-1. `object` *(any)*: 源对象
-2. `excludes` *(Array)*: 要忽略的属性名数组
-
-### Returns
-
-*(Object)*: 返回新对象
-
-## `omitBy(object, callback)`
-
-创建一个对象，忽略通过回调函数判断为真值的属性
-
-### Usage
-
-```ts
-import { omitBy } from 'unfunt'
-
-const obj = { a: 1, b: '2', c: 3 }
-
-omitBy(obj, (value) => typeof value === 'number')
-// => { b: '2' }
-```
-
-### Arguments
-
-1. `object` *(unknown)*: 源对象
-2. `callback` *(Function)*: 属性判断回调函数
-
-### Returns
-
-*(Object)*: 返回新对象
-
-## `pick(object, includes)`
-
-创建一个对象，只包含指定的属性
-
-### Usage
+### 使用示例
 
 ```ts
 import { pick } from 'unfunt'
 
-const obj = { a: 1, b: 2, c: 3 }
+const object = { a: 1, b: '2', c: 3 }
 
-pick(obj, ['a', 'c'])
+pick(object, ['a', 'c'])
 // => { a: 1, c: 3 }
-
-pick(null, ['a'])
-// => {}
 ```
 
-### Arguments
+### 参数
 
-1. `object` *(unknown)*: 源对象
-2. `includes` *(Array)*: 要包含的属性名数组
+1. `object` *(Object)*: 源对象
+2. `paths` *(Array)*: 要选取的属性路径
 
-### Returns
+### 返回值
 
 *(Object)*: 返回新对象
 
-## `pickBy(obj, callback)`
+## `pickBy(object, predicate)`
 
-创建一个对象，只包含通过回调函数判断为真值的属性
+创建一个由对象属性中 `predicate` 返回真值的属性组成的对象。
 
-### Usage
+### 使用示例
 
 ```ts
 import { pickBy } from 'unfunt'
 
-const obj = { a: 1, b: '2', c: 3 }
+const object = { a: 1, b: '2', c: 3 }
 
-pickBy(obj, (value) => typeof value === 'number')
+pickBy(object, (value) => typeof value === 'number')
 // => { a: 1, c: 3 }
 ```
 
-### Arguments
+### 参数
 
-1. `obj` *(unknown)*: 源对象
-2. `callback` *(Function)*: 属性判断回调函数
+1. `object` *(Object)*: 源对象
+2. `predicate` *(Function)*: 每个属性调用的函数
 
-### Returns
+### 返回值
 
 *(Object)*: 返回新对象
 
-## `mapEntries(obj, mapper)`
+## `omit(object, paths)`
 
-通过映射函数转换对象的键值对
+创建一个由被忽略对象属性组成的对象。
 
-### Usage
+### 使用示例
+
+```ts
+import { omit } from 'unfunt'
+
+const object = { a: 1, b: '2', c: 3 }
+
+omit(object, ['a', 'c'])
+// => { b: '2' }
+```
+
+### 参数
+
+1. `object` *(Object)*: 源对象
+2. `paths` *(Array)*: 要忽略的属性路径
+
+### 返回值
+
+*(Object)*: 返回新对象
+
+## `omitBy(object, predicate)`
+
+创建一个由对象属性中 `predicate` 不返回真值的属性组成的对象。
+
+### 使用示例
+
+```ts
+import { omitBy } from 'unfunt'
+
+const object = { a: 1, b: '2', c: 3 }
+
+omitBy(object, (value) => typeof value === 'number')
+// => { b: '2' }
+```
+
+### 参数
+
+1. `object` *(Object)*: 源对象
+2. `predicate` *(Function)*: 每个属性调用的函数
+
+### 返回值
+
+*(Object)*: 返回新对象
+
+## `mapEntries(object, iteratee)`
+
+创建一个与 `object` 相同键的对象，值是通过运行对象自身的可枚举字符串键属性通过 `iteratee` 生成的。
+
+### 使用示例
 
 ```ts
 import { mapEntries } from 'unfunt'
 
-const obj = { a: 1, b: 2 }
+const object = { a: 1, b: 2 }
 
-mapEntries(obj, (key, value) => [`prefix_${key}`, value * 2])
-// => { prefix_a: 2, prefix_b: 4 }
+mapEntries(object, ([key, value]) => [key.toUpperCase(), value * 2])
+// => { A: 2, B: 4 }
 ```
 
-### Arguments
+### 参数
 
-1. `obj` *(Object)*: 源对象
-2. `mapper` *(Function)*: 映射函数，接收 key 和 value，返回 [newKey, newValue]
+1. `object` *(Object)*: 要遍历的对象
+2. `iteratee` *(Function)*: 每次迭代调用的函数
 
-### Returns
+### 返回值
 
-*(Object)*: 返回转换后的新对象
+*(Object)*: 返回新的映射对象
 
-## `forEachEntry(obj, callback)`
+## `forEachEntry(object, iteratee)`
 
-遍历对象的键值对
+遍历对象自身的可枚举字符串键属性并为每个属性调用 `iteratee`。
 
-### Usage
+### 使用示例
 
 ```ts
 import { forEachEntry } from 'unfunt'
 
-const obj = { a: 1, b: 2, c: 3 }
-
-forEachEntry(obj, (key, value) => {
+forEachEntry({ a: 1, b: 2 }, ([key, value]) => {
   console.log(key, value)
-  if (key === 'b') return false // 停止遍历
 })
-// 输出: a 1, b 2
+// => 输出 'a 1' 然后 'b 2'
 ```
 
-### Arguments
+### 参数
 
-1. `obj` *(Object)*: 要遍历的对象
-2. `callback` *(Function)*: 遍历回调函数，返回 false 时停止遍历
+1. `object` *(Object)*: 要遍历的对象
+2. `iteratee` *(Function)*: 每次迭代调用的函数
 
-### Returns
+### 返回值
 
-*(void)*: 无返回值
+*(Object)*: 返回 `object`
 
 ## `forOwn(object, iteratee)`
 
-遍历对象自有的可枚举属性，为每个属性调用迭代函数。迭代函数接收三个参数：(value, key, object)。当迭代函数显式返回 `false` 时可以提前退出遍历。
+遍历对象自身的可枚举字符串键属性并为每个属性调用 `iteratee`。迭代函数接收三个参数：(value, key, object)。迭代函数可以通过显式返回 `false` 来提前退出迭代。
 
-### Usage
+### 使用示例
 
 ```ts
 import { forOwn } from 'unfunt'
@@ -177,11 +168,205 @@ forOwn({ a: 1, b: 2, c: 3 }, (value, key) => {
 // => 输出 'a 1' 然后 'b 2'
 ```
 
-### Arguments
+### 参数
 
 1. `object` *(Object)*: 要遍历的对象
 2. `iteratee` *(Function)*: 每次迭代调用的函数，接收 `(value, key, object)` 作为参数
 
-### Returns
+### 返回值
 
 *(Object)*: 返回 `object`
+
+## `get(object, path, [defaultValue])`
+
+获取对象路径处的值。如果解析的值是 `undefined`，则在其位置返回 `defaultValue`。
+
+### 使用示例
+
+```ts
+import { get } from 'unfunt'
+
+const object = { a: [{ b: { c: 3 } }] }
+
+get(object, 'a[0].b.c')
+// => 3
+
+get(object, ['a', '0', 'b', 'c'])
+// => 3
+
+get(object, 'a.b.c', 'default')
+// => 'default'
+```
+
+### 参数
+
+1. `object` *(Object)*: 要查询的对象
+2. `path` *(string|Array)*: 属性路径
+3. `[defaultValue]` *(any)*: 默认值
+
+### 返回值
+
+*(any)*: 返回解析的值
+
+## `set(object, path, value)`
+
+在对象路径处设置值。如果中间对象/数组不存在则创建它们。
+
+### 使用示例
+
+```ts
+import { set } from 'unfunt'
+
+const object = { a: [{ b: { c: 3 } }] }
+
+set(object, 'a[0].b.c', 4)
+console.log(object.a[0].b.c)
+// => 4
+
+set(object, ['x', '0', 'y', 'z'], 5)
+console.log(object.x[0].y.z)
+// => 5
+```
+
+### 参数
+
+1. `object` *(Object)*: 要修改的对象
+2. `path` *(string|Array)*: 属性路径
+3. `value` *(any)*: 要设置的值
+
+### 返回值
+
+*(Object)*: 返回原始对象
+
+## `hasOwn(object, key)`
+
+检查对象是否具有特定的自有属性。
+
+### 使用示例
+
+```ts
+import { hasOwn } from 'unfunt'
+
+hasOwn({ a: 1 }, 'a')
+// => true
+
+hasOwn({ a: 1 }, 'b')
+// => false
+
+hasOwn({ a: 1 }, 'toString')
+// => false (继承属性)
+```
+
+### 参数
+
+1. `object` *(Object)*: 要检查的对象
+2. `key` *(string|symbol)*: 要检查的属性键
+
+### 返回值
+
+*(boolean)*: 如果对象具有自有属性则返回 true，否则返回 false
+
+## `clone(source)`
+
+创建值的浅克隆。
+
+### 使用示例
+
+```ts
+import { clone } from 'unfunt'
+
+const original = { a: 1, b: { c: 2 } }
+const cloned = clone(original)
+
+console.log(cloned)
+// => { a: 1, b: { c: 2 } }
+
+console.log(cloned === original)
+// => false
+
+console.log(cloned.b === original.b)
+// => true (嵌套对象是共享的)
+```
+
+### 参数
+
+1. `source` *(any)*: 要克隆的值
+
+### 返回值
+
+*(any)*: 返回克隆的值
+
+### 说明
+
+- 原始值原样返回
+- 数组和对象进行浅克隆
+- 嵌套的对象/数组不会被克隆（引用是共享的）
+
+## `cloneDeep(source)`
+
+创建值的深克隆。
+
+### 使用示例
+
+```ts
+import { cloneDeep } from 'unfunt'
+
+const original = { a: 1, b: { c: 2 } }
+const cloned = cloneDeep(original)
+
+console.log(cloned)
+// => { a: 1, b: { c: 2 } }
+
+console.log(cloned === original)
+// => false
+
+console.log(cloned.b === original.b)
+// => false (嵌套对象也被克隆)
+```
+
+### 参数
+
+1. `source` *(any)*: 要克隆的值
+
+### 返回值
+
+*(any)*: 返回深克隆的值
+
+### 说明
+
+- 原始值原样返回
+- 所有嵌套的对象和数组都被递归克隆
+- 安全处理循环引用
+
+## `toPath(path)`
+
+将字符串路径转换为路径数组。
+
+### 使用示例
+
+```ts
+import { toPath } from 'unfunt'
+
+toPath('a.b.c')
+// => ['a', 'b', 'c']
+
+toPath('a[0].b.c')
+// => ['a', '0', 'b', 'c']
+
+toPath(['a', 'b', 'c'])
+// => ['a', 'b', 'c'] (已经是数组)
+```
+
+### 参数
+
+1. `path` *(string|Array)*: 要转换的路径
+
+### 返回值
+
+*(Array)*: 返回路径数组
+
+### 说明
+
+- 解析点表示法和括号表示法
+- 处理括号中的数字索引
+- 数组原样返回（只转换键）

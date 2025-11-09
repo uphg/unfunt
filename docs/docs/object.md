@@ -176,3 +176,197 @@ forOwn({ a: 1, b: 2, c: 3 }, (value, key) => {
 ### Returns
 
 *(Object)*: Returns `object`
+
+## `get(object, path, [defaultValue])`
+
+Gets the value at path of object. If the resolved value is undefined, the defaultValue is returned in its place.
+
+### Usage
+
+```ts
+import { get } from 'unfunt'
+
+const object = { a: [{ b: { c: 3 } }] }
+
+get(object, 'a[0].b.c')
+// => 3
+
+get(object, ['a', '0', 'b', 'c'])
+// => 3
+
+get(object, 'a.b.c', 'default')
+// => 'default'
+```
+
+### Arguments
+
+1. `object` *(Object)*: The object to query
+2. `path` *(string|Array)*: The property path
+3. `[defaultValue]` *(any)*: The default value
+
+### Returns
+
+*(any)*: Returns the resolved value
+
+## `set(object, path, value)`
+
+Sets the value at path of object. Creates intermediate objects/arrays if they don't exist.
+
+### Usage
+
+```ts
+import { set } from 'unfunt'
+
+const object = { a: [{ b: { c: 3 } }] }
+
+set(object, 'a[0].b.c', 4)
+console.log(object.a[0].b.c)
+// => 4
+
+set(object, ['x', '0', 'y', 'z'], 5)
+console.log(object.x[0].y.z)
+// => 5
+```
+
+### Arguments
+
+1. `object` *(Object)*: The object to modify
+2. `path` *(string|Array)*: The property path
+3. `value` *(any)*: The value to set
+
+### Returns
+
+*(Object)*: Returns the original object
+
+## `hasOwn(object, key)`
+
+Checks if an object has a specific own property.
+
+### Usage
+
+```ts
+import { hasOwn } from 'unfunt'
+
+hasOwn({ a: 1 }, 'a')
+// => true
+
+hasOwn({ a: 1 }, 'b')
+// => false
+
+hasOwn({ a: 1 }, 'toString')
+// => false (inherited property)
+```
+
+### Arguments
+
+1. `object` *(Object)*: The object to check
+2. `key` *(string|symbol)*: The property key to check for
+
+### Returns
+
+*(boolean)*: Returns true if object has own property, false otherwise
+
+## `clone(source)`
+
+Creates a shallow clone of value.
+
+### Usage
+
+```ts
+import { clone } from 'unfunt'
+
+const original = { a: 1, b: { c: 2 } }
+const cloned = clone(original)
+
+console.log(cloned)
+// => { a: 1, b: { c: 2 } }
+
+console.log(cloned === original)
+// => false
+
+console.log(cloned.b === original.b)
+// => true (nested objects are shared)
+```
+
+### Arguments
+
+1. `source` *(any)*: The value to clone
+
+### Returns
+
+*(any)*: Returns the cloned value
+
+### Notes
+
+- Primitive values are returned as-is
+- Arrays and objects are shallow cloned
+- Nested objects/arrays are not cloned (references are shared)
+
+## `cloneDeep(source)`
+
+Creates a deep clone of value.
+
+### Usage
+
+```ts
+import { cloneDeep } from 'unfunt'
+
+const original = { a: 1, b: { c: 2 } }
+const cloned = cloneDeep(original)
+
+console.log(cloned)
+// => { a: 1, b: { c: 2 } }
+
+console.log(cloned === original)
+// => false
+
+console.log(cloned.b === original.b)
+// => false (nested objects are also cloned)
+```
+
+### Arguments
+
+1. `source` *(any)*: The value to clone
+
+### Returns
+
+*(any)*: Returns the deep cloned value
+
+### Notes
+
+- Primitive values are returned as-is
+- All nested objects and arrays are recursively cloned
+- Handles circular references safely
+
+## `toPath(path)`
+
+Converts a string path to a path array.
+
+### Usage
+
+```ts
+import { toPath } from 'unfunt'
+
+toPath('a.b.c')
+// => ['a', 'b', 'c']
+
+toPath('a[0].b.c')
+// => ['a', '0', 'b', 'c']
+
+toPath(['a', 'b', 'c'])
+// => ['a', 'b', 'c'] (already array)
+```
+
+### Arguments
+
+1. `path` *(string|Array)*: The path to convert
+
+### Returns
+
+*(Array)*: Returns the path array
+
+### Notes
+
+- Parses dot notation and bracket notation
+- Handles numeric indices in brackets
+- Returns arrays as-is (just converts keys)

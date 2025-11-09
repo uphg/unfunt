@@ -1,3 +1,5 @@
+import { hasOwn } from './hasOwn'
+
 /**
  * Iterates over each key-value pair in an object and executes a callback function.
  * The iteration can be stopped early by returning false from the callback.
@@ -19,10 +21,23 @@
  */
 export function forEachEntry<T extends object>(
   obj: T,
+  callback: (key: keyof T, value: T[keyof T]) => void
+): void
+
+export function forEachEntry<T extends object>(
+  obj: T,
+  callback: (key: keyof T, value: T[keyof T]) => boolean
+): boolean
+
+export function forEachEntry<T extends object>(
+  obj: T,
   callback: (key: keyof T, value: T[keyof T]) => boolean | void
-): void {
-  for (const [key, value] of Object.entries(obj)) {
-    const shouldContinue = callback(key as keyof T, value as T[keyof T])
-    if (shouldContinue === false) break
+): boolean | void {
+  for (const key in obj) {
+    if (hasOwn(obj, key)) {
+      const result = callback(key as keyof T, obj[key as keyof T])
+      if (result === false) return false
+    }
   }
+  return true
 }

@@ -54,33 +54,59 @@ if (isArray(data)) {
 
 ## API Categories
 
-### [Array Methods](./docs/api/array.md)
+### [Array Methods](./docs/docs/array.md)
 - `unslice` - Split array and return remaining parts
 - `toArray` - Convert value to array
+- `unionBy` - Merge arrays and remove duplicates by iteratee
+- `range` - Generate numeric range arrays
+- `sortBy` - Sort array by iteratee functions
+- `orderBy` - Sort array by multiple criteria with order
+- `uniq` - Create deduplicated array
+- `uniqWith` - Create deduplicated array with custom comparator
+- `castArray` - Convert value to array (wrap if needed)
 
-### ⚡ [Function Methods](./docs/api/function.md)  
+### ⚡ [Function Methods](./docs/docs/function.md)  
 - `debounce` - Create debounced function
 - `throttle` - Create throttled function
+- `memoize` - Create memoized function with cache
 
-### [Number Methods](./docs/api/number.md)
+### [Number Methods](./docs/docs/number.md)
 - `toFinite` - Convert value to finite number
 - `toLength` - Convert value to valid array length
+- `toInteger` - Convert value to integer
+- `toNumber` - Convert value to number
+- `randomInt` - Generate random integer in range
 
-### [Object Methods](./docs/api/object.md)
+### [Object Methods](./docs/docs/object.md)
 - `omit` / `omitBy` - Create object excluding properties
 - `pick` / `pickBy` - Create object with only specified properties
 - `mapEntries` - Transform object key-value pairs
 - `forEachEntry` - Iterate over object entries
+- `forOwn` - Iterate over own object properties
+- `get` - Get value at object path
+- `set` - Set value at object path
+- `hasOwn` - Check for own property
+- `clone` - Create shallow clone
+- `cloneDeep` - Create deep clone
+- `toPath` - Convert string path to array
 
-### [String Methods](./docs/api/string.md)
-- `trim` - Remove whitespace from string ends
+### [String Methods](./docs/docs/string.md)
+- `capitalize` - Capitalize first character, lowercase rest
+- `lowerFirst` - Convert first character to lowercase
+- `upperFirst` - Convert first character to uppercase
+- `camelize` - Convert hyphenated string to camelCase
+- `hyphenate` - Convert camelCase string to hyphenated
 
-### [Type Check Methods](./docs/api/typed.md)
-17 type checking utilities including:
+### [Type Check Methods](./docs/docs/typed.md)
+26 type checking utilities including:
 - `isArray`, `isString`, `isNumber`, `isBoolean`
 - `isEmpty`, `isNil`, `isFunction`, `isObject`
 - `isDate`, `isRegExp`, `isPromise`, `isError`
+- `isMap`, `isSet`, `isBigInt`, `isSymbol`
 - And more...
+
+### [Structure Methods](./docs/docs/structure.md)
+- `MapQueue` - Map-based queue with insertion order
 
 ## Quick Examples
 
@@ -120,7 +146,7 @@ if (isObject(data) && !isEmpty(data)) {
 
 ### Array and Type Utilities
 ```ts
-import { toArray, unslice, isArray, toNumber } from 'unfunt'
+import { toArray, unslice, range, uniq, isNumber } from 'unfunt'
 
 // Convert various types to arrays
 toArray('hello')     // ['h', 'e', 'l', 'l', 'o']
@@ -128,13 +154,20 @@ toArray(42)          // [42]
 toArray([1, 2, 3])   // [1, 2, 3]
 toArray(null)        // []
 
+// Generate numeric ranges
+range(5)           // [0, 1, 2, 3, 4]
+range(1, 5)        // [1, 2, 3, 4]
+range(0, 20, 5)    // [0, 5, 10, 15]
+
 // Split arrays intelligently
 unslice([1, 2, 3, 4, 5], 2, 1)  // [1, 2, 4, 5]
 
-// Safe type conversion
-toNumber('42')       // 42
-toNumber('invalid')  // NaN
-toNumber([42])       // 42
+// Remove duplicates
+uniq([1, 2, 2, 3, 3, 3])        // [1, 2, 3]
+
+// Safe type checking
+isNumber('42')     // false
+isNumber(42)       // true
 ```
 
 ## Documentation

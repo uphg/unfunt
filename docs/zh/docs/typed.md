@@ -583,3 +583,151 @@ isIterable({})
 ### Returns
 
 *(boolean)*: 如果值是可迭代对象返回 true，否则返回 false
+
+## `isTypeString(value)`
+
+检查值是否为类型字符串。
+
+### 使用示例
+
+```ts
+import { isTypeString } from 'unfunt'
+
+isTypeString('string')
+// => true
+
+isTypeString('number')
+// => true
+
+isTypeString(42)
+// => false
+```
+
+### 参数
+
+1. `value` *(unknown)*: 要检查的值
+
+### 返回值
+
+*(boolean)*: 如果值是类型字符串返回 true，否则返回 false
+
+## `toRawType(value)`
+
+获取值的原始类型字符串。
+
+### 使用示例
+
+```ts
+import { toRawType } from 'unfunt'
+
+toRawType('hello')
+// => 'string'
+
+toRawType(42)
+// => 'number'
+
+toRawType(null)
+// => 'null'
+
+toRawType(undefined)
+// => 'undefined'
+
+toRawType([])
+// => 'array'
+```
+
+### 参数
+
+1. `value` *(unknown)*: 要获取类型的值
+
+### 返回值
+
+*(string)*: 返回类型字符串
+
+## `makeMap(list)`
+
+创建一个映射函数，用于检查值是否在给定列表中。
+
+### 使用示例
+
+```ts
+import { makeMap } from 'unfunt'
+
+const isReservedWord = makeMap(['if', 'else', 'for', 'while'])
+
+isReservedWord('if')
+// => true
+
+isReservedWord('hello')
+// => false
+```
+
+### 参数
+
+1. `list` *(Array)*: 要检查的值列表
+
+### 返回值
+
+*(Function)*: 返回检查函数
+
+## `isNumericKey(value)`
+
+检查值是否为数字键。
+
+### 使用示例
+
+```ts
+import { isNumericKey } from 'unfunt'
+
+isNumericKey('0')
+// => true
+
+isNumericKey('42')
+// => true
+
+isNumericKey('abc')
+// => false
+
+isNumericKey(0)
+// => true
+```
+
+### 参数
+
+1. `value` *(unknown)*: 要检查的值
+
+### 返回值
+
+*(boolean)*: 如果值是数字键返回 true，否则返回 false
+
+## 完整列表
+
+所有可用的类型检查函数：
+
+- `isArrayLike` 
+- `isBigInt`
+- `isBoolean`
+- `isDate`
+- `isEmpty`
+- `isError`
+- `isFunction`
+- `isLength`
+- `isMap`
+- `isNil`
+- `isNumber`
+- `isObject`
+- `isObjectLike`
+- `isPlainObject`
+- `isPrimitive`
+- `isPromise`
+- `isRegExp`
+- `isSet`
+- `isString`
+- `isSymbol`
+- `isIterable`
+- `isTypeString`
+- `toRawType`
+- `makeMap`
+- `isNumericKey`
+
+每个函数都返回一个布尔值，指示值是否匹配预期的类型。

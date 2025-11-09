@@ -64,3 +64,49 @@ window.addEventListener('scroll', throttledHandler)
 - Debounce is useful for search inputs and form validation
 - Throttle is useful for scroll handlers and resize events
 - Both functions preserve the original function's context and arguments
+
+## `memoize(func, [options])`
+
+Creates a memoized function that caches the result of function calls.
+
+### Usage
+
+```ts
+import { memoize } from 'unfunt'
+
+const fibonacci = memoize((n: number): number => {
+  return n < 2 ? n : fibonacci(n - 1) + fibonacci(n - 2)
+})
+
+fibonacci(10)
+// => 55 (computed and cached)
+
+fibonacci(10)
+// => 55 (returned from cache)
+
+// With custom resolver
+const getObject = memoize((id: number) => {
+  return fetch(`/api/users/${id}`).then(res => res.json())
+}, {
+  resolver: (id) => `user_${id}`,
+  maxSize: 100
+})
+```
+
+### Arguments
+
+1. `func` *(Function)*: The function to memoize
+2. `[options]` *(Object)*: The options object
+   - `[options.maxSize]` *(number)*: Maximum cache size, defaults to unlimited
+   - `[options.resolver]` *(Function)*: Function to generate cache key
+
+### Returns
+
+*(Function)*: Returns the new memoized function
+
+### Notes
+
+- Uses MapQueue for efficient cache management with size limits
+- Preserves the original function's context and arguments
+- Default cache key is JSON.stringify of arguments
+- Useful for expensive computations and recursive functions
