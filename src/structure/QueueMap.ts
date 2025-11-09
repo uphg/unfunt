@@ -1,4 +1,4 @@
-export class MapQueue<K, V> extends Map<K, V> {
+export class QueueMap<K, V> extends Map<K, V> {
   constructor(iterable?: Iterable<readonly [K, V]>) {
     super(iterable)
   }

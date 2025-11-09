@@ -106,7 +106,7 @@ if (isArray(data)) {
 - And more...
 
 ### [Structure Methods](./docs/docs/structure.md)
-- `MapQueue` - Map-based queue with insertion order
+- `QueueMap` - Map-based queue with insertion order
 
 ## Quick Examples
 

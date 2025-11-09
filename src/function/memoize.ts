@@ -1,4 +1,4 @@
-import { MapQueue } from '../structure'
+import { QueueMap } from '../structure'
 
 export type MemoizeResolver = (...args: any[]) => any
 
@@ -15,7 +15,7 @@ export function memoize<T extends MemoizeResolver>(
   options: MemoizeOptions = {}
 ): T {
   const { maxSize, resolver } = options
-  const cache = new MapQueue<any, ReturnType<T>>()
+  const cache = new QueueMap<any, ReturnType<T>>()
 
   const memoized = function(this: ThisParameterType<T>, ...args: Parameters<T>): ReturnType<T> {
     const key = resolver ? resolver.apply(this, args) : JSON.stringify(args)

@@ -1,1 +1,1 @@
-export { MapQueue } from './MapQueue'
+export { QueueMap } from './QueueMap'

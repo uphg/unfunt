@@ -106,7 +106,7 @@ const getObject = memoize((id: number) => {
 
 ### Notes
 
-- Uses MapQueue for efficient cache management with size limits
+- Uses QueueMap for efficient cache management with size limits
 - Preserves the original function's context and arguments
 - Default cache key is JSON.stringify of arguments
 - Useful for expensive computations and recursive functions

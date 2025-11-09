@@ -2,17 +2,17 @@
 
 These are utility data structures for advanced use cases.
 
-## `MapQueue`
+## `QueueMap`
 
 A Map-based queue implementation that maintains insertion order while providing queue operations.
 
 ### Usage
 
 ```ts
-import { MapQueue } from 'unfunt'
+import { QueueMap } from 'unfunt'
 
-// Create a new MapQueue
-const queue = new MapQueue<string, number>()
+// Create a new QueueMap
+const queue = new QueueMap<string, number>()
 
 // Set values (maintains insertion order)
 queue.set('first', 1)
@@ -45,28 +45,28 @@ queue.size
 
 ### Constructor
 
-#### `new MapQueue([iterable])`
+#### `new QueueMap([iterable])`
 
-Creates a new MapQueue instance.
+Creates a new QueueMap instance.
 
 **Arguments:**
-1. `[iterable]` *(Iterable)*: An iterable object to initialize the MapQueue
+1. `[iterable]` *(Iterable)*: An iterable object to initialize the QueueMap
 
 ### Methods
 
 #### `set(key, value)`
 
-Sets a value for a key in the MapQueue. Maintains insertion order.
+Sets a value for a key in the QueueMap. Maintains insertion order.
 
 **Arguments:**
 1. `key` *(any)*: The key to set
 2. `value` *(any)*: The value to set
 
-**Returns:** *(MapQueue)*: Returns the MapQueue instance for chaining
+**Returns:** *(QueueMap)*: Returns the QueueMap instance for chaining
 
 #### `get(key)`
 
-Gets the value for a key in the MapQueue.
+Gets the value for a key in the QueueMap.
 
 **Arguments:**
 1. `key` *(any)*: The key to get
@@ -87,13 +87,13 @@ Removes and returns the value of the first inserted key.
 
 #### `isEmpty()`
 
-Checks if the MapQueue is empty.
+Checks if the QueueMap is empty.
 
 **Returns:** *(boolean)*: Returns true if empty, false otherwise
 
 #### `delete(key)`
 
-Deletes a key-value pair from the MapQueue.
+Deletes a key-value pair from the QueueMap.
 
 **Arguments:**
 1. `key` *(any)*: The key to delete
@@ -102,7 +102,7 @@ Deletes a key-value pair from the MapQueue.
 
 #### `has(key)`
 
-Checks if a key exists in the MapQueue.
+Checks if a key exists in the QueueMap.
 
 **Arguments:**
 1. `key` *(any)*: The key to check
@@ -111,7 +111,7 @@ Checks if a key exists in the MapQueue.
 
 #### `clear()`
 
-Removes all key-value pairs from the MapQueue.
+Removes all key-value pairs from the QueueMap.
 
 **Returns:** *(undefined)*
 
@@ -119,7 +119,7 @@ Removes all key-value pairs from the MapQueue.
 
 #### `size`
 
-Gets the number of key-value pairs in the MapQueue.
+Gets the number of key-value pairs in the QueueMap.
 
 **Type:** *(number)*
 
@@ -136,14 +136,14 @@ Gets the number of key-value pairs in the MapQueue.
 #### LRU Cache Implementation
 
 ```ts
-import { MapQueue } from 'unfunt'
+import { QueueMap } from 'unfunt'
 
 class LRUCache<K, V> {
-  private cache: MapQueue<K, V>
+  private cache: QueueMap<K, V>
   private maxSize: number
 
   constructor(maxSize: number) {
-    this.cache = new MapQueue<K, V>()
+    this.cache = new QueueMap<K, V>()
     this.maxSize = maxSize
   }
 

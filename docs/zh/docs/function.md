@@ -106,7 +106,7 @@ const getObject = memoize((id: number) => {
 
 ### 说明
 
-- 使用 MapQueue 进行高效的缓存管理，支持大小限制
+- 使用 QueueMap 进行高效的缓存管理，支持大小限制
 - 保留原始函数的上下文和参数
 - 默认缓存键是参数的 JSON.stringify 结果
 - 适用于昂贵的计算和递归函数

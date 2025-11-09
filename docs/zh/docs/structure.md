@@ -2,17 +2,17 @@
 
 这些是用于高级用例的实用数据结构。
 
-## `MapQueue`
+## `QueueMap`
 
 基于 Map 的队列实现，在提供队列操作的同时维护插入顺序。
 
 ### 使用示例
 
 ```ts
-import { MapQueue } from 'unfunt'
+import { QueueMap } from 'unfunt'
 
-// 创建新的 MapQueue
-const queue = new MapQueue<string, number>()
+// 创建新的 QueueMap
+const queue = new QueueMap<string, number>()
 
 // 设置值（维护插入顺序）
 queue.set('first', 1)
@@ -45,28 +45,28 @@ queue.size
 
 ### 构造函数
 
-#### `new MapQueue([iterable])`
+#### `new QueueMap([iterable])`
 
-创建新的 MapQueue 实例。
+创建新的 QueueMap 实例。
 
 **参数：**
-1. `[iterable]` *(Iterable)*: 用于初始化 MapQueue 的可迭代对象
+1. `[iterable]` *(Iterable)*: 用于初始化 QueueMap 的可迭代对象
 
 ### 方法
 
 #### `set(key, value)`
 
-在 MapQueue 中为键设置值。维护插入顺序。
+在 QueueMap 中为键设置值。维护插入顺序。
 
 **参数：**
 1. `key` *(any)*: 要设置的键
 2. `value` *(any)*: 要设置的值
 
-**返回值：** *(MapQueue)*: 返回 MapQueue 实例以支持链式调用
+**返回值：** *(QueueMap)*: 返回 QueueMap 实例以支持链式调用
 
 #### `get(key)`
 
-获取 MapQueue 中键对应的值。
+获取 QueueMap 中键对应的值。
 
 **参数：**
 1. `key` *(any)*: 要获取的键
@@ -87,13 +87,13 @@ queue.size
 
 #### `isEmpty()`
 
-检查 MapQueue 是否为空。
+检查 QueueMap 是否为空。
 
 **返回值：** *(boolean)*: 如果为空返回 true，否则返回 false
 
 #### `delete(key)`
 
-从 MapQueue 中删除键值对。
+从 QueueMap 中删除键值对。
 
 **参数：**
 1. `key` *(any)*: 要删除的键
@@ -102,7 +102,7 @@ queue.size
 
 #### `has(key)`
 
-检查 MapQueue 中是否存在某个键。
+检查 QueueMap 中是否存在某个键。
 
 **参数：**
 1. `key` *(any)*: 要检查的键
@@ -111,7 +111,7 @@ queue.size
 
 #### `clear()`
 
-移除 MapQueue 中的所有键值对。
+移除 QueueMap 中的所有键值对。
 
 **返回值：** *(undefined)*
 
@@ -119,7 +119,7 @@ queue.size
 
 #### `size`
 
-获取 MapQueue 中键值对的数量。
+获取 QueueMap 中键值对的数量。
 
 **类型：** *(number)*
 
@@ -136,14 +136,14 @@ queue.size
 #### LRU 缓存实现
 
 ```ts
-import { MapQueue } from 'unfunt'
+import { QueueMap } from 'unfunt'
 
 class LRUCache<K, V> {
-  private cache: MapQueue<K, V>
+  private cache: QueueMap<K, V>
   private maxSize: number
 
   constructor(maxSize: number) {
-    this.cache = new MapQueue<K, V>()
+    this.cache = new QueueMap<K, V>()
     this.maxSize = maxSize
   }
 
