@@ -16,6 +16,12 @@ export function getPackageEntries(keySuffix = false) {
     const moduleIndexPath = join(srcDir, module, 'index.ts')
     try {
       const content = readFileSync(moduleIndexPath, 'utf-8')
+      
+      // Add the module index file itself
+      const key = keySuffix ? `${module}/index` : module
+      entries[key] = `src/${module}/index.ts`
+      
+      // Add individual function files
       const exports = content.match(/export.*from\s+['"]\.\/([^'"]+)['"]/g)
       if (exports) {
         for (const exportLine of exports) {
