@@ -36,7 +36,7 @@ async function run(argv) {
 
     // 并行执行所有 rollup 构建
     const esmResult = await execaQuiet('tsdown')
-    const umdResult = await execaQuiet('BUILD_ENV=umd tsdown', { shell: true })
+    // const umdResult = await execaQuiet('BUILD_ENV=umd tsdown', { shell: true })
 
     // 显示构建结果
     console.log(pc.dim('Build Results:'))
@@ -44,7 +44,7 @@ async function run(argv) {
     // 统一处理构建结果
     handleBuildResult(tscResult, BUILD_TYPES.TSC.name, BUILD_TYPES.TSC.type)
     handleBuildResult(esmResult, BUILD_TYPES.ESM.name, BUILD_TYPES.ESM.type)
-    handleBuildResult(umdResult, BUILD_TYPES.UMD.name, BUILD_TYPES.UMD.type)
+    // handleBuildResult(umdResult, BUILD_TYPES.UMD.name, BUILD_TYPES.UMD.type)
 
     const strPackage = JSON.stringify(packageJson, null, 2)
     await fs.writeFile(resolve('./package.json'), strPackage)

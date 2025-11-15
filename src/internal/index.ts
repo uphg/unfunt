@@ -1,7 +1,6 @@
 export * from './common'
 export * from './interfaces'
 export * from './vanilla'
-export { stringToPath } from './stringToPath'
 export { copyArray } from './copyArray'
 export { toKey } from './toKey'
 export { memoizeCapped } from './memoizeCapped'

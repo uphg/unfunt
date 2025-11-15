@@ -43,17 +43,9 @@ describe('type assert', () => {
       ['', 'hi'],
       [...unslice(baseTypes, 4, 1), ...objTypes]
     ],
-    isBigInt: [
-      [bigInt],
-      [...unslice(baseTypes, 5, 1), ...objTypes]
-    ],
-    isSymbol: [
-      [symbol],
-      [...unslice(baseTypes, 6, 1), ...objTypes]
-    ],
     isNil: [
       [null, undefined],
-      [...unslice(baseTypes, 7, 2), ...objTypes]
+      [...unslice(baseTypes, 5, 4), ...objTypes]
     ],
     isObject: [
       objTypes,
@@ -84,14 +76,6 @@ describe('type assert', () => {
     isRegExp: [
       [regex],
       [...unslice(objTypes, 8, 1), ...baseTypes]
-    ],
-    isMap: [
-      [mapObj],
-      [...unslice(objTypes, 9, 1), ...baseTypes]
-    ],
-    isSet: [
-      [setObj],
-      [...unslice(objTypes, 11, 1), ...baseTypes]
     ],
     isObjectLike: [
       [{ a: 1 }, [1, 2, 3]],

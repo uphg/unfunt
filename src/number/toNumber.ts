@@ -1,4 +1,4 @@
-import { isSymbol, isObject } from '../typed/index'
+import { isObject } from '../typed/index'
 
 /**
  * Converts `value` to a number.
@@ -27,7 +27,7 @@ export function toNumber(value: unknown): number {
   if (typeof value === 'number') {
     return value
   }
-  if (isSymbol(value)) {
+  if (typeof value === 'symbol') {
     return NaN
   }
   if (isObject(value)) {

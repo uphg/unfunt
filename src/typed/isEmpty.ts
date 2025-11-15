@@ -2,8 +2,6 @@ import { isNil } from './isNil'
 import { isBoolean } from './isBoolean'
 import { isString } from './isString'
 import { isArrayLike } from './isArrayLike'
-import { isMap } from './isMap'
-import { isSet } from './isSet'
 
 /**
  * Checks if a value is empty. Works with arrays, strings, objects, maps, sets, and other collections.
@@ -37,7 +35,7 @@ export function isEmpty<T extends unknown>(value: T) {
     return !value.length
   }
 
-  if (isMap(value) || isSet(value)) return !(value as (Set<unknown> & Map<unknown, unknown>)).size
+  if (value instanceof Map || value instanceof Set) return !value.size
 
   return Object.keys(value as object).length === 0
 }

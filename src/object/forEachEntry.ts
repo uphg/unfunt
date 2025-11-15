@@ -39,5 +39,4 @@ export function forEachEntry<T extends object>(
       if (result === false) return false
     }
   }
-  return true
 }

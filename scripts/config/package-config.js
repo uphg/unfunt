@@ -8,14 +8,23 @@ export function createPackageConfig(version = '0.1.6') {
     name: 'unfunt',
     version,
     license: 'MIT',
-    main: 'index.umd.js',
-    module: 'index.js',
+    type: "module",
+    main: 'index.cjs',
+    module: 'index.mjs',
     types: 'index.d.ts',
+    exports: {
+      ".": {
+        "import": "./index.mjs",
+        "require": "./index.cjs",
+        "default": "./index.mjs"
+      },
+      "./package.json": "./package.json"
+    },
     description: 'A lightweight JavaScript utility library with common functions',
     keywords: ['javascript', 'typescript', 'utils', 'utility', 'functions', 'library', 'tools'],
     homepage: 'https://github.com/uphg/unfunt#readme',
     repository: 'uphg/unfunt',
     bugs: 'https://github.com/uphg/unfunt/issues',
-    author: 'Lv Heng <lvheng233@gmail.com>'
+    author: 'Lv Heng <lvheng233@gmail.com>',
   }
 }

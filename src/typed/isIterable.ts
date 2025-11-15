@@ -1,3 +1,6 @@
+import { isNil } from './isNil'
+import { isString } from './isString'
+
 /**
  * Checks if a value is iterable (can be used with for...of or spread operator).
  * @param value The value to check
@@ -14,7 +17,7 @@
  * // => false
  */
 export function isIterable(value: unknown): value is Iterable<unknown> {
-  if (value == null) return false
-  if (typeof value === 'string') return true
+  if (isNil(value)) return false
+  if (isString(value)) return true
   return typeof value === 'object' && Symbol.iterator in (value as object)
 }

@@ -1,6 +1,4 @@
-import { isIterable } from '../typed/isIterable'
-import { isNil } from '../typed/isNil'
-import { isString } from '../typed/isString'
+import { isNil, isIterable, isArrayLike } from '../typed'
 
 /**
  * Converts a value to an array. If the value is already an array, it returns the array.
@@ -26,9 +24,6 @@ export function toArray(value: unknown): unknown[]
 export function toArray(value: unknown): unknown[] {
   if (isNil(value)) return []
   if (Array.isArray(value)) return value
-  if (isString(value)) return Array.from(value)
-  if (isIterable(value)) {
-    return Array.from(value)
-  }
+  if (isIterable(value) || isArrayLike(value)) return Array.from(value)
   return [value]
 }
