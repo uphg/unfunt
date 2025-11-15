@@ -63,6 +63,7 @@ if (isArray(data)) {
 - `uniq` - Create deduplicated array
 - `uniqWith` - Create deduplicated array with custom comparator
 - `castArray` - Convert value to array (wrap if needed)
+- `remove` - Remove first occurrence of item from array
 
 ### ⚡ [Function Methods](./docs/docs/function.md)  
 - `debounce` - Create debounced function
@@ -70,9 +71,6 @@ if (isArray(data)) {
 - `memoize` - Create memoized function with cache
 
 ### [Number Methods](./docs/docs/number.md)
-- `toFinite` - Convert value to finite number
-- `toLength` - Convert value to valid array length
-- `toInteger` - Convert value to integer
 - `toNumber` - Convert value to number
 - `randomInt` - Generate random integer in range
 
@@ -82,12 +80,9 @@ if (isArray(data)) {
 - `mapEntries` - Transform object key-value pairs
 - `forEachEntry` - Iterate over object entries
 - `forOwn` - Iterate over own object properties
-- `get` - Get value at object path
-- `set` - Set value at object path
 - `hasOwn` - Check for own property
 - `clone` - Create shallow clone
 - `cloneDeep` - Create deep clone
-- `toPath` - Convert string path to array
 
 ### [String Methods](./docs/docs/string.md)
 - `capitalize` - Capitalize first character, lowercase rest
@@ -97,7 +92,7 @@ if (isArray(data)) {
 - `hyphenate` - Convert camelCase string to hyphenated
 
 ### [Type Check Methods](./docs/docs/typed.md)
-26 type checking utilities including:
+22 type checking utilities including:
 - `isArray`, `isString`, `isNumber`, `isBoolean`
 - `isEmpty`, `isNil`, `isFunction`, `isObject`
 - `isDate`, `isRegExp`, `isPromise`, `isError`

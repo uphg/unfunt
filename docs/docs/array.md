@@ -244,3 +244,37 @@ castArray([1, 2, 3])
 - Non-array values are wrapped in an array
 - Arrays are returned as-is
 - Preserves array type information
+
+## `remove(array, item)`
+
+Removes the first occurrence of an item from an array.
+
+### Usage
+
+```ts
+import { remove } from 'unfunt'
+
+remove([1, 2, 3, 2], 2)
+// => [1, 3, 2]
+
+remove(['a', 'b', 'c'], 'b')
+// => ['a', 'c']
+
+remove([true, false, true], false)
+// => [true, true]
+```
+
+### Arguments
+
+1. `array` *(Array)*: The array to modify
+2. `item` *(any)*: The item to remove
+
+### Returns
+
+*(Array)*: Returns the modified array
+
+### Notes
+
+- Modifies the original array in place
+- Only removes the first occurrence of the item
+- Returns the same array reference for chaining
