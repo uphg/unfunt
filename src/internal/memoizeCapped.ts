@@ -1,5 +1,5 @@
-import { memoize } from '../function'
-import { MemoizeResolver } from '../function/memoize'
+import { memoize } from '../function/memoize'
+import type { MemoizeResolver } from '../function/memoize'
 
 const maxSize = 500
 

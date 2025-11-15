@@ -1,4 +1,6 @@
-import { isNil, isIterable, isArrayLike } from '../typed'
+import { isNil } from '../typed/isNil'
+import { isIterable } from '../typed/isIterable'
+import { isArrayLike } from '../typed/isArrayLike'
 
 /**
  * Converts a value to an array. If the value is already an array, it returns the array.

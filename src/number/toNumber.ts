@@ -1,4 +1,4 @@
-import { isObject } from '../typed/index'
+import { isObject } from '../typed/isObject'
 
 /**
  * Converts `value` to a number.

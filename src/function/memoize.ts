@@ -1,4 +1,4 @@
-import { QueueMap } from '../structure'
+import { QueueMap } from '../structure/QueueMap'
 
 export type MemoizeResolver = (...args: any[]) => any
 
