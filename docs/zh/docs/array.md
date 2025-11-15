@@ -2,32 +2,6 @@
 
 这些是处理数组的实用方法。
 
-## `unslice(array, start, [deleteCount])`
-
-根据给定参数分割数组，返回分割后的剩下的部分。
-
-### 使用示例
-
-```ts
-import { unslice } from 'unfunt'
-
-unslice([1, 2, 3, 4, 5], 2)
-// => [1, 2]
-
-unslice([1, 2, 3, 4, 5], 2, 1)
-// => [1, 2, 4, 5]
-```
-
-### 参数
-
-1. `array` *(Array)*: 要处理的数组
-2. `start` *(number)*: 开始删除的索引位置
-3. `[deleteCount]` *(number)*: 要删除的元素数量，默认为数组长度减 1
-
-### 返回值
-
-*(Array)*: 返回删除指定元素后的新数组
-
 ## `toArray(value)`
 
 将值转换为数组。

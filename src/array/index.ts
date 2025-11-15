@@ -1,4 +1,3 @@
-export { unslice } from './unslice'
 export { toArray } from './toArray'
 export { unionBy } from './unionBy'
 export { range } from './range'

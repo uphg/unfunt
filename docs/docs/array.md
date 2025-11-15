@@ -2,32 +2,6 @@
 
 These are utility methods for handling arrays.
 
-## `unslice(array, start, [deleteCount])`
-
-Split array by given parameters and return the remaining parts after deletion.
-
-### Usage
-
-```ts
-import { unslice } from 'unfunt'
-
-unslice([1, 2, 3, 4, 5], 2)
-// => [1, 2]
-
-unslice([1, 2, 3, 4, 5], 2, 1)
-// => [1, 2, 4, 5]
-```
-
-### Arguments
-
-1. `array` *(Array)*: The array to process
-2. `start` *(number)*: The index to start deleting from
-3. `[deleteCount]` *(number)*: The number of elements to delete, defaults to array length minus 1
-
-### Returns
-
-*(Array)*: Returns a new array with specified elements removed
-
 ## `toArray(value)`
 
 Convert value to array.

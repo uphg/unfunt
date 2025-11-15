@@ -55,7 +55,6 @@ if (isArray(data)) {
 ## API Categories
 
 ### [Array Methods](./docs/docs/array.md)
-- `unslice` - Split array and return remaining parts
 - `toArray` - Convert value to array
 - `unionBy` - Merge arrays and remove duplicates by iteratee
 - `range` - Generate numeric range arrays
@@ -146,7 +145,7 @@ if (isObject(data) && !isEmpty(data)) {
 
 ### Array and Type Utilities
 ```ts
-import { toArray, unslice, range, uniq, isNumber } from 'unfunt'
+import { toArray, range, uniq, isNumber } from 'unfunt'
 
 // Convert various types to arrays
 toArray('hello')     // ['h', 'e', 'l', 'l', 'o']
@@ -158,9 +157,6 @@ toArray(null)        // []
 range(5)           // [0, 1, 2, 3, 4]
 range(1, 5)        // [1, 2, 3, 4]
 range(0, 20, 5)    // [0, 5, 10, 15]
-
-// Split arrays intelligently
-unslice([1, 2, 3, 4, 5], 2, 1)  // [1, 2, 4, 5]
 
 // Remove duplicates
 uniq([1, 2, 2, 3, 3, 3])        // [1, 2, 3]

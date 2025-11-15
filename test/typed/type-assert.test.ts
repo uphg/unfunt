@@ -1,5 +1,4 @@
 import * as _ from '../../src/index'
-import { unslice } from '../../src/index'
 import {
   symbol, bigInt, error, stringObj, numberObj, booleanObj, date,
   asyncFunc, generatorFunc, regex, func, argsFn, mapObj,
@@ -33,19 +32,19 @@ describe('type assert', () => {
   const typesMap = {
     isBoolean: [
       [true, false],
-      [...unslice(baseTypes, 0, 1), ...objTypes]
+      [...baseTypes.slice(1), ...objTypes]
     ],
     isNumber: [
       [0, 1],
-      [...unslice(baseTypes, 1, 3), ...objTypes]
+      [...baseTypes.slice(0, 1), ...baseTypes.slice(4), ...objTypes]
     ],
     isString: [
       ['', 'hi'],
-      [...unslice(baseTypes, 4, 1), ...objTypes]
+      [...baseTypes.slice(0, 4), ...baseTypes.slice(5), ...objTypes]
     ],
     isNil: [
       [null, undefined],
-      [...unslice(baseTypes, 5, 4), ...objTypes]
+      [...baseTypes.slice(0, 5), ...objTypes]
     ],
     isObject: [
       objTypes,
@@ -58,24 +57,24 @@ describe('type assert', () => {
         generatorFunc,
         Math.round
       ],
-      [...unslice(objTypes, 2, 1), ...baseTypes]
+      [...objTypes.slice(0, 2), ...objTypes.slice(3), ...baseTypes]
     ],
     isError: [
       [error, new CustomError('hi'), new EvalError(), new RangeError(), new ReferenceError(), new SyntaxError(), new TypeError()],
       [
         { name: 'error', message: 'hi' },
-        ...unslice(objTypes, 6, 1),
+        ...objTypes.slice(0, 6), ...objTypes.slice(7),
         ...baseTypes,
         Error
       ]
     ],
     isDate: [
       [date],
-      [...unslice(objTypes, 7, 1), ...baseTypes]
+      [...objTypes.slice(0, 7), ...objTypes.slice(8), ...baseTypes]
     ],
     isRegExp: [
       [regex],
-      [...unslice(objTypes, 8, 1), ...baseTypes]
+      [...objTypes.slice(0, 8), ...objTypes.slice(9), ...baseTypes]
     ],
     isObjectLike: [
       [{ a: 1 }, [1, 2, 3]],
@@ -83,15 +82,15 @@ describe('type assert', () => {
     ],
     isLength: [
       [1, 0],
-      [...unslice(baseTypes, 1, 1), -2, Number.MIN_VALUE, ...objTypes]
+      [...baseTypes.slice(0, 1), ...baseTypes.slice(2), -2, Number.MIN_VALUE, ...objTypes]
     ],
     isPlainObject: [
       [{}, new Object(), Object.create(null)],
-      [...unslice(objTypes, 0, 1), ...baseTypes]
+      [...objTypes.slice(1), ...baseTypes]
     ],
     isArrayLike: [
       [[1, 2, 3], 'abc', new Uint8Array(8)],
-      [func, mapObj, setObj, weakMapObj, weakSetObj, ...unslice(baseTypes, 4, 1)]
+      [func, mapObj, setObj, weakMapObj, weakSetObj, ...baseTypes.slice(0, 4), ...baseTypes.slice(5)]
     ],
     isEmpty: [
       [[], {}, '', new Set(), new Map()],
