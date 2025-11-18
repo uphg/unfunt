@@ -9,7 +9,7 @@ Converts `value` to a number.
 ### Usage
 
 ```ts
-import { toNumber } from 'unfunt'
+import { toNumber } from 'xfunc'
 
 toNumber('42')
 // => 42
@@ -39,7 +39,7 @@ Generates a random integer within the specified range.
 ### Usage
 
 ```ts
-import { randomInt } from 'unfunt'
+import { randomInt } from 'xfunc'
 
 randomInt(0, 5)
 // => Integer between 0 and 5 (inclusive)

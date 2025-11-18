@@ -42,7 +42,7 @@ async function run() {
         buildResults.push({ functionName, result })
 
         // 显示构建结果
-        handleBuildResult(result, `@unfunt/${hyphName}`, BUILD_TYPES.TSDOWN.type)
+        handleBuildResult(result, `@xfunc/${hyphName}`, BUILD_TYPES.TSDOWN.type)
       } else {
         console.log(pc.yellow('(!)') + pc.dim(` Config not found for ${functionName}: ${configPath}`))
       }

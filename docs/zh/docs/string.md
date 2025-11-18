@@ -9,7 +9,7 @@
 ### 使用示例
 
 ```ts
-import { capitalize } from 'unfunt'
+import { capitalize } from 'xfunc'
 
 capitalize('FRED')
 // => 'Fred'
@@ -42,7 +42,7 @@ capitalize('hello world')
 ### 使用示例
 
 ```ts
-import { lowerFirst } from 'unfunt'
+import { lowerFirst } from 'xfunc'
 
 lowerFirst('Fred')
 // => 'fred'
@@ -75,7 +75,7 @@ lowerFirst('Hello')
 ### 使用示例
 
 ```ts
-import { upperFirst } from 'unfunt'
+import { upperFirst } from 'xfunc'
 
 upperFirst('fred')
 // => 'Fred'
@@ -108,7 +108,7 @@ upperFirst('hello')
 ### 使用示例
 
 ```ts
-import { camelize } from 'unfunt'
+import { camelize } from 'xfunc'
 
 camelize('foo-bar')
 // => 'fooBar'
@@ -141,7 +141,7 @@ camelize('my-component-name')
 ### 使用示例
 
 ```ts
-import { hyphenate } from 'unfunt'
+import { hyphenate } from 'xfunc'
 
 hyphenate('fooBar')
 // => 'foo-bar'

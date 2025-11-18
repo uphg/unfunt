@@ -27,8 +27,8 @@ Thank you for your interest in contributing to Unfunt! This guide will help you 
 1. Fork the repository on GitHub
 2. Clone your fork locally:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/unfunt.git
-   cd unfunt
+   git clone https://github.com/YOUR_USERNAME/xfunc.git
+   cd xfunc
    ```
 
 3. Install dependencies:
@@ -55,7 +55,7 @@ Thank you for your interest in contributing to Unfunt! This guide will help you 
 ## Project Structure
 
 ```
-unfunt/
+xfunc/
 ├── src/                 # Source code
 │   ├── array/          # Array utilities
 │   ├── function/       # Function utilities

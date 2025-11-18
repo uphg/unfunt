@@ -2,8 +2,8 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  base: '/unfunt/',
-  title: 'Unfunt',
+  base: '/xfunc/',
+  title: 'xfunc',
   description: 'A collection of utility functions for TypeScript/JavaScript',
 
   locales: {
@@ -73,13 +73,13 @@ export default defineConfig({
     },
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/uphg/unfunt' }
+      { icon: 'github', link: 'https://github.com/uphg/xfunc' }
     ],
     search: {
       provider: 'local'
     },
     editLink: {
-      pattern: 'https://github.com/uphg/unfunt/edit/master/docs/:path'
+      pattern: 'https://github.com/uphg/xfunc/edit/master/docs/:path'
     }
   }
 })

@@ -1,4 +1,4 @@
-# Unfunt
+# xfunc
 
 ```
 ██╗   ██╗███╗   ██╗███████╗██╗   ██╗███╗   ██╗████████╗
@@ -24,23 +24,23 @@ A modern collection of utility functions for TypeScript/JavaScript projects.
 
 ```bash
 # npm
-npm install unfunt
+npm install xfunc
 
-# yarn  
-yarn add unfunt
+# yarn
+yarn add xfunc
 
 # pnpm
-pnpm add unfunt
+pnpm add xfunc
 ```
 
 ## Usage
 
 ```ts
 // Import specific functions (recommended for tree shaking)
-import { debounce, isArray } from 'unfunt'
+import { debounce, isArray } from 'xfunc'
 
 // Or import everything
-import * as unfunt from 'unfunt'
+import * as xfunc from 'xfunc'
 
 // Usage examples
 const debouncedHandler = debounce(() => {
@@ -106,7 +106,7 @@ if (isArray(data)) {
 
 ### Debounce Function Calls
 ```ts
-import { debounce } from 'unfunt'
+import { debounce } from 'xfunc'
 
 const searchHandler = debounce((query: string) => {
   // API call will only happen 300ms after user stops typing
@@ -120,7 +120,7 @@ input.addEventListener('input', (e) => {
 
 ### Type-Safe Object Manipulation
 ```ts
-import { pick, omit, isObject } from 'unfunt'
+import { pick, omit, isObject } from 'xfunc'
 
 const user = { id: 1, name: 'John', email: 'john@example.com', password: 'secret' }
 
@@ -140,7 +140,7 @@ if (isObject(data) && !isEmpty(data)) {
 
 ### Array and Type Utilities
 ```ts
-import { toArray, range, uniq, isNumber } from 'unfunt'
+import { toArray, range, uniq, isNumber } from 'xfunc'
 
 // Convert various types to arrays
 toArray('hello')     // ['h', 'e', 'l', 'l', 'o']
@@ -163,9 +163,9 @@ isNumber(42)       // true
 
 ## Documentation
 
-Visit our [documentation site](https://uphg.github.io/unfunt/) for:
+Visit our [documentation site](https://uphg.github.io/xfunc/) for:
 - 📖 Complete API reference
-- 💡 Usage examples 
+- 💡 Usage examples
 - 🎯 Best practices
 - 📝 Type definitions
 
@@ -204,4 +204,4 @@ Contributions are welcome! Please read our contributing guidelines and submit a 
 
 ---
 
-**unfunt** - *Utility functions that just work* ⚡
+**xfunc** - *Utility functions that just work* ⚡

@@ -40,10 +40,10 @@ Utility methods for type checking
 
 ```ts
 // Import specific functions
-import { debounce, isArray, toNumber } from 'unfunt'
+import { debounce, isArray, toNumber } from 'xfunc'
 
 // Or import all methods
-import * as unfunt from 'unfunt'
+import * as xfunc from 'xfunc'
 ```
 
 ## Overview

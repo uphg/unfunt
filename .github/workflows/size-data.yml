@@ -15,7 +15,7 @@ permissions:
 
 jobs:
   upload:
-    if: github.repository == 'uphg/unfunt'
+    if: github.repository == 'uphg/xfunc'
     runs-on: ubuntu-latest
 
     steps:

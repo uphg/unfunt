@@ -15,7 +15,7 @@ jobs:
   size-report:
     runs-on: ubuntu-latest
     if: >
-      github.repository == 'uphg/unfunt' &&
+      github.repository == 'uphg/xfunc' &&
       github.event.workflow_run.event == 'pull_request' &&
       github.event.workflow_run.conclusion == 'success'
     steps:

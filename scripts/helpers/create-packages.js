@@ -33,7 +33,7 @@ export default defineConfig({
   sourcemap: true,
   clean: true,
   outputOptions: {
-    name: 'unfunt_${functionName.replace(/[-]/g, '_')}',
+    name: 'xfunc_${functionName.replace(/[-]/g, '_')}',
   }
 })
 `
@@ -53,7 +53,7 @@ export async function createMetaDocs(functionName, { functionDir }) {
   const hyphName = hyphenate(functionName)
   // Create package.json
   const packageJson = {
-    name: `@unfunt/${hyphName}`,
+    name: `@xfunc/${hyphName}`,
     version,
     license: 'MIT',
     main: 'dist/index.umd.js',
@@ -69,9 +69,9 @@ export async function createMetaDocs(functionName, { functionDir }) {
       'library',
       'tools'
     ],
-    homepage: 'https://github.com/uphg/unfunt#readme',
-    repository: 'uphg/unfunt',
-    bugs: 'https://github.com/uphg/unfunt/issues',
+    homepage: 'https://github.com/uphg/xfunc#readme',
+    repository: 'uphg/xfunc',
+    bugs: 'https://github.com/uphg/xfunc/issues',
     author: 'Lv Heng <lvheng233@gmail.com>'
   }
 
@@ -86,14 +86,14 @@ export async function createMetaDocs(functionName, { functionDir }) {
   writeFileSync(join(functionDir, 'LICENSE'), licenseContent)
 
   // Create README.md
-  const readmeContent = `# @unfunt/${hyphName} v${version}
+  const readmeContent = `# @xfunc/${hyphName} v${version}
 
 ## Installation
 
 Using npm
 
 \`\`\`bash
-$ npm i @unfunt/${hyphName}
+$ npm i @xfunc/${hyphName}
 \`\`\`
 
 See the documentation or package source for more details.

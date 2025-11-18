@@ -9,7 +9,7 @@ Convert value to array.
 ### Usage
 
 ```ts
-import { toArray } from 'unfunt'
+import { toArray } from 'xfunc'
 
 toArray(null)
 // => []
@@ -46,7 +46,7 @@ Merge multiple arrays and remove duplicates based on iteratee function.
 ### Usage
 
 ```ts
-import { unionBy } from 'unfunt'
+import { unionBy } from 'xfunc'
 
 unionBy([2.1], [1.2, 2.3], Math.floor)
 // => [2.1, 1.2]
@@ -71,7 +71,7 @@ Generates a numeric range array.
 ### Usage
 
 ```ts
-import { range } from 'unfunt'
+import { range } from 'xfunc'
 
 range(4)
 // => [0, 1, 2, 3]
@@ -103,7 +103,7 @@ Sort array based on iteratee functions.
 ### Usage
 
 ```ts
-import { sortBy } from 'unfunt'
+import { sortBy } from 'xfunc'
 
 const users = [
   { name: 'fred', age: 48 },
@@ -133,7 +133,7 @@ Sorts an array by multiple criteria with specified sort orders.
 ### Usage
 
 ```ts
-import { orderBy } from 'unfunt'
+import { orderBy } from 'xfunc'
 
 const users = [
   { name: 'fred', age: 48 },
@@ -164,7 +164,7 @@ Create a deduplicated array copy using SameValueZero for equality comparison.
 ### Usage
 
 ```ts
-import { uniq } from 'unfunt'
+import { uniq } from 'xfunc'
 
 uniq([2, 1, 2])
 // => [2, 1]
@@ -188,7 +188,7 @@ Create a deduplicated array copy based on comparison function.
 ### Usage
 
 ```ts
-import { uniqWith } from 'unfunt'
+import { uniqWith } from 'xfunc'
 
 const objects = [
   { x: 1, y: 2 },
@@ -216,7 +216,7 @@ Converts value to an array, wrapping it in an array if it's not already one.
 ### Usage
 
 ```ts
-import { castArray } from 'unfunt'
+import { castArray } from 'xfunc'
 
 castArray(1)
 // => [1]
@@ -252,7 +252,7 @@ Removes the first occurrence of an item from an array.
 ### Usage
 
 ```ts
-import { remove } from 'unfunt'
+import { remove } from 'xfunc'
 
 remove([1, 2, 3, 2], 2)
 // => [1, 3, 2]

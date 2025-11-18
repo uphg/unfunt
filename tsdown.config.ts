@@ -7,6 +7,6 @@ export default defineConfig({
   format: ['cjs', 'esm', 'umd'],
   outDir: './dist',
   outputOptions: {
-    name: 'unfunt'
+    name: 'xfunc'
   }
 })

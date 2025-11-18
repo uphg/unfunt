@@ -8,15 +8,15 @@ Choose your preferred package manager:
 
 ::: code-group
 ```bash [pnpm]
-pnpm add unfunt
+pnpm add xfunc
 ```
 
 ```bash [npm]
-npm install unfunt
+npm install xfunc
 ```
 
 ```bash [yarn]
-yarn add unfunt
+yarn add xfunc
 ```
 :::
 
@@ -26,10 +26,10 @@ Unfunt supports both ESM and CommonJS imports. For optimal tree shaking, import 
 
 ```ts
 // ✅ Recommended: Import specific functions
-import { debounce, isArray, toNumber } from 'unfunt'
+import { debounce, isArray, toNumber } from 'xfunc'
 
 // ✅ Also works: Import all functions
-import * as unfunt from 'unfunt'
+import * as xfunc from 'xfunc'
 ```
 
 ## Common Use Cases
@@ -40,7 +40,7 @@ import * as unfunt from 'unfunt'
 Perfect for search inputs and form validation:
 
 ```ts
-import { debounce } from 'unfunt'
+import { debounce } from 'xfunc'
 
 const searchHandler = debounce((query: string) => {
   // API call only happens 300ms after user stops typing
@@ -57,7 +57,7 @@ searchInput.addEventListener('input', (e) => {
 Great for scroll handlers and button clicks:
 
 ```ts
-import { throttle } from 'unfunt'
+import { throttle } from 'xfunc'
 
 const scrollHandler = throttle(() => {
   console.log('Scroll event handled')
@@ -71,7 +71,7 @@ window.addEventListener('scroll', scrollHandler)
 Safe and reliable type checking for any value:
 
 ```ts
-import { isArray, isString, isEmpty, isNil } from 'unfunt'
+import { isArray, isString, isEmpty, isNil } from 'xfunc'
 
 // Check types safely
 if (isArray(data)) {
@@ -92,7 +92,7 @@ if (!isNil(value)) {
 ### 📊 Array Operations
 
 ```ts
-import { toArray, remain } from 'unfunt'
+import { toArray, remain } from 'xfunc'
 
 // Convert anything to array
 const items = toArray(userInput) // Works with strings, numbers, arrays, etc.
@@ -105,7 +105,7 @@ const [first, second, ...rest] = remain([1, 2, 3, 4, 5], 2)
 ### 🔢 Number Conversion
 
 ```ts
-import { toNumber, toInteger, toFinite } from 'unfunt'
+import { toNumber, toInteger, toFinite } from 'xfunc'
 
 // Safe number conversion
 const age = toNumber(formData.age) // Handles strings, arrays, etc.
@@ -116,7 +116,7 @@ const ratio = toFinite(Infinity)   // Number.MAX_VALUE
 ### 🏗️ Object Manipulation
 
 ```ts
-import { pick, omit, mapEntries } from 'unfunt'
+import { pick, omit, mapEntries } from 'xfunc'
 
 const user = { 
   id: 1, 
@@ -145,7 +145,7 @@ const transformed = mapEntries(user, ([key, value]) => [
 ### Form Validation with Debounce
 
 ```ts
-import { debounce, isString, isEmpty } from 'unfunt'
+import { debounce, isString, isEmpty } from 'xfunc'
 
 class FormValidator {
   private validateEmail = debounce((email: string) => {
@@ -168,7 +168,7 @@ class FormValidator {
 ### API Response Processing
 
 ```ts
-import { isArray, pick, toNumber } from 'unfunt'
+import { isArray, pick, toNumber } from 'xfunc'
 
 function processApiResponse(response: unknown) {
   if (!isArray(response)) {
@@ -185,7 +185,7 @@ function processApiResponse(response: unknown) {
 ### Infinite Scroll with Throttle
 
 ```ts
-import { throttle } from 'unfunt'
+import { throttle } from 'xfunc'
 
 class InfiniteScroll {
   private loadMore = throttle(() => {
@@ -212,7 +212,7 @@ class InfiniteScroll {
 Unfunt is built with TypeScript and provides excellent type safety out of the box:
 
 ```ts
-import { isArray, pick } from 'unfunt'
+import { isArray, pick } from 'xfunc'
 
 function processData<T>(data: T) {
   if (isArray(data)) {

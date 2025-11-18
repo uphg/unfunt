@@ -9,7 +9,7 @@ A Map-based queue implementation that maintains insertion order while providing 
 ### Usage
 
 ```ts
-import { QueueMap } from 'unfunt'
+import { QueueMap } from 'xfunc'
 
 // Create a new QueueMap
 const queue = new QueueMap<string, number>()
@@ -136,7 +136,7 @@ Gets the number of key-value pairs in the QueueMap.
 #### LRU Cache Implementation
 
 ```ts
-import { QueueMap } from 'unfunt'
+import { QueueMap } from 'xfunc'
 
 class LRUCache<K, V> {
   private cache: QueueMap<K, V>

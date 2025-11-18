@@ -9,7 +9,7 @@
 ### Usage
 
 ```ts
-import { isArrayLike } from 'unfunt'
+import { isArrayLike } from 'xfunc'
 
 isArrayLike([1, 2, 3])
 // => true
@@ -36,7 +36,7 @@ isArrayLike({ length: 2, 0: 'a', 1: 'b' })
 ### Usage
 
 ```ts
-import { isBigInt } from 'unfunt'
+import { isBigInt } from 'xfunc'
 
 isBigInt(123n)
 // => true
@@ -60,7 +60,7 @@ isBigInt(123)
 ### Usage
 
 ```ts
-import { isBoolean } from 'unfunt'
+import { isBoolean } from 'xfunc'
 
 isBoolean(true)
 // => true
@@ -87,7 +87,7 @@ isBoolean(1)
 ### Usage
 
 ```ts
-import { isDate } from 'unfunt'
+import { isDate } from 'xfunc'
 
 isDate(new Date())
 // => true
@@ -111,7 +111,7 @@ isDate('2023-01-01')
 ### Usage
 
 ```ts
-import { isEmpty } from 'unfunt'
+import { isEmpty } from 'xfunc'
 
 isEmpty([])
 // => true
@@ -144,7 +144,7 @@ isEmpty([1, 2, 3])
 ### Usage
 
 ```ts
-import { isFunction } from 'unfunt'
+import { isFunction } from 'xfunc'
 
 isFunction(() => {})
 // => true
@@ -171,7 +171,7 @@ isFunction('hello')
 ### Usage
 
 ```ts
-import { isSet } from 'unfunt'
+import { isSet } from 'xfunc'
 
 isSet(new Set())
 // => true
@@ -195,7 +195,7 @@ isSet([])
 ### Usage
 
 ```ts
-import { isMap } from 'unfunt'
+import { isMap } from 'xfunc'
 
 isMap(new Map())
 // => true
@@ -219,7 +219,7 @@ isMap({})
 ### Usage
 
 ```ts
-import { isError } from 'unfunt'
+import { isError } from 'xfunc'
 
 isError(new Error('test'))
 // => true
@@ -246,7 +246,7 @@ isError('error message')
 ### Usage
 
 ```ts
-import { isLength } from 'unfunt'
+import { isLength } from 'xfunc'
 
 isLength(3)
 // => true
@@ -276,7 +276,7 @@ isLength(3.2)
 ### Usage
 
 ```ts
-import { isNil } from 'unfunt'
+import { isNil } from 'xfunc'
 
 isNil(null)
 // => true
@@ -306,7 +306,7 @@ isNil('')
 ### Usage
 
 ```ts
-import { isNumber } from 'unfunt'
+import { isNumber } from 'xfunc'
 
 isNumber(42)
 // => true
@@ -333,7 +333,7 @@ isNumber('42')
 ### Usage
 
 ```ts
-import { isObject } from 'unfunt'
+import { isObject } from 'xfunc'
 
 isObject({})
 // => true
@@ -363,7 +363,7 @@ isObject(null)
 ### Usage
 
 ```ts
-import { isObjectLike } from 'unfunt'
+import { isObjectLike } from 'xfunc'
 
 isObjectLike({})
 // => true
@@ -393,7 +393,7 @@ isObjectLike(null)
 ### Usage
 
 ```ts
-import { isPlainObject } from 'unfunt'
+import { isPlainObject } from 'xfunc'
 
 isPlainObject({})
 // => true
@@ -423,7 +423,7 @@ isPlainObject(new Date())
 ### Usage
 
 ```ts
-import { isPrimitive } from 'unfunt'
+import { isPrimitive } from 'xfunc'
 
 isPrimitive('hello')
 // => true
@@ -453,7 +453,7 @@ isPrimitive({})
 ### Usage
 
 ```ts
-import { isPromise } from 'unfunt'
+import { isPromise } from 'xfunc'
 
 isPromise(Promise.resolve())
 // => true
@@ -480,7 +480,7 @@ isPromise({})
 ### Usage
 
 ```ts
-import { isRegExp } from 'unfunt'
+import { isRegExp } from 'xfunc'
 
 isRegExp(/abc/)
 // => true
@@ -507,7 +507,7 @@ isRegExp('abc')
 ### Usage
 
 ```ts
-import { isString } from 'unfunt'
+import { isString } from 'xfunc'
 
 isString('hello')
 // => true
@@ -534,7 +534,7 @@ isString(42)
 ### Usage
 
 ```ts
-import { isSymbol } from 'unfunt'
+import { isSymbol } from 'xfunc'
 
 isSymbol(Symbol('test'))
 // => true
@@ -561,7 +561,7 @@ isSymbol('symbol')
 ### Usage
 
 ```ts
-import { isIterable } from 'unfunt'
+import { isIterable } from 'xfunc'
 
 isIterable([1, 2, 3])
 // => true
@@ -591,7 +591,7 @@ isIterable({})
 ### 使用示例
 
 ```ts
-import { isTypeString } from 'unfunt'
+import { isTypeString } from 'xfunc'
 
 isTypeString('string')
 // => true
@@ -618,7 +618,7 @@ isTypeString(42)
 ### 使用示例
 
 ```ts
-import { toRawType } from 'unfunt'
+import { toRawType } from 'xfunc'
 
 toRawType('hello')
 // => 'string'
@@ -651,7 +651,7 @@ toRawType([])
 ### 使用示例
 
 ```ts
-import { makeMap } from 'unfunt'
+import { makeMap } from 'xfunc'
 
 const isReservedWord = makeMap(['if', 'else', 'for', 'while'])
 
@@ -677,7 +677,7 @@ isReservedWord('hello')
 ### 使用示例
 
 ```ts
-import { isNumericKey } from 'unfunt'
+import { isNumericKey } from 'xfunc'
 
 isNumericKey('0')
 // => true

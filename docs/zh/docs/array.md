@@ -9,7 +9,7 @@
 ### 使用示例
 
 ```ts
-import { toArray } from 'unfunt'
+import { toArray } from 'xfunc'
 
 toArray(null)
 // => []
@@ -46,7 +46,7 @@ toArray(42)
 ### 使用示例
 
 ```ts
-import { unionBy } from 'unfunt'
+import { unionBy } from 'xfunc'
 
 unionBy([2.1], [1.2, 2.3], Math.floor)
 // => [2.1, 1.2]
@@ -71,7 +71,7 @@ unionBy([{ x: 1 }], [{ x: 2 }, { x: 1 }], 'x')
 ### 使用示例
 
 ```ts
-import { range } from 'unfunt'
+import { range } from 'xfunc'
 
 range(4)
 // => [0, 1, 2, 3]
@@ -103,7 +103,7 @@ range(0, -4, -1)
 ### 使用示例
 
 ```ts
-import { sortBy } from 'unfunt'
+import { sortBy } from 'xfunc'
 
 const users = [
   { name: 'fred', age: 48 },
@@ -133,7 +133,7 @@ sortBy(users, o => o.name)
 ### 使用示例
 
 ```ts
-import { orderBy } from 'unfunt'
+import { orderBy } from 'xfunc'
 
 const users = [
   { name: 'fred', age: 48 },
@@ -164,7 +164,7 @@ orderBy(users, ['age', 'name'], ['asc', 'desc'])
 ### 使用示例
 
 ```ts
-import { uniq } from 'unfunt'
+import { uniq } from 'xfunc'
 
 uniq([2, 1, 2])
 // => [2, 1]
@@ -188,7 +188,7 @@ uniq([1, 2, 1, 3, 2])
 ### 使用示例
 
 ```ts
-import { uniqWith } from 'unfunt'
+import { uniqWith } from 'xfunc'
 
 const objects = [
   { x: 1, y: 2 },
@@ -216,7 +216,7 @@ uniqWith(objects, (a, b) => a.x === b.x && a.y === b.y)
 ### 使用示例
 
 ```ts
-import { castArray } from 'unfunt'
+import { castArray } from 'xfunc'
 
 castArray(1)
 // => [1]
@@ -252,7 +252,7 @@ castArray([1, 2, 3])
 ### 使用示例
 
 ```ts
-import { remove } from 'unfunt'
+import { remove } from 'xfunc'
 
 remove([1, 2, 3, 2], 2)
 // => [1, 3, 2]

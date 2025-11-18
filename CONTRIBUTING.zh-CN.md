@@ -27,8 +27,8 @@
 1. 在 GitHub 上 Fork 本仓库
 2. 克隆您的 Fork 到本地：
    ```bash
-   git clone https://github.com/YOUR_USERNAME/unfunt.git
-   cd unfunt
+   git clone https://github.com/YOUR_USERNAME/xfunc.git
+   cd xfunc
    ```
 
 3. 安装依赖：
@@ -55,7 +55,7 @@
 ## 项目结构
 
 ```
-unfunt/
+xfunc/
 ├── src/                 # 源代码
 │   ├── array/          # 数组工具函数
 │   ├── function/       # 函数工具

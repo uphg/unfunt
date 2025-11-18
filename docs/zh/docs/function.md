@@ -9,7 +9,7 @@
 ### 使用示例
 
 ```ts
-import { debounce } from 'unfunt'
+import { debounce } from 'xfunc'
 
 const debouncedHandler = debounce(() => {
   console.log('Called after 300ms delay')
@@ -38,7 +38,7 @@ searchInput.addEventListener('input', debouncedHandler)
 ### 使用示例
 
 ```ts
-import { throttle } from 'unfunt'
+import { throttle } from 'xfunc'
 
 const throttledHandler = throttle(() => {
   console.log('Scroll event handled')
@@ -72,7 +72,7 @@ window.addEventListener('scroll', throttledHandler)
 ### 使用示例
 
 ```ts
-import { memoize } from 'unfunt'
+import { memoize } from 'xfunc'
 
 const fibonacci = memoize((n: number): number => {
   return n < 2 ? n : fibonacci(n - 1) + fibonacci(n - 2)

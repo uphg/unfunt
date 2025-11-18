@@ -9,7 +9,7 @@
 ### 使用示例
 
 ```ts
-import { pick } from 'unfunt'
+import { pick } from 'xfunc'
 
 const object = { a: 1, b: '2', c: 3 }
 
@@ -33,7 +33,7 @@ pick(object, ['a', 'c'])
 ### 使用示例
 
 ```ts
-import { pickBy } from 'unfunt'
+import { pickBy } from 'xfunc'
 
 const object = { a: 1, b: '2', c: 3 }
 
@@ -57,7 +57,7 @@ pickBy(object, (value) => typeof value === 'number')
 ### 使用示例
 
 ```ts
-import { omit } from 'unfunt'
+import { omit } from 'xfunc'
 
 const object = { a: 1, b: '2', c: 3 }
 
@@ -81,7 +81,7 @@ omit(object, ['a', 'c'])
 ### 使用示例
 
 ```ts
-import { omitBy } from 'unfunt'
+import { omitBy } from 'xfunc'
 
 const object = { a: 1, b: '2', c: 3 }
 
@@ -105,7 +105,7 @@ omitBy(object, (value) => typeof value === 'number')
 ### 使用示例
 
 ```ts
-import { mapEntries } from 'unfunt'
+import { mapEntries } from 'xfunc'
 
 const object = { a: 1, b: 2 }
 
@@ -129,7 +129,7 @@ mapEntries(object, ([key, value]) => [key.toUpperCase(), value * 2])
 ### 使用示例
 
 ```ts
-import { forEachEntry } from 'unfunt'
+import { forEachEntry } from 'xfunc'
 
 forEachEntry({ a: 1, b: 2 }, ([key, value]) => {
   console.log(key, value)
@@ -153,7 +153,7 @@ forEachEntry({ a: 1, b: 2 }, ([key, value]) => {
 ### 使用示例
 
 ```ts
-import { forOwn } from 'unfunt'
+import { forOwn } from 'xfunc'
 
 forOwn({ a: 1, b: 2 }, (value, key) => {
   console.log(key, value)
@@ -184,7 +184,7 @@ forOwn({ a: 1, b: 2, c: 3 }, (value, key) => {
 ### 使用示例
 
 ```ts
-import { hasOwn } from 'unfunt'
+import { hasOwn } from 'xfunc'
 
 hasOwn({ a: 1 }, 'a')
 // => true
@@ -212,7 +212,7 @@ hasOwn({ a: 1 }, 'toString')
 ### 使用示例
 
 ```ts
-import { clone } from 'unfunt'
+import { clone } from 'xfunc'
 
 const original = { a: 1, b: { c: 2 } }
 const cloned = clone(original)
@@ -248,7 +248,7 @@ console.log(cloned.b === original.b)
 ### 使用示例
 
 ```ts
-import { cloneDeep } from 'unfunt'
+import { cloneDeep } from 'xfunc'
 
 const original = { a: 1, b: { c: 2 } }
 const cloned = cloneDeep(original)

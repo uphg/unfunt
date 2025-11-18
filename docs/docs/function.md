@@ -9,7 +9,7 @@ Creates a debounced function that delays invoking `func` until after `wait` mill
 ### Usage
 
 ```ts
-import { debounce } from 'unfunt'
+import { debounce } from 'xfunc'
 
 const debouncedHandler = debounce(() => {
   console.log('Called after 300ms delay')
@@ -38,7 +38,7 @@ Creates a throttled function that only invokes `func` at most once per every `wa
 ### Usage
 
 ```ts
-import { throttle } from 'unfunt'
+import { throttle } from 'xfunc'
 
 const throttledHandler = throttle(() => {
   console.log('Scroll event handled')
@@ -72,7 +72,7 @@ Creates a memoized function that caches the result of function calls.
 ### Usage
 
 ```ts
-import { memoize } from 'unfunt'
+import { memoize } from 'xfunc'
 
 const fibonacci = memoize((n: number): number => {
   return n < 2 ? n : fibonacci(n - 1) + fibonacci(n - 2)

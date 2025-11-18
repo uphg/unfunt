@@ -11,7 +11,7 @@ jobs:
 
   release:
     # prevents this action from running on forks
-    if: github.repository == 'uphg/unfunt'
+    if: github.repository == 'uphg/xfunc'
     needs: [test]
     runs-on: ubuntu-latest
     permissions:
@@ -51,4 +51,4 @@ jobs:
         with:
           tag_name: ${{ github.ref }}
           body: |
-            For stable releases, please refer to [CHANGELOG.md](https://github.com/uphg/unfunt/blob/master/CHANGELOG.md) for details.
+            For stable releases, please refer to [CHANGELOG.md](https://github.com/uphg/xfunc/blob/master/CHANGELOG.md) for details.

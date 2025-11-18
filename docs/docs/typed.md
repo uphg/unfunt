@@ -10,7 +10,7 @@ These are utility methods for type checking.
 Checks if `value` is classified as a String primitive or object.
 
 ```ts
-import { isString } from 'unfunt'
+import { isString } from 'xfunc'
 
 isString('abc')
 // => true
@@ -23,7 +23,7 @@ isString(123)
 Checks if `value` is classified as a Number primitive or object.
 
 ```ts
-import { isNumber } from 'unfunt'
+import { isNumber } from 'xfunc'
 
 isNumber(123)
 // => true
@@ -36,7 +36,7 @@ isNumber('123')
 Checks if `value` is classified as a boolean primitive or object.
 
 ```ts
-import { isBoolean } from 'unfunt'
+import { isBoolean } from 'xfunc'
 
 isBoolean(true)
 // => true
@@ -51,7 +51,7 @@ isBoolean('true')
 Checks if `value` is `null` or `undefined`.
 
 ```ts
-import { isNil } from 'unfunt'
+import { isNil } from 'xfunc'
 
 isNil(null)
 // => true
@@ -67,7 +67,7 @@ isNil(0)
 Checks if `value` is an empty object, collection, map, or set.
 
 ```ts
-import { isEmpty } from 'unfunt'
+import { isEmpty } from 'xfunc'
 
 isEmpty([])
 // => true
@@ -88,7 +88,7 @@ isEmpty([1, 2, 3])
 Checks if `value` is the language type of Object.
 
 ```ts
-import { isObject } from 'unfunt'
+import { isObject } from 'xfunc'
 
 isObject({})
 // => true
@@ -104,7 +104,7 @@ isObject(null)
 Checks if `value` is a plain object.
 
 ```ts
-import { isPlainObject } from 'unfunt'
+import { isPlainObject } from 'xfunc'
 
 isPlainObject({})
 // => true
@@ -122,7 +122,7 @@ isPlainObject([1, 2, 3])
 Checks if `value` is classified as a Function object.
 
 ```ts
-import { isFunction } from 'unfunt'
+import { isFunction } from 'xfunc'
 
 isFunction(() => {})
 // => true
@@ -140,7 +140,7 @@ isFunction('function')
 Checks if `value` is classified as a Date object.
 
 ```ts
-import { isDate } from 'unfunt'
+import { isDate } from 'xfunc'
 
 isDate(new Date())
 // => true
@@ -153,7 +153,7 @@ isDate('2023-01-01')
 Checks if `value` is classified as a RegExp object.
 
 ```ts
-import { isRegExp } from 'unfunt'
+import { isRegExp } from 'xfunc'
 
 isRegExp(/abc/)
 // => true
@@ -171,7 +171,7 @@ isRegExp('abc')
 Checks if `value` is a Promise.
 
 ```ts
-import { isPromise } from 'unfunt'
+import { isPromise } from 'xfunc'
 
 isPromise(Promise.resolve())
 // => true
@@ -187,7 +187,7 @@ isPromise({})
 Checks if `value` is an Error object.
 
 ```ts
-import { isError } from 'unfunt'
+import { isError } from 'xfunc'
 
 isError(new Error())
 // => true

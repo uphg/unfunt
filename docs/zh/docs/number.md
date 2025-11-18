@@ -9,7 +9,7 @@
 ### 使用示例
 
 ```ts
-import { toNumber } from 'unfunt'
+import { toNumber } from 'xfunc'
 
 toNumber('42')
 // => 42
@@ -39,7 +39,7 @@ toNumber('invalid')
 ### 使用示例
 
 ```ts
-import { randomInt } from 'unfunt'
+import { randomInt } from 'xfunc'
 
 randomInt(0, 5)
 // => 0 到 5 之间的整数（包含）

@@ -9,7 +9,7 @@
 ### 使用示例
 
 ```ts
-import { QueueMap } from 'unfunt'
+import { QueueMap } from 'xfunc'
 
 // 创建新的 QueueMap
 const queue = new QueueMap<string, number>()
@@ -136,7 +136,7 @@ queue.size
 #### LRU 缓存实现
 
 ```ts
-import { QueueMap } from 'unfunt'
+import { QueueMap } from 'xfunc'
 
 class LRUCache<K, V> {
   private cache: QueueMap<K, V>

@@ -9,7 +9,7 @@ Converts first character of string to upper case and the rest to lower case.
 ### Usage
 
 ```ts
-import { capitalize } from 'unfunt'
+import { capitalize } from 'xfunc'
 
 capitalize('FRED')
 // => 'Fred'
@@ -42,7 +42,7 @@ Converts the first character of string to lower case.
 ### Usage
 
 ```ts
-import { lowerFirst } from 'unfunt'
+import { lowerFirst } from 'xfunc'
 
 lowerFirst('Fred')
 // => 'fred'
@@ -75,7 +75,7 @@ Converts the first character of string to upper case.
 ### Usage
 
 ```ts
-import { upperFirst } from 'unfunt'
+import { upperFirst } from 'xfunc'
 
 upperFirst('fred')
 // => 'Fred'
@@ -108,7 +108,7 @@ Converts a hyphenated string to camelCase.
 ### Usage
 
 ```ts
-import { camelize } from 'unfunt'
+import { camelize } from 'xfunc'
 
 camelize('foo-bar')
 // => 'fooBar'
@@ -141,7 +141,7 @@ Converts a camelCase string to hyphenated (kebab-case).
 ### Usage
 
 ```ts
-import { hyphenate } from 'unfunt'
+import { hyphenate } from 'xfunc'
 
 hyphenate('fooBar')
 // => 'foo-bar'

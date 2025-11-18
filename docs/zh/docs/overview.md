@@ -40,10 +40,10 @@
 
 ```ts
 // 按需导入
-import { debounce, isArray, toNumber } from 'unfunt'
+import { debounce, isArray, toNumber } from 'xfunc'
 
 // 或者导入所有方法
-import * as unfunt from 'unfunt'
+import * as xfunc from 'xfunc'
 ```
 
 ## 总览
